@@ -55,6 +55,13 @@ typedef struct HumanContext
 	tControlCmd	*CmdControl;
 	int		MouseControlUsed;
 	int		lightCmd;
+
+	/* Hwancheol */
+	tdble	CC;
+	tdble	LKAS;
+	int 	ParamCC;
+	int 	ParamLKAS;
+	/* Hwancheol */
 } tHumanContext;
 
 
