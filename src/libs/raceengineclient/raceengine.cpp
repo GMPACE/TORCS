@@ -44,13 +44,16 @@ static double	bigMsgDisp;
 
 tRmInfo	*ReInfo = 0;
 
-/* Hwancheol */
-static short onoff_Mode = 0;
-const  short MODECHECK = 3;
-/* Hwancheol */
+
 
 static void ReRaceRules(tCarElt *car);
 
+/* Hwancheol */
+extern const short MODECHECK = 3;
+short onoff_Mode = 0;
+double target_speed = 0;
+double current_speed = 0;
+/* Hwancheol */
 
 /* Compute Pit stop time */
 static void
@@ -142,6 +145,7 @@ ReManage(tCarElt *car)
 	
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
 	
+	current_speed = car->_speed_x;
 	if (car->_speed_x > car->_topSpeed) {
 		car->_topSpeed = car->_speed_x;
 	}
@@ -835,14 +839,15 @@ static void changeMode() {
 	ReRaceBigMsgSet(msg, 1.5);
 }
 void changeMode_CC(void *) {
-	if(onoff_Mode & 2 == 2)
+	if((onoff_Mode & 2) == 2)
 		onoff_Mode -= 2;
 	else onoff_Mode += 2;
 	changeMode();
+	target_speed = current_speed;
 }
 
 void changeMode_LKAS(void *) {
-	if(onoff_Mode & 1 == 1)
+	if((onoff_Mode & 1) == 1)
 		onoff_Mode -= 1;
 	else onoff_Mode += 1;
 	changeMode();

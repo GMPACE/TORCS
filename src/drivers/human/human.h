@@ -56,18 +56,14 @@ typedef struct HumanContext
 	int		MouseControlUsed;
 	int		lightCmd;
 
-	/* Hwancheol */
-	tdble	CC;
-	tdble	LKAS;
-	int 	ParamCC;
-	int 	ParamLKAS;
-	/* Hwancheol */
 } tHumanContext;
 
 
 extern tHumanContext *HCtx[];
 
 extern int joyPresent;
+
+
 
 #endif /* _HUMAN_H_ */ 
 

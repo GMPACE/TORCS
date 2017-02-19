@@ -32,11 +32,11 @@ extern void ReStart(void);
 extern void ReStop(void);
 extern int  ReUpdate(void);
 extern void ReTimeMod (void *vcmd);
-/* Hwancheol */
-static void changeMode(void *);
+
 extern void changeMode_LKAS(void *);
 extern void changeMode_CC(void *);
-/* Hwancheol */
+extern short onoff_Mode;
+extern double target_speed;
 extern tRmInfo	*ReInfo;
 
 #endif /* _RACEENGINE_H_ */ 
