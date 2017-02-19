@@ -685,6 +685,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				* pow(fabs(ax0), cmd[CMD_RIGHTSTEER].sens)
 				/ (1.0 + cmd[CMD_RIGHTSTEER].spdSens * car->pub.speed);
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
 		ax0 = mouseInfo->ax[cmd[CMD_RIGHTSTEER].val]
 				- cmd[CMD_RIGHTSTEER].deadZone;
@@ -697,6 +698,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		rightSteer = -pow(fabs(ax0), cmd[CMD_RIGHTSTEER].sens)
 				/ (1.0 + cmd[CMD_RIGHTSTEER].spdSens * car->pub.speed / 10.0);
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_KEYBOARD:
 	case GFCTRL_TYPE_SKEYBOARD:
 	case GFCTRL_TYPE_JOY_BUT:
@@ -748,6 +750,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 														- cmd[CMD_BRAKE].min)),
 								cmd[CMD_BRAKE].sens));
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
 		ax0 = mouseInfo->ax[cmd[CMD_BRAKE].val] - cmd[CMD_BRAKE].deadZone;
 		if (ax0 > cmd[CMD_BRAKE].max) {
@@ -759,6 +762,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		car->_brakeCmd = pow(fabs(ax0), cmd[CMD_BRAKE].sens)
 				/ (1.0 + cmd[CMD_BRAKE].spdSens * car->_speed_x / 10.0);
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
 		car->_brakeCmd = joyInfo->levelup[cmd[CMD_BRAKE].val];
 		break;
@@ -793,6 +797,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 														- cmd[CMD_CLUTCH].min)),
 								cmd[CMD_CLUTCH].sens));
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
 		ax0 = mouseInfo->ax[cmd[CMD_CLUTCH].val] - cmd[CMD_CLUTCH].deadZone;
 		if (ax0 > cmd[CMD_CLUTCH].max) {
@@ -804,6 +809,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		car->_clutchCmd = pow(fabs(ax0), cmd[CMD_CLUTCH].sens)
 				/ (1.0 + cmd[CMD_CLUTCH].spdSens * car->_speed_x / 10.0);
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
 		car->_clutchCmd = joyInfo->levelup[cmd[CMD_CLUTCH].val];
 		break;
@@ -845,6 +851,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 																- cmd[CMD_THROTTLE].min)),
 										cmd[CMD_THROTTLE].sens));
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
 		ax0 = mouseInfo->ax[cmd[CMD_THROTTLE].val] - cmd[CMD_THROTTLE].deadZone;
 		if (ax0 > cmd[CMD_THROTTLE].max) {
@@ -860,6 +867,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		}
 		/* printf("  axO:%f  accelCmd:%f\n", ax0, car->_accelCmd); */
 		break;
+	/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
 		car->_accelCmd = joyInfo->levelup[cmd[CMD_THROTTLE].val];
 		break;
@@ -1289,7 +1297,7 @@ static int pitcmd(int index, tCarElt* car, tSituation *s) {
 	if (HCtx[idx]) {
 		cmd = HCtx[idx]->CmdControl;
 		for (i = 0; i < nbCmdControl; i++) {
-			if (cmd[dr].type == GFCTRL_TYPE_KEYBOARD
+			if (cmd[i].type == GFCTRL_TYPE_KEYBOARD
 					|| cmd[i].type == GFCTRL_TYPE_SKEYBOARD) {
 				key = cmd[i].val;
 				keyInfo[key].state = GFUI_KEY_UP;

@@ -44,6 +44,11 @@ static double	bigMsgDisp;
 
 tRmInfo	*ReInfo = 0;
 
+/* Hwancheol */
+static short onoff_Mode = 0;
+const  short MODECHECK = 3;
+/* Hwancheol */
+
 static void ReRaceRules(tCarElt *car);
 
 
@@ -807,3 +812,40 @@ ReTimeMod (void *vcmd)
 	snprintf(buf, BUFSIZE, "Time x%.2f", 1.0 / ReInfo->_reTimeMult);
 	ReRaceMsgSet(buf, 5);
 }
+
+/* Hwancheol */
+static void changeMode() {
+	char* msg;
+	switch(onoff_Mode & MODECHECK) {
+	case(0) :
+		msg = "CC Mode Off / LKAS Mode Off";
+		break;
+	case(1) :
+		msg = "CC Mode Off / LKAS Mode On";
+		break;
+	case(2) :
+		msg = "CC Mode On / LKAS Mode Off";
+		break;
+	case(3) :
+		msg = "CC Mode On / LKAS Mode On";
+		break;
+	default :
+		break;
+	}
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void changeMode_CC(void *) {
+	if(onoff_Mode & 2 == 2)
+		onoff_Mode -= 2;
+	else onoff_Mode += 2;
+	changeMode();
+}
+
+void changeMode_LKAS(void *) {
+	if(onoff_Mode & 1 == 1)
+		onoff_Mode -= 1;
+	else onoff_Mode += 1;
+	changeMode();
+}
+
+/* Hwancheol */

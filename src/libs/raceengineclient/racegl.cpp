@@ -1,10 +1,10 @@
 /***************************************************************************
 
-    file        : racegl.cpp
-    created     : Sat Nov 16 18:22:00 CET 2002
-    copyright   : (C) 2002-2013 by Eric Espie, Bernhard Wymann                 
-    email       : eric.espie@torcs.org   
-    version     : $Id: racegl.cpp,v 1.7.2.4 2013/09/01 10:24:23 berniw Exp $                                  
+ file        : racegl.cpp
+ created     : Sat Nov 16 18:22:00 CET 2002
+ copyright   : (C) 2002-2013 by Eric Espie, Bernhard Wymann
+ email       : eric.espie@torcs.org
+ version     : $Id: racegl.cpp,v 1.7.2.4 2013/09/01 10:24:23 berniw Exp $
 
  ***************************************************************************/
 
@@ -18,10 +18,10 @@
  ***************************************************************************/
 
 /** @file   
-    		
-    @author	<a href=mailto:eric.espie@torcs.org>Eric Espie</a>
-    @version	$Id: racegl.cpp,v 1.7.2.4 2013/09/01 10:24:23 berniw Exp $
-*/
+
+ @author	<a href=mailto:eric.espie@torcs.org>Eric Espie</a>
+ @version	$Id: racegl.cpp,v 1.7.2.4 2013/09/01 10:24:23 berniw Exp $
+ */
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -36,112 +36,143 @@
 
 #include "racegl.h"
 
-static void	*reScreenHandle = 0;
-static void	*reHookHandle = 0;
-static int	rePauseId;
-static int	reMsgId;
-static int	reBigMsgId;
+static void *reScreenHandle = 0;
+static void *reHookHandle = 0;
+static int rePauseId;
+///* Hwancheol */
+//static int ccModeMsgId;
+//static int lkasModeMsgId;
+///* Hwancheol */
+static int reMsgId;
+static int reBigMsgId;
 
-static float bgcolor[4] = {0.0, 0.0, 0.0, 0.0};
-static float white[4]   = {1.0, 1.0, 1.0, 1.0};
-static float red[4]     = {1.0, 0.0, 0.0, 1.0};
+static float bgcolor[4] = { 0.0, 0.0, 0.0, 0.0 };
+static float white[4] = { 1.0, 1.0, 1.0, 1.0 };
+static float red[4] = { 1.0, 0.0, 0.0, 1.0 };
 
-static void
-reDisplay(void)
-{
-    ReStateManage();
+static void reDisplay(void) {
+	ReStateManage();
 }
 
-static void
-reScreenActivate(void * /* dummy */)
-{
-    glutDisplayFunc(reDisplay);
+static void reScreenActivate(void * /* dummy */) {
+	glutDisplayFunc(reDisplay);
 
-    if ((ReInfo->s->_raceState & RM_RACE_PAUSED) == 0) {
-	ReStart(); 			/* resynchro */
-    }
-    glutPostRedisplay();
+	if ((ReInfo->s->_raceState & RM_RACE_PAUSED) == 0) {
+		ReStart(); /* resynchro */
+	}
+	glutPostRedisplay();
 }
 
-static void
-ReBoardInfo(void * /* vboard */)
-{
-    if (ReInfo->s->_raceState & RM_RACE_PAUSED) {
-	ReInfo->s->_raceState &= ~RM_RACE_PAUSED;
-	ReStart();
-	GfuiVisibilitySet(reScreenHandle, rePauseId, 0);
-    } else {
-	ReInfo->s->_raceState |= RM_RACE_PAUSED;
-	ReStop();
-	GfuiVisibilitySet(reScreenHandle, rePauseId, 1);
-    }
+static void ReBoardInfo(void * /* vboard */) {
+	if (ReInfo->s->_raceState & RM_RACE_PAUSED) {
+		ReInfo->s->_raceState &= ~RM_RACE_PAUSED;
+		ReStart();
+		GfuiVisibilitySet(reScreenHandle, rePauseId, 0);
+	} else {
+		ReInfo->s->_raceState |= RM_RACE_PAUSED;
+		ReStop();
+		GfuiVisibilitySet(reScreenHandle, rePauseId, 1);
+	}
 }
 
-static void
-reSkipPreStart(void * /* dummy */)
-{
-    if (ReInfo->s->currentTime < -1.0) {
-	ReInfo->s->currentTime = -1.0;
-	ReInfo->_reLastTime = -1.0;
-    }
+static void reSkipPreStart(void * /* dummy */) {
+	if (ReInfo->s->currentTime < -1.0) {
+		ReInfo->s->currentTime = -1.0;
+		ReInfo->_reLastTime = -1.0;
+	}
 }
 
-static void
-reMovieCapture(void * /* dummy */)
-{
-   tRmMovieCapture	*capture = &(ReInfo->movieCapture);
+static void reMovieCapture(void * /* dummy */) {
+	tRmMovieCapture *capture = &(ReInfo->movieCapture);
 
-    if (!capture->enabled || (ReInfo->_displayMode == RM_DISP_MODE_NONE)) {
-	GfOut("Video Capture Mode Not Enabled\n");
-	return;
-    }
-    
-    capture->state = 1 - capture->state;
-    if (capture->state) {
-	GfOut("Video Capture Mode On\n");
-	capture->currentFrame = 0;
-	capture->currentCapture++;
-	capture->lastFrame = GfTimeClock() - capture->deltaFrame;
-	ReInfo->_displayMode = RM_DISP_MODE_CAPTURE;
-    } else {
-	GfOut("Video Capture Mode Off\n");
-	ReInfo->_displayMode = RM_DISP_MODE_NORMAL;
-	ReStart();
-    }
+	if (!capture->enabled || (ReInfo->_displayMode == RM_DISP_MODE_NONE)) {
+		GfOut("Video Capture Mode Not Enabled\n");
+		return;
+	}
+
+	capture->state = 1 - capture->state;
+	if (capture->state) {
+		GfOut("Video Capture Mode On\n");
+		capture->currentFrame = 0;
+		capture->currentCapture++;
+		capture->lastFrame = GfTimeClock() - capture->deltaFrame;
+		ReInfo->_displayMode = RM_DISP_MODE_CAPTURE;
+	} else {
+		GfOut("Video Capture Mode Off\n");
+		ReInfo->_displayMode = RM_DISP_MODE_NORMAL;
+		ReStart();
+	}
 
 }
+///* Hwancheol */
+//void changeMode_CC(void *) {
+//	GfuiVisibilitySet(reScreenHandle, ccModeMsgId, 0);
+//	if (onoff_CC) {
+//		ccModeMsgId = GfuiLabelCreateEx(reScreenHandle, "CC Mode Off", red,
+//				GFUI_FONT_BIG_C, 320, 420,
+//				GFUI_ALIGN_HC_VB, 0);
+//	} else {
+//		ccModeMsgId = GfuiLabelCreateEx(reScreenHandle, "CC Mode On", red,
+//				GFUI_FONT_BIG_C, 320, 420,
+//				GFUI_ALIGN_HC_VB, 0);
+//	}
+//	GfuiVisibilitySet(reScreenHandle, ccModeMsgId, 1);
+//	onoff_CC = !onoff_CC;
+//}
+//
+//void changeMode_LKAS(void *) {
+//	GfuiVisibilitySet(reScreenHandle, lkasModeMsgId, 0);
+//	if (onoff_LKAS) {
+//		lkasModeMsgId = GfuiLabelCreateEx(reScreenHandle, "LKAS Mode Off", red,
+//				GFUI_FONT_BIG_C, 320, 420,
+//				GFUI_ALIGN_HC_VB, 0);
+//	} else {
+//		lkasModeMsgId = GfuiLabelCreateEx(reScreenHandle, "LKAS Mode On", red,
+//				GFUI_FONT_BIG_C, 320, 420,
+//				GFUI_ALIGN_HC_VB, 0);
+//	}
+//	GfuiVisibilitySet(reScreenHandle, lkasModeMsgId, 1);
+//	onoff_LKAS = !onoff_LKAS;
+//}
+///* Hwancheol */
 
+static void reAddKeys(void) {
+	GfuiAddSKey(reScreenHandle, GLUT_KEY_F1, "Help", reScreenHandle,
+			GfuiHelpScreen, NULL);
+	GfuiAddSKey(reScreenHandle, GLUT_KEY_F12, "Screen Shot", NULL,
+			GfuiScreenShot, NULL);
 
+	/* Hwancheol */
+	GfuiAddKey(reScreenHandle, 'x', "LKAS Mode On/Off", (void*) 0, changeMode_LKAS,
+			NULL);
+	GfuiAddKey(reScreenHandle, 'z', "CC Mode On/Off", (void*) 0, changeMode_CC,
+			NULL);
+	/* Hwancheol */
 
-static void
-reAddKeys(void)
-{
-    GfuiAddSKey(reScreenHandle, GLUT_KEY_F1,        "Help", reScreenHandle, GfuiHelpScreen, NULL);
-    GfuiAddSKey(reScreenHandle, GLUT_KEY_F12,       "Screen Shot", NULL, GfuiScreenShot, NULL);
-
-
-    GfuiAddKey(reScreenHandle, '-', "Slow Time",         (void*)0, ReTimeMod, NULL);
-    GfuiAddKey(reScreenHandle, '+', "Accelerate Time",   (void*)1, ReTimeMod, NULL);
-    GfuiAddKey(reScreenHandle, '.', "Real Time",         (void*)2, ReTimeMod, NULL);
-    GfuiAddKey(reScreenHandle, 'p', "Pause Race",        (void*)0, ReBoardInfo, NULL);
-    GfuiAddKey(reScreenHandle, 27,  "Stop Current Race", (void*)RE_STATE_RACE_STOP, ReStateApply, NULL);
-    /* GfuiAddKey(reScreenHandle, 'q', "Exit of TORCS",     (void*)RE_STATE_EXIT, ReStateApply, NULL); */
-    GfuiAddKey(reScreenHandle, ' ', "Skip Pre Start",    (void*)0, reSkipPreStart, NULL);
+	GfuiAddKey(reScreenHandle, '-', "Slow Time", (void*) 0, ReTimeMod, NULL);
+	GfuiAddKey(reScreenHandle, '+', "Accelerate Time", (void*) 1, ReTimeMod,
+	NULL);
+	GfuiAddKey(reScreenHandle, '.', "Real Time", (void*) 2, ReTimeMod, NULL);
+	GfuiAddKey(reScreenHandle, 'p', "Pause Race", (void*) 0, ReBoardInfo, NULL);
+	GfuiAddKey(reScreenHandle, 27, "Stop Current Race",
+			(void*) RE_STATE_RACE_STOP, ReStateApply, NULL);
+	/* GfuiAddKey(reScreenHandle, 'q', "Exit of TORCS",     (void*)RE_STATE_EXIT, ReStateApply, NULL); */
+	GfuiAddKey(reScreenHandle, ' ', "Skip Pre Start", (void*) 0, reSkipPreStart,
+	NULL);
 #ifdef DEBUG
-    //GfuiAddKey(reScreenHandle, '0', "One step simulation",    (void*)1, reOneStep, NULL);
+	//GfuiAddKey(reScreenHandle, '0', "One step simulation",    (void*)1, reOneStep, NULL);
 #endif
-    GfuiAddKey(reScreenHandle, 'c', "Movie Capture",      (void*)0, reMovieCapture, NULL);
-    
+	GfuiAddKey(reScreenHandle, 'c', "Movie Capture", (void*) 0, reMovieCapture,
+	NULL);
+
 }
 
-
-void
-ReSetRaceMsg(const char *msg)
-{
+void ReSetRaceMsg(const char *msg) {
 	static char *curMsg = 0;
-	
-	if (curMsg) free(curMsg);
-	
+
+	if (curMsg)
+		free(curMsg);
+
 	if (msg) {
 		curMsg = strdup(msg);
 		GfuiLabelSetText(reScreenHandle, reMsgId, curMsg);
@@ -151,12 +182,11 @@ ReSetRaceMsg(const char *msg)
 	}
 }
 
-void
-ReSetRaceBigMsg(const char *msg)
-{
+void ReSetRaceBigMsg(const char *msg) {
 	static char *curMsg = 0;
-	
-	if (curMsg) free(curMsg);
+
+	if (curMsg)
+		free(curMsg);
 
 	if (msg) {
 		curMsg = strdup(msg);
@@ -168,84 +198,58 @@ ReSetRaceBigMsg(const char *msg)
 }
 
 void *
-ReScreenInit(void)
-{
-    
-    ReScreenShutdown();
+ReScreenInit(void) {
 
-    reScreenHandle = GfuiScreenCreateEx(bgcolor, 0, reScreenActivate, 0, 0, 0);
+	ReScreenShutdown();
 
-    reAddKeys();
+	reScreenHandle = GfuiScreenCreateEx(bgcolor, 0, reScreenActivate, 0, 0, 0);
 
-    reMsgId = GfuiLabelCreateEx(reScreenHandle,
-				"",
-				red,
-				GFUI_FONT_LARGE_C,
-				320,
-				400,
-				GFUI_ALIGN_HC_VB,
-				42);
+	reAddKeys();
 
-    rePauseId = GfuiLabelCreateEx(reScreenHandle,
-				  "P A U S E",
-				  red,
-				  GFUI_FONT_BIG_C,
-				  320,
-				  420,
-				  GFUI_ALIGN_HC_VB,
-				  0);
+	reMsgId = GfuiLabelCreateEx(reScreenHandle, "", red,
+	GFUI_FONT_LARGE_C, 320, 400,
+	GFUI_ALIGN_HC_VB, 42);
 
-    reBigMsgId = GfuiLabelCreateEx(reScreenHandle,
-				   "",
-				   red,
-				   GFUI_FONT_BIG_C,
-				   320,
-				   360,
-				   GFUI_ALIGN_HC_VB,
-				   32);
+	rePauseId = GfuiLabelCreateEx(reScreenHandle, "P A U S E", red,
+	GFUI_FONT_BIG_C, 320, 420,
+	GFUI_ALIGN_HC_VB, 0);
 
-    GfuiVisibilitySet(reScreenHandle, rePauseId, 0);
+	reBigMsgId = GfuiLabelCreateEx(reScreenHandle, "", red,
+	GFUI_FONT_BIG_C, 320, 360,
+	GFUI_ALIGN_HC_VB, 32);
 
-    return reScreenHandle;
+	GfuiVisibilitySet(reScreenHandle, rePauseId, 0);
+
+	return reScreenHandle;
 }
 
-
-void
-ReScreenShutdown(void)
-{
-    if (reScreenHandle) {
-	GfuiScreenRelease(reScreenHandle);
-	reScreenHandle = 0;
-    }
+void ReScreenShutdown(void) {
+	if (reScreenHandle) {
+		GfuiScreenRelease(reScreenHandle);
+		reScreenHandle = 0;
+	}
 }
 
-
-static void
-reHookActivate(void * /* dummy */)
-{
-    ReStateManage();
+static void reHookActivate(void * /* dummy */) {
+	ReStateManage();
 }
 
 void *
-ReHookInit(void)
-{
-    if (reHookHandle) {
-	return reHookHandle;
-    }
-    
-    reHookHandle = GfuiHookCreate(0, reHookActivate);
+ReHookInit(void) {
+	if (reHookHandle) {
+		return reHookHandle;
+	}
 
-    return reHookHandle;
+	reHookHandle = GfuiHookCreate(0, reHookActivate);
+
+	return reHookHandle;
 }
 
-
-void
-ReHookShutdown(void)
-{
-    if (reHookHandle) {
-	GfuiHookRelease(reHookHandle);
-	reHookHandle = 0;
-    }
+void ReHookShutdown(void) {
+	if (reHookHandle) {
+		GfuiHookRelease(reHookHandle);
+		reHookHandle = 0;
+	}
 }
 
 /**************************************************************************/
@@ -255,134 +259,116 @@ ReHookShutdown(void)
  */
 #define LINES	21
 
-static float	*reColor[] = {white, red};
+static float *reColor[] = { white, red };
 
-static void	*reResScreenHdle = 0;
-static int	reResTitleId;
-static int	reResMsgId[LINES];
-static int	reResMsgClr[LINES];
-static char	*reResMsg[LINES];
-static int	reCurLine;
+static void *reResScreenHdle = 0;
+static int reResTitleId;
+static int reResMsgId[LINES];
+static int reResMsgClr[LINES];
+static char *reResMsg[LINES];
+static int reCurLine;
 
-static void
-reAddResKeys(void)
-{
-    GfuiAddSKey(reResScreenHdle, GLUT_KEY_F1,  "Help", reScreenHandle, GfuiHelpScreen, NULL);
-    GfuiAddSKey(reResScreenHdle, GLUT_KEY_F12, "Screen Shot", NULL, GfuiScreenShot, NULL);
+static void reAddResKeys(void) {
+	GfuiAddSKey(reResScreenHdle, GLUT_KEY_F1, "Help", reScreenHandle,
+			GfuiHelpScreen, NULL);
+	GfuiAddSKey(reResScreenHdle, GLUT_KEY_F12, "Screen Shot", NULL,
+			GfuiScreenShot, NULL);
 
-    GfuiAddKey(reResScreenHdle, 27,  "Stop Current Race", (void*)RE_STATE_RACE_STOP, ReStateApply, NULL);
-    /* GfuiAddKey(reResScreenHdle, 'q', "Exit of TORCS",     (void*)RE_STATE_EXIT, ReStateApply, NULL); */
+	GfuiAddKey(reResScreenHdle, 27, "Stop Current Race",
+			(void*) RE_STATE_RACE_STOP, ReStateApply, NULL);
+	/* GfuiAddKey(reResScreenHdle, 'q', "Exit of TORCS",     (void*)RE_STATE_EXIT, ReStateApply, NULL); */
 }
 
-static void
-reResScreenActivate(void * /* dummy */)
-{
-    glutDisplayFunc(reDisplay);
-    GfuiDisplay();
-    glutPostRedisplay();
+static void reResScreenActivate(void * /* dummy */) {
+	glutDisplayFunc(reDisplay);
+	GfuiDisplay();
+	glutPostRedisplay();
 }
 
-
-static void
-reContDisplay(void)
-{
-    GfuiDisplay();
-    glutPostRedisplay();
+static void reContDisplay(void) {
+	GfuiDisplay();
+	glutPostRedisplay();
 }
 
-
-static void
-reResCont(void * /* dummy */)
-{
-    ReStateManage();
+static void reResCont(void * /* dummy */) {
+	ReStateManage();
 }
 
-static void
-reResScreenShutdown(void * /* dummy */)
-{
-    int		i;
+static void reResScreenShutdown(void * /* dummy */) {
+	int i;
 
-    for (i = 1; i < LINES; i++) {
-	FREEZ(reResMsg[i]);
-    }
+	for (i = 1; i < LINES; i++) {
+		FREEZ(reResMsg[i]);
+	}
 }
 
 void *
-ReResScreenInit(void)
-{
+ReResScreenInit(void) {
 	int i;
 	int y, dy;
-	static const char *title[3] = {"Practice", "Qualifications", "Race"};
-	
+	static const char *title[3] = { "Practice", "Qualifications", "Race" };
+
 	if (reResScreenHdle) {
 		GfuiScreenRelease(reResScreenHdle);
 	}
-	
-	reResScreenHdle = GfuiScreenCreateEx(bgcolor, 0, reResScreenActivate, 0, reResScreenShutdown, 0);
-	
-	GfuiTitleCreate(reResScreenHdle, title[ReInfo->s->_raceType], strlen(title[ReInfo->s->_raceType]));
-	
-	const char* img = GfParmGetStr(ReInfo->params, RM_SECT_HEADER, RM_ATTR_RUNIMG, 0);
+
+	reResScreenHdle = GfuiScreenCreateEx(bgcolor, 0, reResScreenActivate, 0,
+			reResScreenShutdown, 0);
+
+	GfuiTitleCreate(reResScreenHdle, title[ReInfo->s->_raceType],
+			strlen(title[ReInfo->s->_raceType]));
+
+	const char* img = GfParmGetStr(ReInfo->params, RM_SECT_HEADER,
+	RM_ATTR_RUNIMG, 0);
 	if (img) {
 		GfuiScreenAddBgImg(reResScreenHdle, img);
 	}
-	
+
 	reAddResKeys();
-	
-	reResTitleId = GfuiLabelCreateEx(reResScreenHdle,
-						"",
-						red,
-						GFUI_FONT_LARGE_C,
-						320, 420,
-						GFUI_ALIGN_HC_VB, 50);
-	
+
+	reResTitleId = GfuiLabelCreateEx(reResScreenHdle, "", red,
+	GFUI_FONT_LARGE_C, 320, 420,
+	GFUI_ALIGN_HC_VB, 50);
+
 	y = 400;
 	dy = 378 / LINES;
 	for (i = 0; i < LINES; i++) {
 		FREEZ(reResMsg[i]);
 		reResMsgClr[i] = 0;
-		reResMsgId[i] = GfuiLabelCreateEx(reResScreenHdle,
-							"",
-							white,
-							GFUI_FONT_MEDIUM_C,
-							20, y, 
-							GFUI_ALIGN_HL_VB, 120);
+		reResMsgId[i] = GfuiLabelCreateEx(reResScreenHdle, "", white,
+		GFUI_FONT_MEDIUM_C, 20, y,
+		GFUI_ALIGN_HL_VB, 120);
 		y -= dy;
 	}
-	
+
 	reCurLine = 0;
 	return reResScreenHdle;
 }
 
-void
-ReResScreenSetTitle(char *title)
-{
+void ReResScreenSetTitle(char *title) {
 	if (reResScreenHdle) {
 		GfuiLabelSetText(reResScreenHdle, reResTitleId, title);
 	}
 }
 
-void
-ReResScreenAddText(char *text)
-{
-    int		i;
+void ReResScreenAddText(char *text) {
+	int i;
 
-    if (reCurLine == LINES) {
-	free(reResMsg[0]);
-	for (i = 1; i < LINES; i++) {
-	    reResMsg[i - 1] = reResMsg[i];
-	    GfuiLabelSetText(reResScreenHdle, reResMsgId[i - 1], reResMsg[i]);
+	if (reCurLine == LINES) {
+		free(reResMsg[0]);
+		for (i = 1; i < LINES; i++) {
+			reResMsg[i - 1] = reResMsg[i];
+			GfuiLabelSetText(reResScreenHdle, reResMsgId[i - 1], reResMsg[i]);
+		}
+		reCurLine--;
 	}
-	reCurLine--;
-    }
-    reResMsg[reCurLine] = strdup(text);
-    GfuiLabelSetText(reResScreenHdle, reResMsgId[reCurLine], reResMsg[reCurLine]);
-    reCurLine++;
+	reResMsg[reCurLine] = strdup(text);
+	GfuiLabelSetText(reResScreenHdle, reResMsgId[reCurLine],
+			reResMsg[reCurLine]);
+	reCurLine++;
 }
 
-void
-ReResScreenSetText(const char *text, int line, int clr)
-{
+void ReResScreenSetText(const char *text, int line, int clr) {
 	if (line < LINES) {
 		FREEZ(reResMsg[line]);
 		reResMsg[line] = strdup(text);
@@ -392,52 +378,40 @@ ReResScreenSetText(const char *text, int line, int clr)
 			reResMsgClr[line] = 0;
 		}
 		GfuiLabelSetText(reResScreenHdle, reResMsgId[line], reResMsg[line]);
-		GfuiLabelSetColor(reResScreenHdle, reResMsgId[line], reColor[reResMsgClr[line]]);
+		GfuiLabelSetColor(reResScreenHdle, reResMsgId[line],
+				reColor[reResMsgClr[line]]);
 	}
 }
 
-int
-ReResGetLines(void)
-{
-    return LINES;
+int ReResGetLines(void) {
+	return LINES;
 }
 
-void
-ReResEraseScreen(void)
-{
+void ReResEraseScreen(void) {
 	int i;
-	
+
 	for (i = 0; i < LINES; i++) {
 		ReResScreenSetText("", i, 0);
 	}
 }
 
-
-void
-ReResScreenRemoveText(int line)
-{
-    if (line < LINES) {
-	FREEZ(reResMsg[line]);
-	GfuiLabelSetText(reResScreenHdle, reResMsgId[line], "");
-    }
+void ReResScreenRemoveText(int line) {
+	if (line < LINES) {
+		FREEZ(reResMsg[line]);
+		GfuiLabelSetText(reResScreenHdle, reResMsgId[line], "");
+	}
 }
 
-void
-ReResShowCont(void)
-{
+void ReResShowCont(void) {
 
-    GfuiButtonCreate(reResScreenHdle,
-		     "Continue",
-		     GFUI_FONT_LARGE_C,
-		     320, 15, GFUI_BTNSZ,
-		     GFUI_ALIGN_HC_VB,
-		     0, 0, reResCont,
-		     NULL, (tfuiCallback)NULL,
-		     (tfuiCallback)NULL);
-    GfuiAddKey(reResScreenHdle, 13,  "Continue", 0, reResCont, NULL);
-    GfuiAddKey(reResScreenHdle, 27,  "Continue", 0, reResCont, NULL);
+	GfuiButtonCreate(reResScreenHdle, "Continue",
+	GFUI_FONT_LARGE_C, 320, 15, GFUI_BTNSZ,
+	GFUI_ALIGN_HC_VB, 0, 0, reResCont,
+	NULL, (tfuiCallback) NULL, (tfuiCallback) NULL);
+	GfuiAddKey(reResScreenHdle, 13, "Continue", 0, reResCont, NULL);
+	GfuiAddKey(reResScreenHdle, 27, "Continue", 0, reResCont, NULL);
 
-    glutDisplayFunc(reContDisplay);
-    glutPostRedisplay();
+	glutDisplayFunc(reContDisplay);
+	glutPostRedisplay();
 }
 
