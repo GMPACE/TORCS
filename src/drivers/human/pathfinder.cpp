@@ -17,8 +17,9 @@
  *                                                                         *
  ***************************************************************************/
 
+
+#include "human.h"
 #include "pathfinder.h"
-#include "berniw.h"
 
 const double Pathfinder::COLLDIST = 200.0;
 const double Pathfinder::TPRES = PI/(NTPARAMS - 1);	/* resolution of the steps */
@@ -52,9 +53,9 @@ Pathfinder::Pathfinder(TrackDesc* itrack, tCarElt* car, tSituation *s)
 	if (isPitAvailable()) {
 		initPit(car);
 		s1 = track->getPitEntryStartId();
-		s1 = (int) GfParmGetNum(car->_carHandle, BERNIW_SECT_PRIV, BERNIW_ATT_PITENTRY, (char*)NULL, (float) s1);
+		s1 = (int) GfParmGetNum(car->_carHandle, HUMAN_SECT_PRIV, HUMAN_ATT_PITENTRY, (char*)NULL, (float) s1);
 		e3 = track->getPitExitEndId();
-		e3 = (int) GfParmGetNum(car->_carHandle, BERNIW_SECT_PRIV, BERNIW_ATT_PITEXIT, (char*)NULL, (float) e3);
+		e3 = (int) GfParmGetNum(car->_carHandle, HUMAN_SECT_PRIV, HUMAN_ATT_PITEXIT, (char*)NULL, (float) e3);
 		pitspeedsqrlimit = t->pits.speedLimit - 0.5;
 		pitspeedsqrlimit *= pitspeedsqrlimit;
 		/* get memory for the pit points */
@@ -1460,7 +1461,7 @@ inline void Pathfinder::updateOverlapTimer(int trackSegId, tSituation *s, MyCar*
 
 
 /* compute trajectory to let opponent overlap */
-inline int Pathfinder::letoverlap(int trackSegId, tSituation *situation, MyCar* myc, OtherCar* ocar, tOverlapTimer* ov)
+int Pathfinder::letoverlap(int trackSegId, tSituation *situation, MyCar* myc, OtherCar* ocar, tOverlapTimer* ov)
 {
 	const int start = (trackSegId - (int) myc->OVERLAPPASSDIST + nPathSeg) % nPathSeg;
 	const int end = (trackSegId - (int) (2.0 + myc->CARLEN/2.0) + nPathSeg) % nPathSeg;

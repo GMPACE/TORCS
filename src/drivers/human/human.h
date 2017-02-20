@@ -26,6 +26,31 @@
 #ifndef _HUMAN_H_
 #define _HUMAN_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstring>
+
+#include <tgf.h>
+#include <track.h>
+#include <car.h>
+#include <raceman.h>
+#include <robot.h>
+#include <robottools.h>
+#include <math.h>
+#include "spline.h"
+#include "trackdesc.h"
+#include "mycar.h"
+#include "pathfinder.h"
+
+
+#define HUMAN_SECT_PRIV	"human private"
+#define HUMAN_ATT_PITENTRY	"pitentry"
+#define HUMAN_ATT_PITEXIT	"pitexit"
+#define HUMAN_ATT_AMAGIC	"caero"
+#define HUMAN_ATT_FMAGIC	"cfriction"
+#define HUMAN_ATT_FUELPERLAP "fuelperlap"
+
+
 typedef struct HumanContext
 {
 	int		NbPitStops;
@@ -63,7 +88,12 @@ extern tHumanContext *HCtx[];
 
 extern int joyPresent;
 
-
+inline double queryAngleToTrack(tCarElt * car)
+{
+	double angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw;
+	NORM_PI_PI(angle);
+	return angle;
+}
 
 #endif /* _HUMAN_H_ */ 
 
