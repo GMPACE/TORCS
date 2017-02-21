@@ -749,7 +749,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		angle = atan2(re.y - car->_pos_Y, re.x - car->_pos_X);
 		angle -= car->_yaw;
 		NORM_PI_PI(angle);
-		angle /= PI;
+
 		car->_steerCmd = angle;
 		float direction_road = RtTrackSideTgAngleL(&(car->_trkPos));
 
