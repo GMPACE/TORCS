@@ -30,13 +30,13 @@
 
 extern bool bKeepModules;
 
+
 void *init_shared_mem(int shmid, int skey, int num_of_data, int semid);
 
 static void init_args(int argc, char **argv, const char **raceconfig) {
 	//torcs_steer = (int*)init_shared_mem(shmid, skey, 1, semid);
 	/*shared memory & semaphore*/
 	/*NaYeon*/
-	printf("start\n");
 	shmid = shmget((key_t) skey, sizeof(int), 0777);
 	if (shmid == -1) {
 		perror("shmget failed :");
@@ -54,8 +54,6 @@ static void init_args(int argc, char **argv, const char **raceconfig) {
 		perror("shmat failed");
 		exit(1);
 	}
-	printf("end\n");
-	torcs_steer = (int*) shared_memory;
 	printf("%d\n", *torcs_steer);
 	int i;
 	char *buf;

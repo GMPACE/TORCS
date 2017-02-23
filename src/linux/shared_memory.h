@@ -11,7 +11,7 @@ int semid;
 int skey = 5678;
 int sekey = 1234;
 void *shared_memory = (void *)0;
-int* torcs_steer;
+int* torcs_steer = (int*) shared_memory;
 
 struct sembuf semopen = {0,-1,SEM_UNDO};
 struct sembuf semclose = {0,1,SEM_UNDO};
