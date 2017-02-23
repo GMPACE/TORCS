@@ -23,6 +23,11 @@
     @version	$Id: raceinit.h,v 1.4.2.2 2012/02/14 23:42:20 berniw Exp $
 */
 
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/sem.h>
+#include <unistd.h>
+
 #ifndef _RACEINIT_H_
 #define _RACEINIT_H_
 
@@ -41,6 +46,7 @@ extern const char *ReGetPrevRaceName(void);
 extern void ReRunRaceOnConsole(const char* raceconfig);
 
 extern tModList *ReRaceModList;
+
 
 
 

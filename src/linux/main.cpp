@@ -1,10 +1,10 @@
 /***************************************************************************
 
-    file                 : main.cpp
-    created              : Sat Mar 18 23:54:30 CET 2000
-    copyright            : (C) 2000 by Eric Espie
-    email                : torcs@free.fr
-    version              : $Id: main.cpp,v 1.14.2.3 2012/06/01 01:59:42 berniw Exp $
+ file                 : main.cpp
+ created              : Sat Mar 18 23:54:30 CET 2000
+ copyright            : (C) 2000 by Eric Espie
+ email                : torcs@free.fr
+ version              : $Id: main.cpp,v 1.14.2.3 2012/06/01 01:59:42 berniw Exp $
 
  ***************************************************************************/
 
@@ -26,76 +26,104 @@
 
 #include "linuxspec.h"
 #include <raceinit.h>
+#include "shared_memory.h"
 
 extern bool bKeepModules;
 
-static void
-init_args(int argc, char **argv, const char **raceconfig)
-{
+void *init_shared_mem(int shmid, int skey, int num_of_data, int semid);
+
+static void init_args(int argc, char **argv, const char **raceconfig) {
+	//torcs_steer = (int*)init_shared_mem(shmid, skey, 1, semid);
+	/*shared memory & semaphore*/
+	/*NaYeon*/
+	printf("start\n");
+	shmid = shmget((key_t) skey, sizeof(int), 0777);
+	if (shmid == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+
+	semid = semget((key_t) sekey, 0, 0777);
+	if (semid == -1) {
+		perror("semget failed : ");
+		exit(1);
+	}
+
+	shared_memory = shmat(shmid, (void *) 0, 0);
+	if (!shared_memory) {
+		perror("shmat failed");
+		exit(1);
+	}
+	printf("end\n");
+	torcs_steer = (int*) shared_memory;
+	printf("%d\n", *torcs_steer);
 	int i;
 	char *buf;
 
 	i = 1;
 
-	while(i < argc) {
-		if(strncmp(argv[i], "-l", 2) == 0) {
+	while (i < argc) {
+		if (strncmp(argv[i], "-l", 2) == 0) {
 			i++;
 
-			if(i < argc) {
-				buf = (char *)malloc(strlen(argv[i]) + 2);
+			if (i < argc) {
+				buf = (char *) malloc(strlen(argv[i]) + 2);
 				sprintf(buf, "%s/", argv[i]);
 				SetLocalDir(buf);
 				free(buf);
 				i++;
 			}
-		} else if(strncmp(argv[i], "-L", 2) == 0) {
+		} else if (strncmp(argv[i], "-L", 2) == 0) {
 			i++;
 
-			if(i < argc) {
-				buf = (char *)malloc(strlen(argv[i]) + 2);
+			if (i < argc) {
+				buf = (char *) malloc(strlen(argv[i]) + 2);
 				sprintf(buf, "%s/", argv[i]);
 				SetLibDir(buf);
 				free(buf);
 				i++;
 			}
-		} else if(strncmp(argv[i], "-D", 2) == 0) {
+		} else if (strncmp(argv[i], "-D", 2) == 0) {
 			i++;
 
-			if(i < argc) {
-				buf = (char *)malloc(strlen(argv[i]) + 2);
+			if (i < argc) {
+				buf = (char *) malloc(strlen(argv[i]) + 2);
 				sprintf(buf, "%s/", argv[i]);
 				SetDataDir(buf);
 				free(buf);
 				i++;
 			}
-		} else if(strncmp(argv[i], "-s", 2) == 0) {
+		} else if (strncmp(argv[i], "-s", 2) == 0) {
 			i++;
 			SetSingleTextureMode();
-		} else if(strncmp(argv[i], "-k", 2) == 0) {
+		} else if (strncmp(argv[i], "-k", 2) == 0) {
 			i++;
 			// Keep modules in memory (for valgrind)
-			printf("Unloading modules disabled, just intended for valgrind runs.\n");
+			printf(
+					"Unloading modules disabled, just intended for valgrind runs.\n");
 			bKeepModules = true;
 #ifndef FREEGLUT
 		} else if(strncmp(argv[i], "-m", 2) == 0) {
 			i++;
 			GfuiMouseSetHWPresent(); /* allow the hardware cursor */
 #endif
-		} else if(strncmp(argv[i], "-r", 2) == 0) {
+		} else if (strncmp(argv[i], "-r", 2) == 0) {
 			i++;
 			*raceconfig = "";
 
-			if(i < argc) {
+			if (i < argc) {
 				*raceconfig = argv[i];
 				i++;
 			}
 
-			if((strlen(*raceconfig) == 0) || (strstr(*raceconfig, ".xml") == 0)) {
-				printf("Please specify a race configuration xml when using -r\n");
+			if ((strlen(*raceconfig) == 0)
+					|| (strstr(*raceconfig, ".xml") == 0)) {
+				printf(
+						"Please specify a race configuration xml when using -r\n");
 				exit(1);
 			}
 		} else {
-			i++;		/* ignore bad args */
+			i++; /* ignore bad args */
 		}
 	}
 
@@ -120,24 +148,50 @@ init_args(int argc, char **argv, const char **raceconfig)
  * Remarks
  *
  */
-int
-main(int argc, char *argv[])
-{
+
+void *init_shared_mem(int shmid, int skey, int num_of_data, int semid) {
+	/*shared memory & semaphore*/
+	/*NaYeon*/
+
+	shmid = shmget((key_t) skey, sizeof(int) * num_of_data, 0666);
+	if (shmid == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+
+	semid = semget((key_t) sekey, 0, 0666);
+	if (semid == -1) {
+		perror("semget failed : ");
+		exit(1);
+	}
+
+	shared_memory = shmat(shmid, (void *) 0, 0);
+	if (!shared_memory) {
+		perror("shmat failed");
+		exit(1);
+	}
+
+	return shared_memory;
+}
+int main(int argc, char *argv[]) {
 	const char *raceconfig = "";
 
-	init_args(argc, argv, &raceconfig);
-	LinuxSpecInit();			/* init specific linux functions */
+	/****************************************/
 
-	if(strlen(raceconfig) == 0) {
-		GfScrInit(argc, argv);	/* init screen */
-		TorcsEntry();			/* launch TORCS */
-		glutMainLoop();			/* event loop of glut */
+	init_args(argc, argv, &raceconfig);
+
+	LinuxSpecInit(); /* init specific linux functions */
+
+	if (strlen(raceconfig) == 0) {
+		GfScrInit(argc, argv); /* init screen */
+		TorcsEntry(); /* launch TORCS */
+		glutMainLoop(); /* event loop of glut */
 	} else {
 		// Run race from console, no Window, no OpenGL/OpenAL etc.
 		// Thought for blind scripted AI training
 		ReRunRaceOnConsole(raceconfig);
 	}
 
-	return 0;					/* just for the compiler, never reached */
+	return 0; /* just for the compiler, never reached */
 }
 

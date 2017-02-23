@@ -28,10 +28,17 @@
 #define isnan _isnan
 #endif
 
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <plib/js.h>
+#include "../../linux/shared_memory.h"
+#include <sys/shm.h>
+#include <sys/sem.h>
+#include <sys/ipc.h>
+#include <unistd.h>s
 
 #include <tgfclient.h>
 #include <portability.h>
@@ -142,6 +149,9 @@ static void shutdown(int index) {
 	}
 	onoff_Mode = 0;
 }
+
+
+
 
 /*
  * Function
@@ -400,6 +410,8 @@ void newrace(int index, tCarElt* car, tSituation *s) {
 		HCtx[idx]->autoClutch = 1;
 	else
 		HCtx[idx]->autoClutch = 0;
+
+	printf("newrace\n");
 }
 
 static void updateKeys(void) {
@@ -465,6 +477,12 @@ static int onSKeyAction(int key, int modifier, int state) {
 }
 
 static void common_drive(int index, tCarElt* car, tSituation *s) {
+
+	/* for Shared Memory */
+	/* Nayeon */
+	extern int* torcs_steer;
+
+
 	tdble slip;
 	tdble ax0;
 	tdble brake;
@@ -594,6 +612,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		break;
 		/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
+
 		ax0 = mouseInfo->ax[cmd[CMD_LEFTSTEER].val]
 				- cmd[CMD_LEFTSTEER].deadZone; //FIXME: correct?
 		if (ax0 > cmd[CMD_LEFTSTEER].max) {
@@ -700,7 +719,29 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		break;
 	}
 	if ((onoff_Mode & 1) != 1) {
-		car->_steerCmd = leftSteer + rightSteer;
+
+		/*shared memory & semaphore change value*/
+		/*NaYeon*/
+
+//		if(semop(semid,&semopen,1) == -1)
+//		{
+//			perror("semop error : ");
+//			exit(0);
+//		}
+
+		printf("%d", *torcs_steer);
+		double k7_steer = ((double)(*torcs_steer))/500;
+//		printf("after access shared memory\n");
+		car->_steerCmd = -k7_steer;
+
+
+
+//		semop(semid, &semclose,1);
+
+		/*******************************************/
+
+//		car->_steerCmd = leftSteer + rightSteer;
+
 	} else {
 		float length = 0.0;
 		float angle = 0.0;
