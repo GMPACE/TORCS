@@ -84,7 +84,13 @@ singleplayer.o: singleplayer.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/sg.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/graphic.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/simu.h raceengine.h \
- racemain.h raceinit.h racestate.h
+ racemain.h raceinit.h /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h racestate.h
 raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -218,7 +224,14 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/c++/4.8/bits/stl_tree.h /usr/include/c++/4.8/bits/stl_map.h \
  /usr/include/c++/4.8/bits/stl_multimap.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/musicplayer/musicplayer.h \
- raceengine.h racemain.h racestate.h racegl.h raceresults.h raceinit.h
+ raceengine.h racemain.h racestate.h racegl.h raceresults.h raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h
 racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -309,8 +322,15 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/exitmenu.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/musicplayer/musicplayer.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/portability.h \
- /home/torcs/torcs/torcs-1.3.7/config.h raceengine.h raceinit.h racegl.h \
- raceresults.h racestate.h racemanmenu.h racemain.h
+ /home/torcs/torcs/torcs-1.3.7/config.h raceengine.h raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h racegl.h raceresults.h \
+ racestate.h racemanmenu.h racemain.h
 racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
@@ -401,7 +421,13 @@ racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/driverconfig.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/portability.h \
  /home/torcs/torcs/torcs-1.3.7/config.h raceengine.h racemain.h \
- raceinit.h racestate.h racemanmenu.h
+ raceinit.h /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h racestate.h racemanmenu.h
 racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
@@ -489,7 +515,14 @@ racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/graphic.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/simu.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/racescreens.h racemain.h \
- raceinit.h raceengine.h racegl.h raceresults.h racemanmenu.h racestate.h
+ raceinit.h /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h raceengine.h racegl.h \
+ raceresults.h racemanmenu.h racestate.h
 racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -576,7 +609,13 @@ racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/graphic.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/simu.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robot.h racemain.h \
- raceinit.h racestate.h raceengine.h racegl.h
+ raceinit.h /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h racestate.h raceengine.h racegl.h
 raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
@@ -668,7 +707,13 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robottools.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/portability.h \
  /home/torcs/torcs/torcs-1.3.7/config.h racemain.h racegl.h raceinit.h \
- raceresults.h raceengine.h
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h raceresults.h raceengine.h
 raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
@@ -761,4 +806,10 @@ raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robottools.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/portability.h \
  /home/torcs/torcs/torcs-1.3.7/config.h racemain.h racegl.h raceinit.h \
- raceengine.h raceresults.h
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h raceengine.h raceresults.h

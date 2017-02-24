@@ -28,17 +28,12 @@
 #define isnan _isnan
 #endif
 
-
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <plib/js.h>
+
 #include "../../linux/shared_memory.h"
-#include <sys/shm.h>
-#include <sys/sem.h>
-#include <sys/ipc.h>
-#include <unistd.h>s
 
 #include <tgfclient.h>
 #include <portability.h>
@@ -84,6 +79,9 @@ double car_speed = 0;
 double target_speed = 0;
 tdble drivespeed = 0.0;
 short onoff_Mode = 0;
+
+struct sembuf semopen = { 0, -1, SEM_UNDO };
+struct sembuf semclose = { 0, 1, SEM_UNDO };
 
 static double calculate_CC(bool updown);
 static void drive(int index, tCarElt* car, tSituation *situation);
@@ -149,9 +147,6 @@ static void shutdown(int index) {
 	}
 	onoff_Mode = 0;
 }
-
-
-
 
 /*
  * Function
@@ -234,6 +229,49 @@ extern "C" int human(tModInfo *modInfo) {
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
 	char sstring[BUFSIZE];
+	/*NaYeon*/
+	shmid = shmget((key_t) skey, sizeof(int), 0777);
+	if (shmid == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+
+//			semid = semget((key_t) sekey, 0, 0777);
+//			if (semid == -1) {
+//				perror("semget failed : ");
+//				exit(1);
+//			}
+
+	shared_memory = shmat(shmid, (void *) 0, 0);
+	if (!shared_memory) {
+		perror("shmat failed");
+		exit(1);
+	}
+	torcs_steer = (int*) shared_memory;
+
+	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
+	if (shmid2 == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+	shared_memory2 = shmat(shmid2, (void *) 0, 0);
+	if (!shared_memory2) {
+		perror("shmat failed");
+		exit(1);
+	}
+	ptr_brake = (int*) shared_memory2;
+
+	shmid3 = shmget((key_t) skey3, sizeof(int), 0777);
+	if (shmid3 == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+	shared_memory3 = shmat(shmid3, (void *) 0, 0);
+	if (!shared_memory3) {
+		perror("shmat failed");
+		exit(1);
+	}
+	ptr_accel = (int*) shared_memory3;
 
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
@@ -477,11 +515,6 @@ static int onSKeyAction(int key, int modifier, int state) {
 }
 
 static void common_drive(int index, tCarElt* car, tSituation *s) {
-
-	/* for Shared Memory */
-	/* Nayeon */
-	extern int* torcs_steer;
-
 
 	tdble slip;
 	tdble ax0;
@@ -728,20 +761,15 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //			perror("semop error : ");
 //			exit(0);
 //		}
-
-		printf("%d", *torcs_steer);
-		double k7_steer = ((double)(*torcs_steer))/500;
+		double k7_steer = ((double) (*torcs_steer)) / 180;
 //		printf("after access shared memory\n");
-		car->_steerCmd = -k7_steer;
-
-
+		car->_steerCmd = k7_steer;
 
 //		semop(semid, &semclose,1);
 
 		/*******************************************/
 
 //		car->_steerCmd = leftSteer + rightSteer;
-
 	} else {
 		float length = 0.0;
 		float angle = 0.0;
@@ -832,8 +860,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			ax0 = cmd[CMD_BRAKE].min;
 		}
 		ax0 = ax0 * cmd[CMD_BRAKE].pow;
-		car->_brakeCmd = pow(fabs(ax0), cmd[CMD_BRAKE].sens)
-				/ (1.0 + cmd[CMD_BRAKE].spdSens * car->_speed_x / 10.0);
+//		car->_brakeCmd = pow(fabs(ax0), cmd[CMD_BRAKE].sens)
+//				/ (1.0 + cmd[CMD_BRAKE].spdSens * car->_speed_x / 10.0);
+		brake_value = *ptr_brake;
+		printf("brake : %d\n", brake_value);
+		car->_brakeCmd = brake_value;
 		/* CC Mode On */
 		if ((onoff_Mode & (short) 2) == (short) 2)
 			car->_brakeCmd = calculate_CC(false);
@@ -901,7 +932,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		car->_clutchCmd = 0;
 		break;
 	}
-
+	float atan_accel;
 	// if player's used the clutch manually then we dispense with autoClutch
 	if (car->_clutchCmd != 0.0f)
 		HCtx[idx]->autoClutch = 0;
@@ -926,22 +957,30 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 														/ (cmd[CMD_THROTTLE].max
 																- cmd[CMD_THROTTLE].min)),
 										cmd[CMD_THROTTLE].sens));
+
 		break;
 		/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_MOUSE_AXIS:
 		ax0 = mouseInfo->ax[cmd[CMD_THROTTLE].val] - cmd[CMD_THROTTLE].deadZone;
 
-		if (ax0 > cmd[CMD_THROTTLE].max) {
-			ax0 = cmd[CMD_THROTTLE].max;
-		} else if (ax0 < cmd[CMD_THROTTLE].min) {
-			ax0 = cmd[CMD_THROTTLE].min;
-		}
-		ax0 = ax0 * cmd[CMD_THROTTLE].pow;
-		car->_accelCmd = pow(fabs(ax0), cmd[CMD_THROTTLE].sens)
-				/ (1.0 + cmd[CMD_THROTTLE].spdSens * car->_speed_x / 10.0);
-		if (isnan(car->_accelCmd)) {
-			car->_accelCmd = 0;
-		}
+//		if (ax0 > cmd[CMD_THROTTLE].max) {
+//			ax0 = cmd[CMD_THROTTLE].max;
+//		} else if (ax0 < cmd[CMD_THROTTLE].min) {
+//			ax0 = cmd[CMD_THROTTLE].min;
+//		}
+//		ax0 = ax0 * cmd[CMD_THROTTLE].pow;
+//		car->_accelCmd = pow(fabs(ax0), cmd[CMD_THROTTLE].sens)
+//				/ (1.0 + cmd[CMD_THROTTLE].spdSens * car->_speed_x / 10.0);
+//		if (isnan(car->_accelCmd)) {
+//			car->_accelCmd = 0;
+//		}
+		accel_value = *ptr_accel;
+		accel_value = MIN(MAX(610,accel_value), 3515);
+
+		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
+		printf("accel : %d\n", atan_accel);
+		car->_accelCmd = atan_accel;
+		if(car->_brakeCmd > 0) car->_accelCmd = 0;
 		/* CC Mode On */
 		if ((onoff_Mode & (short) 2) == (short) 2)
 			car->_accelCmd = calculate_CC(true);

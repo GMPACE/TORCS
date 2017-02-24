@@ -73,7 +73,14 @@ main.o: main.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/asm-generic/errno-base.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/screen_properties.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/client.h linuxspec.h \
- /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h
+ /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h
 linuxspec.o: linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \

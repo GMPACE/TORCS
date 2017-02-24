@@ -87,9 +87,15 @@ human.o: human.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/simu.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robottools.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robot.h \
- /home/torcs/torcs/torcs-1.3.7/export/include/playerpref.h pref.h human.h \
- spline.h trackdesc.h ../berniw/linalg.h mycar.h pathfinder.h linalg.h \
- ../data_list.h
+ /home/torcs/torcs/torcs-1.3.7/export/include/playerpref.h pref.h \
+ ../../linux/shared_memory.h /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h human.h spline.h trackdesc.h \
+ ../berniw/linalg.h mycar.h pathfinder.h linalg.h ../data_list.h
 pref.o: pref.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -179,5 +185,12 @@ pref.o: pref.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/simu.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robottools.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/robot.h \
- /home/torcs/torcs/torcs-1.3.7/export/include/playerpref.h pref.h human.h \
- spline.h trackdesc.h ../berniw/linalg.h mycar.h pathfinder.h linalg.h
+ /home/torcs/torcs/torcs-1.3.7/export/include/playerpref.h pref.h \
+ ../../linux/shared_memory.h /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h human.h spline.h trackdesc.h \
+ ../berniw/linalg.h mycar.h pathfinder.h linalg.h

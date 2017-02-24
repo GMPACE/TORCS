@@ -520,7 +520,14 @@ simuconfig.o: simuconfig.cpp /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
  /usr/include/asm-generic/errno-base.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/screen_properties.h \
- /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h simuconfig.h \
+ /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h simuconfig.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/portability.h \
  /home/torcs/torcs/torcs-1.3.7/config.h
 soundconfig.o: soundconfig.cpp /usr/include/stdc-predef.h \
@@ -599,6 +606,13 @@ soundconfig.o: soundconfig.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/errno-base.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/screen_properties.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/graphic.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/track.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/tmath/linalg_t.h \
@@ -687,6 +701,13 @@ openglconfig.o: openglconfig.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/errno-base.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/screen_properties.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/raceinit.h \
+ /usr/include/i386-linux-gnu/sys/ipc.h \
+ /usr/include/i386-linux-gnu/bits/ipctypes.h \
+ /usr/include/i386-linux-gnu/bits/ipc.h \
+ /usr/include/i386-linux-gnu/sys/shm.h \
+ /usr/include/i386-linux-gnu/bits/shm.h \
+ /usr/include/i386-linux-gnu/sys/sem.h \
+ /usr/include/i386-linux-gnu/bits/sem.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/graphic.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/track.h \
  /home/torcs/torcs/torcs-1.3.7/export/include/tmath/linalg_t.h \

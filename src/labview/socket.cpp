@@ -53,12 +53,18 @@ int main(void)
 	char ReceiveData[256];
 	int strLen;
 	int shmid;
+	int shmid2;
+	int shmid3;
 	int semid;//세마포어
 	union semun sem_union;
 	void *shared_memory = (void *)0;
+	void *shared_memory2 = (void *)0;
+	void *shared_memory3 = (void *)0;
 	char buff[1024];
 	int skey = 5678;
-	int sekey = 1234;
+	int skey2 = 1234;
+	int skey3 = 2345;
+//	int sekey = 1234;
 
 	int *process_num;
 	int local_num;
@@ -67,7 +73,7 @@ int main(void)
 	struct sembuf semclose = {0,1,SEM_UNDO};
 
 
-	//공유메모리 공간 만들기
+	//공유메모리 공간 만들기 1
 	shmid = shmget((key_t)skey, sizeof(int), 0777|IPC_CREAT);
 	if(shmid == -1)
 	{
@@ -75,23 +81,23 @@ int main(void)
 		exit(0);
 	}
 
-	semid = semget((key_t)sekey,1,IPC_CREAT|0777);
-	if(semid == -1)
-	{
-		perror("semget failed : ");
-		return 1;
-	}
+//	semid = semget((key_t)sekey,1,IPC_CREAT|0777);
+//	if(semid == -1)
+//	{
+//		perror("semget failed : ");
+//		return 1;
+//	}
 
 	//세마포어 초기화
-	sem_union.val = 1;
-	if(-1 == semctl(semid,0,SETVAL,sem_union))
-	{
-		return 1;
-	}
+//	sem_union.val = 1;
+//	if(-1 == semctl(semid,0,SETVAL,sem_union))
+//	{
+//		return 1;
+//	}
 
 
 
-	//공유메모리 맵핑
+	//공유메모리 맵핑 1
 	shared_memory = shmat(shmid, (void *)0, 0);
 	if(!shared_memory)
 	{
@@ -99,15 +105,42 @@ int main(void)
 		exit(0);
 	}
 
+	//공유메모리 공간 만들기 2
+	shmid2 = shmget((key_t)skey2, sizeof(int), 0777|IPC_CREAT);
+	if(shmid2 == -1)
+	{
+		perror("shmget failed : ");
+		exit(0);
+	}
 
-	printf("%d",(int*)shared_memory);
+	//공유메모리 맵핑 2
+	shared_memory2 = shmat(shmid2, (void *)0, 0);
+	if(!shared_memory2)
+	{
+		perror("shmat failed");
+		exit(0);
+	}
 
+	//공유메모리 공간 만들기 3
+	shmid3 = shmget((key_t)skey3, sizeof(int), 0777|IPC_CREAT);
+	if(shmid3 == -1)
+	{
+		perror("shmget failed : ");
+		exit(0);
+	}
 
-
-
+	//공유메모리 맵핑 3
+	shared_memory3 = shmat(shmid3, (void *)0, 0);
+	if(!shared_memory3)
+	{
+		perror("shmat failed");
+		exit(0);
+	}
 	//공유메모리 변수 생성
 	  int* w_steer;
 	  w_steer = (int *)shared_memory;
+	  int* w_brake = (int*)shared_memory2;
+	  int* w_accel = (int*)shared_memory3;
 	 
 
 
@@ -154,7 +187,8 @@ int main(void)
  int count = 0;
  string str2 = "";
 
- string test[19] = {"Empty", "Accel","Brake", "Steer","gear","UpperRampStatic","UpperRamp","Ramp","RampAuto","WiperMove","WiperTrigger","WiperOff","WiperAuto","WiperLow","WiperHigh","RightTurn","LeftTurn","Bright","LampTrigger" };
+ string test[19] = {"Empty", "Accel","Brake", "Steer","gear","UpperRampStatic","UpperRamp","Ramp","RampAuto","WiperMove","WiperTrigger","WiperOff","WiperAuto"
+,"WiperLow","WiperHigh","RightTurn","LeftTurn","Bright","LampTrigger" };
 
 
 
@@ -197,25 +231,35 @@ int main(void)
    
    //printf("Msg : %s \nlength = %d\n", ReceiveData, strLen);
  }
- 
+  string to_string(ReceiveData);
+//  string s_steer = to_string.strsub(26, 
   char *ptr = strtok(ReceiveData, ".");//각각 값으로 쪼개기
-
+//  printf("%s", ptr);
   while (ptr != NULL)
   {
 //   str2 += test[count];
 //   str2 += " : ";
 //   str2 += ptr;
 //   str2 += " ";
-
-	 if(count == 3)
+	 if(count == 1)
 	 {
-		
-
+		*w_accel = atoi(ptr);
+		printf("accel : %d\n", *w_accel);
+	 }
+	 if(count == 2)
+	 {
+		*w_brake = atoi(ptr);
+		printf("brake: %d\n", *w_brake);
+	 }
+	 if(count == 3)
+	 {		
 		*w_steer = atoi(ptr);
+		string to_string(ptr);
+		if(*w_steer == 0) {
+			*w_steer = atoi(to_string.substr(6, 3).c_str());
+		}
 		printf("steer : %d\n", *w_steer);
 		break;
-
-
 	 }
 
   ptr = strtok(NULL, ".");

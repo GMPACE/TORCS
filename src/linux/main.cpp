@@ -17,6 +17,7 @@
  *                                                                         *
  ***************************************************************************/
 
+
 #include <stdlib.h>
 
 #include <GL/glut.h>
@@ -26,35 +27,19 @@
 
 #include "linuxspec.h"
 #include <raceinit.h>
-#include "shared_memory.h"
+
 
 extern bool bKeepModules;
 
+//void* shared_memory = (void*) 0;
+//int steer_value = 0;
 
-void *init_shared_mem(int shmid, int skey, int num_of_data, int semid);
 
 static void init_args(int argc, char **argv, const char **raceconfig) {
 	//torcs_steer = (int*)init_shared_mem(shmid, skey, 1, semid);
 	/*shared memory & semaphore*/
-	/*NaYeon*/
-	shmid = shmget((key_t) skey, sizeof(int), 0777);
-	if (shmid == -1) {
-		perror("shmget failed :");
-		exit(1);
-	}
 
-	semid = semget((key_t) sekey, 0, 0777);
-	if (semid == -1) {
-		perror("semget failed : ");
-		exit(1);
-	}
 
-	shared_memory = shmat(shmid, (void *) 0, 0);
-	if (!shared_memory) {
-		perror("shmat failed");
-		exit(1);
-	}
-	printf("%d\n", *torcs_steer);
 	int i;
 	char *buf;
 
@@ -147,36 +132,34 @@ static void init_args(int argc, char **argv, const char **raceconfig) {
  *
  */
 
-void *init_shared_mem(int shmid, int skey, int num_of_data, int semid) {
-	/*shared memory & semaphore*/
-	/*NaYeon*/
 
-	shmid = shmget((key_t) skey, sizeof(int) * num_of_data, 0666);
-	if (shmid == -1) {
-		perror("shmget failed :");
-		exit(1);
-	}
-
-	semid = semget((key_t) sekey, 0, 0666);
-	if (semid == -1) {
-		perror("semget failed : ");
-		exit(1);
-	}
-
-	shared_memory = shmat(shmid, (void *) 0, 0);
-	if (!shared_memory) {
-		perror("shmat failed");
-		exit(1);
-	}
-
-	return shared_memory;
-}
 int main(int argc, char *argv[]) {
 	const char *raceconfig = "";
 
 	/****************************************/
 
 	init_args(argc, argv, &raceconfig);
+
+//	/*NaYeon*/
+//		shmid = shmget((key_t) skey, sizeof(int), 0777);
+//		if (shmid == -1) {
+//			perror("shmget failed :");
+//			exit(1);
+//		}
+//
+//		semid = semget((key_t) sekey, 0, 0777);
+//		if (semid == -1) {
+//			perror("semget failed : ");
+//			exit(1);
+//		}
+//
+//		shared_memory = shmat(shmid, (void *) 0, 0);
+//		if (!shared_memory) {
+//			perror("shmat failed");
+//			exit(1);
+//		}
+//		int* torcs_steer = (int*) shared_memory;
+//		steer_value = *torcs_steer;
 
 	LinuxSpecInit(); /* init specific linux functions */
 

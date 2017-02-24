@@ -95,6 +95,7 @@ inline double queryAngleToTrack(tCarElt * car)
 	return angle;
 }
 
+
 #endif /* _HUMAN_H_ */ 
 
 
