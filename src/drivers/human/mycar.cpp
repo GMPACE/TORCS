@@ -20,7 +20,6 @@
 /*
 	this class holds some properties of the car
 */
-
 #include "human.h"
 #ifdef DMALLOC
 #include "dmalloc.h"
@@ -181,6 +180,7 @@ void MyCar::update(TrackDesc* track, tCarElt* car, tSituation *situation)
 	updateSpeedSqr();
 	updateSpeed();
 
+
 	/* update currentsegment and destination segment id's */
 	int searchrange = MAX((int) ceil(situation->deltaTime*speed+1.0) * 2, 4);
 	currentsegid = destsegid = pf->getCurrentSegment(car, searchrange);
@@ -324,5 +324,4 @@ void MyCar::initCarGeometry()
 	CARWIDTH = me->_dimension_y;
 	CARLEN = me->_dimension_x;
 }
-
 

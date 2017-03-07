@@ -21,8 +21,8 @@
 	this class holds some properties of the car
 */
 
-#ifndef _MYCAR_H_
-#define _MYCAR_H_
+#ifndef _MYCAR2_H_
+#define _MYCAR2_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -147,7 +147,9 @@ class MyCar : public AbstractCar
 		double lastfuel;
 		double fuelperlap;
 		double lastpitfuel;
-
+		/* Hwancheol */
+		double raced_dist;
+		/* Hwancheol */
 		double turnaround;
 		int tr_mode;
 		double accel;
@@ -191,6 +193,7 @@ class MyCar : public AbstractCar
 class OtherCar: public AbstractCar
 {
 	public:
+
 		void init(TrackDesc* itrack, tCarElt* car, tSituation *situation);
 		void update(void);
 

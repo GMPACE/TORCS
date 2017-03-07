@@ -26,14 +26,16 @@
 #endif
 
 /* function prototypes */
+static int  InitFuncPt(int index, void *pt);
 static void initTrack(int index, tTrack* track, void *carHandle, void **carParmHandle, tSituation * situation);
 static void drive(int index, tCarElt* car, tSituation *situation);
 static void newRace(int index, tCarElt* car, tSituation *situation);
-static int  InitFuncPt(int index, void *pt);
 static int  pitcmd(int index, tCarElt* car, tSituation *s);
 static void shutdown(int index);
 
-
+/* Hwancheol */
+static double calculate_CC(bool updown);
+static double car_speed = 0.0;
 static const char* botname[BOTS] = {
 	"berniw 1", "berniw 2", "berniw 3", "berniw 4", "berniw 5",
 	"berniw 6", "berniw 7", "berniw 8", "berniw 9", "berniw 10"
@@ -168,7 +170,8 @@ static void drive(int index, tCarElt* car, tSituation *situation)
 
 	/* update some values needed */
 	myc->update(myTrackDesc, car, situation);
-
+	car_speed = myc->getSpeed();
+	printf("car_speed : %f\n", car_speed);
 	/* decide how we want to drive */
 	if ( car->_dammage < myc->undamaged/3 && myc->bmode != myc->NORMAL) {
 		myc->loadBehaviour(myc->NORMAL);
@@ -374,6 +377,9 @@ static void drive(int index, tCarElt* car, tSituation *situation)
 			}
 		}
 	}
+	/* for test // Hwancheol */
+	car->_accelCmd = calculate_CC(true);
+	car->_brakeCmd = calculate_CC(false);
 
 
 	/* check if we are stuck, try to get unstuck */
@@ -444,3 +450,20 @@ static int pitcmd(int index, tCarElt* car, tSituation *s)
 	return ROB_PIT_IM; /* return immediately */
 }
 
+double calculate_CC(bool updown) {
+	const double TARGET_SPEED = 10;
+	const double KP = 0.5;
+	double error = car_speed - TARGET_SPEED;
+	double pid = error * KP;
+
+	if (updown) {
+		if (error < 0)
+			return MIN(fabs(pid), 1.0);
+		return 0;
+	} else {
+		if (error > 0)
+			return MIN(fabs(pid), 1.0);
+		return 0;
+	}
+
+}
