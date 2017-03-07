@@ -22,6 +22,7 @@
 #ifndef _PREF_H_
 #define _PREF_H_
 
+#include <tgfclient.h>
 
 typedef struct {
     const char	*name;		/* Name of the control */

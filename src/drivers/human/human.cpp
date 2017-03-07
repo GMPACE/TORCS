@@ -83,7 +83,8 @@ short onoff_Mode = 0;
 struct sembuf semopen = { 0, -1, SEM_UNDO };
 struct sembuf semclose = { 0, 1, SEM_UNDO };
 
-double dist_to_ocar = 1000000.0;
+static double* dist_to_ocar;
+static bool* acc_flag;
 static double calculate_CC(bool updown);
 typedef struct
 {
@@ -154,6 +155,10 @@ static void shutdown(int index) {
 		GfuiSKeyEventRegisterCurrent(NULL);
 		firstTime = 0;
 	}
+	delete(mycar);
+	delete(ocar);
+	delete(dist_to_ocar);
+	delete(acc_flag);
 	onoff_Mode = 0;
 }
 
@@ -429,7 +434,9 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 
 void newrace(int index, tCarElt* car, tSituation *s) {
 	mycar = new MyCar(myTrackDesc, car, s);
-
+	dist_to_ocar = new double();
+	acc_flag = new bool();
+	*acc_flag = false;
 	if (ocar != NULL)
 		delete[] ocar;
 	ocar = new OtherCar[s->_ncars];
@@ -549,7 +556,7 @@ static int onSKeyAction(int key, int modifier, int state) {
 static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
 	/************ACC***********/
-	dist_to_ocar = 10000000.0;
+	*dist_to_ocar = 10000000.0;
 
 
 	/* update some values needed */
@@ -559,7 +566,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* update the other cars just once */
 	if (currenttime != s->currentTime) {
 		currenttime = s->currentTime;
-		double temp = dist_to_ocar;
+		double temp = *dist_to_ocar;
 		for (int i = 0; i < s->_ncars; i++) {
 			ocar[i].update();
 			temp = sqrt(
@@ -573,7 +580,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
 
 			if (temp != 0 && (raced_dist_o - raced_dist) > 0) {
-				dist_to_ocar = MIN(temp, dist_to_ocar);
+				*dist_to_ocar = MIN(temp, *dist_to_ocar);
+				printf("dist_to_ocar : %f\n", *dist_to_ocar);
 			}
 //			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
 //					mycar->getCurrentPos()->y);
@@ -581,7 +589,6 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //					ocar[i].getCurrentPos()->x, ocar[i].getCurrentPos()->y);
 		}
 	}
-	printf("rank : %d\n", RE_SECT_RANK);
 
 	tdble slip;
 	tdble ax0;
@@ -1510,32 +1517,38 @@ static int pitcmd(int index, tCarElt* car, tSituation *s) {
 
 	return ROB_PIT_MENU; /* The player is able to modify the value by menu */
 }
-static double abs_d(double value) {
-	if (value < 0)
-		return -value;
-	return value;
-}
+
 /* Hwancheol */
-double calculate_CC(bool updown) {
+static double calculate_CC(bool updown) {
 	const double KP = 0.5;
-	const double KP_2 = 0.01;
+	const double KP_2 = 1.0;
 	const double TARGET_DIST = 15;
 	double error = car_speed - target_speed;
-	double error_2;
+	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
-	printf("dist_to_ocar : %d\n", dist_to_ocar);
-	if(dist_to_ocar <= 20) {
-		error_2 = TARGET_DIST - dist_to_ocar;
-		pid = error_2 * KP_2;
+	printf("dist_to_ocar : %f\n", *dist_to_ocar);
+	printf("target speed : %f\n", target_speed);
+	if(*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
+		error_2 = TARGET_DIST - *dist_to_ocar;
+		pid = pow(2.5, fabs(error_2) * KP_2) / 2;
 	}
 	if (updown) {
-		if (error_2 < 0 || error < 0)
-			return MIN(abs_d(pid), 1.0);
+		if (error_2 < 0.0 || error < 0.0){
+			if(error_2 < 0.0 && *dist_to_ocar > 30) {
+				target_speed += 0.1;
+			}
+			return MIN(fabs(pid), 1.0);
+		}
 		return 0;
 	} else {
-		if (error_2 < 0 || error > 0 )
-			return MIN(abs_d(pid), 1.0);
+		if (error_2 > 0.0 || error > 0.0 )
+		{
+			if(error_2 > 0.0) {
+				target_speed -= 0.1;
+			}
+			return MIN(fabs(pid), 1.0);
+		}
 		return 0;
 	}
 

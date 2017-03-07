@@ -24,6 +24,7 @@
 const double Pathfinder::COLLDIST = 200.0;
 const double Pathfinder::TPRES = PI/(NTPARAMS - 1);	/* resolution of the steps */
 
+static const double g = 9.81;
 
 Pathfinder::Pathfinder(TrackDesc* itrack, tCarElt* car, tSituation *s)
 {

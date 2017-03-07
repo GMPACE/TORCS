@@ -451,7 +451,7 @@ static int pitcmd(int index, tCarElt* car, tSituation *s)
 }
 
 double calculate_CC(bool updown) {
-	const double TARGET_SPEED = 10;
+	const double TARGET_SPEED = 20;
 	const double KP = 0.5;
 	double error = car_speed - TARGET_SPEED;
 	double pid = error * KP;
