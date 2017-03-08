@@ -85,6 +85,7 @@ struct sembuf semclose = { 0, 1, SEM_UNDO };
 
 static double* dist_to_ocar;
 static bool* acc_flag;
+static double* speed_ocar;
 static double calculate_CC(bool updown);
 typedef struct
 {
@@ -435,6 +436,7 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 void newrace(int index, tCarElt* car, tSituation *s) {
 	mycar = new MyCar(myTrackDesc, car, s);
 	dist_to_ocar = new double();
+	speed_ocar = new double();
 	acc_flag = new bool();
 	*acc_flag = false;
 	if (ocar != NULL)
@@ -580,6 +582,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
 
 			if (temp != 0 && (raced_dist_o - raced_dist) > 0) {
+				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = MIN(temp, *dist_to_ocar);
 				printf("dist_to_ocar : %f\n", *dist_to_ocar);
 			}
@@ -1535,8 +1538,10 @@ static double calculate_CC(bool updown) {
 	}
 	if (updown) {
 		if (error_2 < 0.0 || error < 0.0){
-			if(error_2 < 0.0 && *dist_to_ocar > 30) {
-				target_speed += 0.1;
+			if(error_2 < 0.0 && *speed_ocar*1.3 > car_speed) {
+				double y = (-12.5) * *dist_to_ocar + 1250;
+				MAX(y, 0);
+				target_speed += *dist_to_ocar * ( 1 / (y + 1));
 			}
 			return MIN(fabs(pid), 1.0);
 		}
