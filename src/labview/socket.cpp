@@ -267,7 +267,7 @@ int main(void)
 
 
 
- char send_data[]="dataautosteer0autogear0speed000rpm000gear0steer000odometer0eom";
+ char send_data[]="dataautosteer0autogear0speed000rpm0000gear0steer-000odometer0eom";
 
 
 
@@ -286,151 +286,201 @@ int main(void)
 //  const char* cstr = str.c_str();
 
 
-	 car_speed = *r_speed;
-	 car_rpm = *r_rpm;
-	 car_steer = *r_steer;
 
-	 car_speed_s =ToString(car_speed);
-	 car_rpm_s = ToString(car_rpm);
-	 car_steer_s = ToString(car_steer);
+/*******************************************자율주행모드*********************************************/
 
 
-
-	 cout<<"speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
-
-
-
-  if(car_speed_s.length() == 3)
-  {
-	  send_data[28] = car_speed_s.at(0);
-	  send_data[29] = car_speed_s.at(1);
-	  send_data[30] = car_speed_s.at(2);
-  }
-  else if(car_speed_s.length() == 2)
-  {
-	  send_data[28] = '0';
-	  send_data[29] = car_speed_s.at(0);
-	  send_data[30] = car_speed_s.at(1);
-  }
-  else if(car_speed_s.length() == 1)
-  {
-	  send_data[28] = '0';
-	  send_data[29] = '0';
-	  send_data[30] = car_speed_s.at(0);
-  }
-
-
-
-
-  if(car_rpm_s.length() == 3)
-  {
-	  send_data[34] = car_rpm_s.at(0);
-	  send_data[35] = car_rpm_s.at(1);
-	  send_data[36] = car_rpm_s.at(2);
-  }
-  else if(car_rpm_s.length() == 2)
-  {
-	  send_data[34] = '0';
-	  send_data[35] = car_rpm_s.at(0);
-	  send_data[36] = car_rpm_s.at(1);
-  }
-  else if(car_rpm_s.length() == 1)
-  {
-	  send_data[34] = '0';
-	  send_data[35] = '0';
-	  send_data[36] = car_rpm_s.at(0);
-  }
-
-
-
-
-
-  if(car_steer_s.length() == 3)
-  {
-	  send_data[47] = car_steer_s.at(0);
-	  send_data[48] = car_steer_s.at(1);
-	  send_data[49] = car_steer_s.at(2);
-  }
-  else if(car_steer_s.length() == 2)
-  {
-	  send_data[47] = '0';
-	  send_data[48] = car_steer_s.at(0);
-	  send_data[49] = car_steer_s.at(1);
-  }
-  else if(car_steer_s.length() == 1)
-  {
-	  send_data[47] = '0';
-	  send_data[48] = '0';
-	  send_data[49] = car_steer_s.at(0);
-  }
-
-
-
-
-
-
-
-
-
-
-
-  write(s,(void*)send_data,sizeof(send_data));//메세지 보내기
-
-
-
- 
-//  strLen = read(s, (void*)ReceiveData, sizeof(ReceiveData));//메세지 받기
+//
+//	 car_speed = *r_speed;
+//	 car_rpm = (*r_rpm)*10;
+//	 car_steer = *r_steer;
+//	 //car_steer = -70;
 //
 //
-// // ReceiveData[strLen] = 0;
+//	 car_speed_s =ToString(car_speed);
+//	 car_rpm_s = ToString(car_rpm);
+//	 car_steer_s = ToString(car_steer);
 //
 //
-// strLen = 0;
-// if((strLen = read(s, ReceiveData, sizeof(ReceiveData)-1))>5 && strLen <= 160)
-// {
+//
+//	 cout<<"speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
 //
 //
-//   ReceiveData[strLen] = 0;
 //
-//   //printf("Msg : %s \nlength = %d\n", ReceiveData, strLen);
-// }
-//  string to_string(ReceiveData);
-////  string s_steer = to_string.strsub(26,
-//  char *ptr = strtok(ReceiveData, ".");//각각 값으로 쪼개기
-////  printf("%s", ptr);
-//  while (ptr != NULL)
+//  if(car_speed_s.length() == 3)
 //  {
-////   str2 += test[count];
-////   str2 += " : ";
-////   str2 += ptr;
-////   str2 += " ";
-//	 if(count == 1)
-//	 {
-//		*w_accel = atoi(ptr);
-//		printf("accel : %d\n", *w_accel);
-//	 }
-//	 if(count == 2)
-//	 {
-//		*w_brake = atoi(ptr);
-//		printf("brake: %d\n", *w_brake);
-//	 }
-//	 if(count == 3)
-//	 {
-//		*w_steer = atoi(ptr);
-//		string to_string(ptr);
-//		if(*w_steer == 0) {
-//			*w_steer = atoi(to_string.substr(6, 3).c_str());
-//		}
-//		printf("steer : %d\n", *w_steer);
-//		break;
-//	 }
-//
-//  ptr = strtok(NULL, ".");
-//   count++;
+//	  send_data[28] = car_speed_s.at(0);
+//	  send_data[29] = car_speed_s.at(1);
+//	  send_data[30] = car_speed_s.at(2);
+//  }
+//  else if(car_speed_s.length() == 2)
+//  {
+//	  send_data[28] = '0';
+//	  send_data[29] = car_speed_s.at(0);
+//	  send_data[30] = car_speed_s.at(1);
+//  }
+//  else if(car_speed_s.length() == 1)
+//  {
+//	  send_data[28] = '0';
+//	  send_data[29] = '0';
+//	  send_data[30] = car_speed_s.at(0);
 //  }
 //
 //
-//count =0;
+//
+//
+//
+//
+//  if(car_rpm_s.length() == 4)
+//  {
+//  	  send_data[34] = car_rpm_s.at(0);
+//  	  send_data[35] = car_rpm_s.at(1);
+//  	  send_data[36] = car_rpm_s.at(2);
+//  	  send_data[37] = car_rpm_s.at(3);
+//  }
+//  else if(car_rpm_s.length() == 3)
+//  {
+//	  send_data[34] = '0';
+//	  send_data[35] = car_rpm_s.at(0);
+//	  send_data[36] = car_rpm_s.at(1);
+//  	  send_data[37] = car_rpm_s.at(2);
+//  }
+//  else if(car_rpm_s.length() == 2)
+//  {
+//	  send_data[34] = '0';
+//	  send_data[35] = '0';
+//	  send_data[36] = car_rpm_s.at(0);
+//  	  send_data[37] = car_rpm_s.at(1);
+//  }
+//  else if(car_rpm_s.length() == 1)
+//  {
+//	  send_data[34] = '0';
+//	  send_data[35] = '0';
+//	  send_data[36] = '0';
+//  	  send_data[37] = car_rpm_s.at(0);
+//  }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//  if(car_steer_s.length() == 4)//ex)-500
+//   {
+//	  send_data[48] = '0';
+//	  send_data[49] = car_steer_s.at(1);
+//	  send_data[50] = car_steer_s.at(2);
+//	  send_data[51] = car_steer_s.at(3);
+//
+//   }
+//  else if(car_steer_s.length() == 3)
+//  {
+//	  if(car_steer > 0)//ex)500
+//	  {
+//		  send_data[48] = '-';
+//		  send_data[49] = car_steer_s.at(0);
+//		  send_data[50] = car_steer_s.at(1);
+//		  send_data[51] = car_steer_s.at(2);
+//	  }
+//	  else//ex)-40
+//	  {
+//		  send_data[48] = '0';
+//		  send_data[49] = '0';
+//		  send_data[50] = car_steer_s.at(1);
+//		  send_data[51] = car_steer_s.at(2);
+//	  }
+//  }
+//  else if(car_steer_s.length() == 2)
+//  {
+//	  if(car_steer > 0)//ex)50
+//	  {
+//		  send_data[48] = '-';
+//		  send_data[49] = '0';
+//		  send_data[50] = car_steer_s.at(0);
+//		  send_data[51] = car_steer_s.at(1);
+//	  }
+//	  else//ex)-5
+//	  {
+//		  send_data[48] = '0';
+//		  send_data[49] = '0';
+//		  send_data[50] = '0';
+//		  send_data[51] = car_steer_s.at(1);
+//	  }
+//
+//  }
+//  else if(car_steer_s.length() == 1)//ex)5 or 0
+//  {
+//	  send_data[48] = '-';
+//	  send_data[49] = '0';
+//	  send_data[50] = '0';
+//	  send_data[51] = car_steer_s.at(0);
+//  }
+//
+//
+//
+//
+//  write(s,(void*)send_data,sizeof(send_data));//메세지 보내기
+
+
+/***********************************************수동 모드**********************************************/
+
+  strLen = read(s, (void*)ReceiveData, sizeof(ReceiveData));//메세지 받기
+
+
+ // ReceiveData[strLen] = 0;
+
+
+ strLen = 0;
+ if((strLen = read(s, ReceiveData, sizeof(ReceiveData)-1))>5 && strLen <= 160)
+ {
+
+
+   ReceiveData[strLen] = 0;
+
+   //printf("Msg : %s \nlength = %d\n", ReceiveData, strLen);
+ }
+  string to_string(ReceiveData);
+//  string s_steer = to_string.strsub(26,
+  char *ptr = strtok(ReceiveData, ".");//각각 값으로 쪼개기
+//  printf("%s", ptr);
+  while (ptr != NULL)
+  {
+//   str2 += test[count];
+//   str2 += " : ";
+//   str2 += ptr;
+//   str2 += " ";
+	 if(count == 1)
+	 {
+		*w_accel = atoi(ptr);
+		printf("accel : %d\n", *w_accel);
+	 }
+	 if(count == 2)
+	 {
+		*w_brake = atoi(ptr);
+		printf("brake: %d\n", *w_brake);
+	 }
+	 if(count == 3)
+	 {
+		*w_steer = atoi(ptr);
+		string to_string(ptr);
+		if(*w_steer == 0) {
+			*w_steer = atoi(to_string.substr(6, 3).c_str());
+		}
+		printf("steer : %d\n", *w_steer);
+		break;
+	 }
+
+  ptr = strtok(NULL, ".");
+   count++;
+  }
+
+
+count =0;
 
 
  

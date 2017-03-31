@@ -891,23 +891,18 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //			perror("semop error : ");
 //			exit(0);
 //		}
-//		double k7_steer = ((double) (*torcs_steer)) / 180;
-////		printf("after access shared memory\n");
-//		car->_steerCmd = k7_steer;
+		double k7_steer = ((double) (*torcs_steer)) / 180;
+//		printf("after access shared memory\n");
+		car->_steerCmd = k7_steer;
 //		semop(semid, &semclose,1);
 		/*******************************************/
 
 
 
 
+//
+//		car->_steerCmd = leftSteer + rightSteer;
 
-		car->_steerCmd = leftSteer + rightSteer;
-
-		/*NaYeon*/
-		/*receive data setting */
-		*rec_steer = car->_steerCmd;
-		*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
-		*rec_rpm = car->_enginerpm;
 
 
 
@@ -998,9 +993,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		car->_brakeCmd = pow(fabs(ax0), cmd[CMD_BRAKE].sens)
 				/ (1.0 + cmd[CMD_BRAKE].spdSens * car->_speed_x / 10.0);
 		/* for K7 */
-//		brake_value = *ptr_brake;
-//		printf("brake : %d\n", brake_value);
-//		car->_brakeCmd = brake_value;
+		brake_value = *ptr_brake;
+		printf("brake : %d\n", brake_value);
+		car->_brakeCmd = brake_value;
 		/* for K7 */
 		/* CC Mode On */
 		if ((onoff_Mode & (short) 2) == (short) 2)
@@ -1112,12 +1107,12 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			car->_accelCmd = 0;
 		}
 		/* for K7 */
-//		accel_value = *ptr_accel;
-//		accel_value = MIN(MAX(610,accel_value), 3515);
-//
-//		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
-//		printf("accel : %d\n", atan_accel);
-//		car->_accelCmd = atan_accel;
+		accel_value = *ptr_accel;
+		accel_value = MIN(MAX(610,accel_value), 3515);
+
+		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
+		printf("accel : %d\n", atan_accel);
+		car->_accelCmd = atan_accel;
 		/* for K7 */
 		if (car->_brakeCmd > 0)
 			car->_accelCmd = 0;
@@ -1154,6 +1149,13 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 	/* Memo : Common_drive의 호출 주기 0.02s ~ 0.022s
 	 /* Hwancheol */
+
+	/*NaYeon*/
+			/*receive data setting */
+			*rec_steer = car->_steerCmd * 180* (-1);
+			*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
+			*rec_rpm = car->_enginerpm;
+
 
 	if (s->currentTime > 1.0) {
 		// thanks Christos for the following: gradual accel/brake changes for on/off controls.
