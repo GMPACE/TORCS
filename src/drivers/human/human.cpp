@@ -80,8 +80,8 @@ double target_speed = 0;
 tdble drivespeed = 0.0;
 short onoff_Mode = 0;
 
-struct sembuf semopen = { 0, -1, SEM_UNDO };
-struct sembuf semclose = { 0, 1, SEM_UNDO };
+//struct sembuf semopen = { 0, -1, SEM_UNDO };
+//struct sembuf semclose = { 0, 1, SEM_UNDO };
 
 static double* dist_to_ocar;
 static bool* acc_flag;
@@ -244,49 +244,97 @@ extern "C" int human(tModInfo *modInfo) {
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
 	char sstring[BUFSIZE];
-//	/*NaYeon*/
-//	shmid = shmget((key_t) skey, sizeof(int), 0777);
-//	if (shmid == -1) {
-//		perror("shmget failed :");
-////		exit(1);
-//	}
-//
-////			semid = semget((key_t) sekey, 0, 0777);
-////			if (semid == -1) {
-////				perror("semget failed : ");
-////				exit(1);
-////			}
-//
-//	shared_memory = shmat(shmid, (void *) 0, 0);
-//	if (!shared_memory) {
-//		perror("shmat failed");
-////		exit(1);
-//	}
-//	torcs_steer = (int*) shared_memory;
-//
-//	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
-//	if (shmid2 == -1) {
-//		perror("shmget failed :");
-////		exit(1);
-//	}
-//	shared_memory2 = shmat(shmid2, (void *) 0, 0);
-//	if (!shared_memory2) {
-//		perror("shmat failed");
-////		exit(1);
-//	}
-//	ptr_brake = (int*) shared_memory2;
-//
-//	shmid3 = shmget((key_t) skey3, sizeof(int), 0777);
-//	if (shmid3 == -1) {
-//		perror("shmget failed :");
-////		exit(1);
-//	}
-//	shared_memory3 = shmat(shmid3, (void *) 0, 0);
-//	if (!shared_memory3) {
-//		perror("shmat failed");
-////		exit(1);
-//	}
-//	ptr_accel = (int*) shared_memory3;
+	/*NaYeon*/
+	shmid = shmget((key_t) skey, sizeof(int), 0777);
+	if (shmid == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+
+//			semid = semget((key_t) sekey, 0, 0777);
+//			if (semid == -1) {
+//				perror("semget failed : ");
+//				exit(1);
+//			}
+
+	shared_memory = shmat(shmid, (void *) 0, 0);
+	if (!shared_memory) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	torcs_steer = (int*) shared_memory;
+
+	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
+	if (shmid2 == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory2 = shmat(shmid2, (void *) 0, 0);
+	if (!shared_memory2) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	ptr_brake = (int*) shared_memory2;
+
+	shmid3 = shmget((key_t) skey3, sizeof(int), 0777);
+	if (shmid3 == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory3 = shmat(shmid3, (void *) 0, 0);
+	if (!shared_memory3) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	ptr_accel = (int*) shared_memory3;
+
+
+
+	shmid_recspeed = shmget((key_t) skey_recspeed, sizeof(int), 0777);
+	if (shmid_recspeed == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_recspeed = shmat(shmid_recspeed, (void *) 0, 0);
+	if (!shared_memory_recspeed) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_speed = (int*) shared_memory_recspeed;
+
+
+
+	shmid_recrpm = shmget((key_t) skey_recrpm, sizeof(int), 0777);
+	if (shmid_recrpm == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_recrpm = shmat(shmid_recrpm, (void *) 0, 0);
+	if (!shared_memory_recrpm) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_rpm = (int*) shared_memory_recrpm;
+
+
+
+	shmid_recsteer = shmget((key_t) skey_recsteer, sizeof(int), 0777);
+	if (shmid_recsteer == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_recsteer = shmat(shmid_recsteer, (void *) 0, 0);
+	if (!shared_memory_recsteer) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_steer = (int*) shared_memory_recsteer;
+
+
+
+
+
+
 
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
@@ -565,6 +613,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	mycar->update(myTrackDesc, car, s);
 	double raced_dist = mycar->getCarPtr()->race.distRaced;
 	double raced_dist_o = 0;
+
+	/* Nayeon : transfer to K7 */
+	//car->PRM_RPM
+
+
 	/* update the other cars just once */
 	if (currenttime != s->currentTime) {
 		currenttime = s->currentTime;
@@ -844,7 +897,21 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //		semop(semid, &semclose,1);
 		/*******************************************/
 
+
+
+
+
 		car->_steerCmd = leftSteer + rightSteer;
+
+		/*NaYeon*/
+		/*receive data setting */
+		*rec_steer = car->_steerCmd;
+		*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
+		*rec_rpm = car->_enginerpm;
+
+
+
+
 	} else {
 		float length = 0.0;
 		float angle = 0.0;

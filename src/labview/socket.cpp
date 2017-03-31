@@ -66,9 +66,9 @@ int main(void)
 	int skey = 5678;//shared memory1-> key
 	int skey2 = 1234;
 	int skey3 = 2345;
-	int skey_recspeed = 1234;//shared memory_receive data key
-	int skey_recrpm = 2345;
-	int skey_recwheel = 3456;
+	int skey_recspeed = 3456;//shared memory_receive data key
+	int skey_recrpm = 4567;
+	int skey_recwheel = 6789;
 //	int sekey = 1234;//semaphore key
 
 	int *process_num;
@@ -245,13 +245,17 @@ int main(void)
 
  int car_autosteer = 0;
  int car_autogear = 0;
- int car_speed = 10;
- int car_rpm = 50;
+ int car_speed = 40;
+ int car_rpm = 500;
  int car_gear = 0;
- int car_steer = 10;
+ int car_steer = 30;
  int car_odometer = 0;
 
- int car_steer_test = *r_steer;
+ string car_speed_s;
+ string car_rpm_s;
+ string car_steer_s;
+
+
 
 
 
@@ -263,6 +267,8 @@ int main(void)
 
 
 
+ char send_data[]="dataautosteer0autogear0speed000rpm000gear0steer000odometer0eom";
+
 
 
  while (1)
@@ -270,25 +276,106 @@ int main(void)
 
 
 
-  string str= "dataautosteer" + ToString(car_autosteer) + +"autogear" + ToString(car_autogear)
-   + "speed" + ToString(car_speed)
-   + "rpm" + ToString(car_rpm)
-   + "gear" + ToString(car_gear)
-   + "steer" + ToString(car_steer)
-   + "odometer" + ToString(car_odometer)
-   + "eom";
-  const char* cstr = str.c_str();
+//  string str= "dataautosteer" + ToString(car_autosteer) + +"autogear" + ToString(car_autogear)
+//   + "speed" + ToString(car_speed)
+//   + "rpm" + ToString(car_rpm)
+//   + "gear" + ToString(car_gear)
+//   + "steer" + ToString(car_steer)
+//   + "odometer" + ToString(car_odometer)
+//   + "eom";
+//  const char* cstr = str.c_str();
+
+
+	 car_speed = *r_speed;
+	 car_rpm = *r_rpm;
+	 car_steer = *r_steer;
+
+	 car_speed_s =ToString(car_speed);
+	 car_rpm_s = ToString(car_rpm);
+	 car_steer_s = ToString(car_steer);
 
 
 
-  cout<<"speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
-  cout <<str<<endl;
+	 cout<<"speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
 
 
-  //write(s,(void*)cstr,sizeof(cstr));//메세지 보내기
+
+  if(car_speed_s.length() == 3)
+  {
+	  send_data[28] = car_speed_s.at(0);
+	  send_data[29] = car_speed_s.at(1);
+	  send_data[30] = car_speed_s.at(2);
+  }
+  else if(car_speed_s.length() == 2)
+  {
+	  send_data[28] = '0';
+	  send_data[29] = car_speed_s.at(0);
+	  send_data[30] = car_speed_s.at(1);
+  }
+  else if(car_speed_s.length() == 1)
+  {
+	  send_data[28] = '0';
+	  send_data[29] = '0';
+	  send_data[30] = car_speed_s.at(0);
+  }
 
 
-  //cout<<"speed : "<<car_speed<<"rpm : "<<car_rpm<<"steer test : "<<car_steer_test<<endl;
+
+
+  if(car_rpm_s.length() == 3)
+  {
+	  send_data[34] = car_rpm_s.at(0);
+	  send_data[35] = car_rpm_s.at(1);
+	  send_data[36] = car_rpm_s.at(2);
+  }
+  else if(car_rpm_s.length() == 2)
+  {
+	  send_data[34] = '0';
+	  send_data[35] = car_rpm_s.at(0);
+	  send_data[36] = car_rpm_s.at(1);
+  }
+  else if(car_rpm_s.length() == 1)
+  {
+	  send_data[34] = '0';
+	  send_data[35] = '0';
+	  send_data[36] = car_rpm_s.at(0);
+  }
+
+
+
+
+
+  if(car_steer_s.length() == 3)
+  {
+	  send_data[47] = car_steer_s.at(0);
+	  send_data[48] = car_steer_s.at(1);
+	  send_data[49] = car_steer_s.at(2);
+  }
+  else if(car_steer_s.length() == 2)
+  {
+	  send_data[47] = '0';
+	  send_data[48] = car_steer_s.at(0);
+	  send_data[49] = car_steer_s.at(1);
+  }
+  else if(car_steer_s.length() == 1)
+  {
+	  send_data[47] = '0';
+	  send_data[48] = '0';
+	  send_data[49] = car_steer_s.at(0);
+  }
+
+
+
+
+
+
+
+
+
+
+
+  write(s,(void*)send_data,sizeof(send_data));//메세지 보내기
+
 
 
  
