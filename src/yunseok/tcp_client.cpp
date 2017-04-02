@@ -43,6 +43,7 @@ public:
 	void map() {
 
 		for (int i = 0; i < NUM_OF_DATA; i++) {
+
 			//Create Shared Memory _ receive Data
 			shmid[i] = shmget((key_t) skey[i], sizeof(int), 0777 | IPC_CREAT);
 			if (shmid[i] == -1) {
@@ -59,7 +60,6 @@ public:
 			value[i] = (int *) shared_memory[i];
 		}
 	}
-
 };
 /* Hwancheol */
 int main(void) {
@@ -89,13 +89,14 @@ int main(void) {
 	cout << "서버 연결 성공" << endl;
 
 	while (1) {
+		shm_manager->map();
 		stringstream acc, lkas, target_speed, test;
 		acc << *(shm_manager->value[ACC]);
 		lkas << *(shm_manager->value[LKAS]);
 		target_speed << *(shm_manager->value[TARGET_SPEED]);
 		cout << "ACC : " << *(shm_manager->value[ACC]) << " LKAS : "
 				<< *(shm_manager->value[LKAS]) << " TARGET_SPEED : "
-				<< *(shm_manager->value[TARGET_SPEED]) <<  endl;
+				<< *(shm_manager->value[TARGET_SPEED]) << endl;
 
 		string smessage = "ACC:" + acc.str() + "&LKAS:" + lkas.str()
 				+ "&TARGETSPEED:" + target_speed.str() + "\n";
