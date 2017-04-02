@@ -143,11 +143,12 @@ static void reAddKeys(void) {
 			GfuiScreenShot, NULL);
 
 	/* Hwancheol */
-	GfuiAddKey(reScreenHandle, 'x', "LKAS Mode On/Off", (void*) 0, changeMode_LKAS,
+	GfuiAddKey(reScreenHandle, '2', "LKAS Mode On/Off", (void*) 0, changeMode_LKAS,
 			NULL);
-	GfuiAddKey(reScreenHandle, 'z', "CC Mode On/Off", (void*) 0, changeMode_CC,
+	GfuiAddKey(reScreenHandle, '1', "CC Mode On/Off", (void*) 0, changeMode_CC,
 			NULL);
 	/* Hwancheol */
+
 
 	GfuiAddKey(reScreenHandle, '-', "Slow Time", (void*) 0, ReTimeMod, NULL);
 	GfuiAddKey(reScreenHandle, '+', "Accelerate Time", (void*) 1, ReTimeMod,

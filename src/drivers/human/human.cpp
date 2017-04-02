@@ -332,8 +332,43 @@ extern "C" int human(tModInfo *modInfo) {
 
 
 
+	shmid_acc = shmget((key_t) skey_acc, sizeof(int), 0777);
+	if (shmid_acc == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_acc = shmat(shmid_acc, (void *) 0, 0);
+	if (!shared_memory_acc) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_acc = (int*) shared_memory_acc;
 
 
+	shmid_lkas = shmget((key_t) skey_lkas, sizeof(int), 0777);
+	if (shmid_lkas == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_lkas = shmat(shmid_lkas, (void *) 0, 0);
+	if (!shared_memory_acc) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_lkas = (int*) shared_memory_lkas;
+
+
+	shmid_targetspeed = shmget((key_t) skey_targetspeed, sizeof(int), 0777);
+	if (shmid_acc == -1) {
+		perror("shmget failed :");
+//		exit(1);
+	}
+	shared_memory_targetspeed = shmat(shmid_targetspeed, (void *) 0, 0);
+	if (!shared_memory_targetspeed) {
+		perror("shmat failed");
+//		exit(1);
+	}
+	rec_targetspeed = (int*) shared_memory_targetspeed;
 
 
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
@@ -1112,7 +1147,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
 		printf("accel : %d\n", atan_accel);
-		car->_accelCmd = atan_accel;
+//		car->_accelCmd = atan_accel;
 		/* for K7 */
 		if (car->_brakeCmd > 0)
 			car->_accelCmd = 0;
@@ -1155,6 +1190,13 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			*rec_steer = car->_steerCmd * 180* (-1);
 			*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
 			*rec_rpm = car->_enginerpm;
+	/* Hwancheol */
+			*rec_acc = (onoff_Mode & (short) 2);
+			*rec_lkas = (onoff_Mode & (short) 1);
+			*rec_targetspeed = target_speed * 3.6;
+			printf("ACC : %d\n", *rec_acc);
+			printf("LKAS : %d\n", *rec_lkas);
+			printf("TARGETSPEED: %d\n", *rec_targetspeed);
 
 
 	if (s->currentTime > 1.0) {
