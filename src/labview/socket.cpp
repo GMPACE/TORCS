@@ -300,6 +300,8 @@ int main(void)
  char send_data[]="dataautosteer0autogear0speed030rpm0500gear0steer-020odometer0eom";
 
 
+ bool check_value = true;//true -> 자동모드 , false -> 수동모드
+
 
  while (1)
  {
@@ -308,6 +310,9 @@ int main(void)
 	 if(*r_mode == 1)//auto mode
 
 	 {
+		 if(check_value == false) check_value = true;
+
+
 		 send_data[13] = '1';//change autosteer value
 
 
@@ -442,11 +447,13 @@ int main(void)
 	 else
 	 {
 
-		 send_data[13] = 0;//steer mode is manual
+		 if(check_value == true)//자동모드에서 수동모드로 바뀌는 순간
 
-		 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
-
-
+		 {
+			 send_data[13] = 0;//steer mode is manual
+			 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
+			 check_value = false;
+		 }
 
 		  strLen = read(s, (void*)ReceiveData, sizeof(ReceiveData));//메세지 받기
 
