@@ -1147,7 +1147,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
 		printf("accel : %d\n", atan_accel);
-//		car->_accelCmd = atan_accel;
+		car->_accelCmd = atan_accel;
 		/* for K7 */
 		if (car->_brakeCmd > 0)
 			car->_accelCmd = 0;

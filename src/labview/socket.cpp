@@ -310,7 +310,7 @@ int main(void)
 	 if(*r_mode == 1)//auto mode
 
 	 {
-		 if(check_value == false) check_value = true;
+//		 if(check_value == false) check_value = true;
 
 
 		 send_data[13] = '1';//change autosteer value
@@ -326,7 +326,7 @@ int main(void)
 		 car_steer_s = ToString(car_steer);
 
 
-		 cout<<"speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
+		 cout<<"mode : "<<*r_mode<<" speed : "<<*r_speed<<"*r_rpm : "<<*r_rpm<<"*r_steer : "<<*r_steer<<endl;
 
 
 		  if(car_speed_s.length() == 3)
@@ -444,16 +444,18 @@ int main(void)
 
 	 }
 /***************************************수동 모드**************************************/
-	 else
+	 else if (*r_mode == 0)
 	 {
 
-		 if(check_value == true)//자동모드에서 수동모드로 바뀌는 순간
+//		 if(check_value == true)//자동모드에서 수동모드로 바뀌는 순간
+//
+//		 {
+//			 send_data[13] = 0;//steer mode is manual
+//			 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
+//			 check_value = false;
+//		 }
 
-		 {
-			 send_data[13] = 0;//steer mode is manual
-			 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
-			 check_value = false;
-		 }
+		 cout<<"mode : "<<*r_mode<<endl;
 
 		  strLen = read(s, (void*)ReceiveData, sizeof(ReceiveData));//메세지 받기
 
