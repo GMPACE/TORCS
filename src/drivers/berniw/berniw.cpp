@@ -34,7 +34,7 @@ static int pitcmd(int index, tCarElt* car, tSituation *s);
 static void shutdown(int index);
 
 /* Hwancheol */
-double target_speed = rand() % 11 + 7;
+double target_speed = 14;
 static double calculate_CC(bool updown);
 static double car_speed = 0.0;
 static double* dist_to_ocar;
@@ -98,6 +98,8 @@ static void shutdown(int index) {
 		delete[] ocar;
 		ocar = NULL;
 	}
+	delete dist_to_ocar;
+	delete speed_ocar;
 }
 
 /* initialize track data, called for every selected driver */
@@ -136,6 +138,7 @@ static void newRace(int index, tCarElt* car, tSituation *situation) {
 	if (ocar != NULL)
 		delete[] ocar;
 	dist_to_ocar = new double();
+	speed_ocar = new double();
 	ocar = new OtherCar[situation->_ncars];
 	for (int i = 0; i < situation->_ncars; i++) {
 		ocar[i].init(myTrackDesc, situation->cars[i], situation);
@@ -169,6 +172,10 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 	double raced_dist_o = 0;
 	/* update some values needed */
 	myc->update(myTrackDesc, car, situation);
+	if (car->pub.trkPos.toLeft < car->pub.trkPos.toRight)
+		myc->isonLeft = true;
+	else
+		myc->isonLeft = false;
 	car_speed = myc->getSpeed();
 	printf("car_speed : %f\n", car_speed);
 	/* decide how we want to drive */
@@ -197,16 +204,15 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 											- ocar[i].getCurrentPos()->y),
 									2.0));
 			raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
-
-			if (temp != 0 && (raced_dist_o - raced_dist) > 0) {
+			if (ocar[i].getCarPtr()->pub.trkPos.toLeft
+					< ocar[i].getCarPtr()->pub.trkPos.toRight)
+				ocar[i].isonLeft = true;
+			else
+				ocar[i].isonLeft = false;
+			if (temp != 0 && (raced_dist_o - raced_dist) > 0 && myc->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = MIN(temp, *dist_to_ocar);
-				printf("dist_to_ocar : %f\n", *dist_to_ocar);
 			}
-			//			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
-			//					mycar->getCurrentPos()->y);
-			//			printf("other car's position : (%f, %f)\n",
-			//					ocar[i].getCurrentPos()->x, ocar[i].getCurrentPos()->y);
 		}
 	}
 	/* startmode */
@@ -580,7 +586,6 @@ static int pitcmd(int index, tCarElt* car, tSituation *s) {
 
 double calculate_CC(bool updown) {
 
-
 	const double KP = 0.5;
 	const double KP_2 = 1.0;
 	const double TARGET_DIST = 15;
@@ -598,6 +603,8 @@ double calculate_CC(bool updown) {
 				double y = (-12.5) * *dist_to_ocar + 1250;
 				MAX(y, 0);
 				target_speed += *dist_to_ocar * (1 / (y + 1));
+				if (target_speed > 13)
+					target_speed = 13;
 			}
 			return MIN(fabs(pid), 1.0);
 		}

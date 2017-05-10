@@ -88,11 +88,10 @@ static double* dist_to_ocar;
 static bool* acc_flag;
 static double* speed_ocar;
 static double calculate_CC(bool updown);
-typedef struct
-{
+typedef struct {
 	v3d pre_v;
 	v3d current_v;
-}direct_vec;
+} direct_vec;
 //for direction
 
 direct_vec direc_vec;
@@ -371,7 +370,6 @@ extern "C" int human(tModInfo *modInfo) {
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
 
-
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -427,8 +425,8 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	v1.y = 0.0;
 	v2.x = 0.0;
 	v2.y = 0.0;
-	direc_vec = { v1, v2 };
-	direc_vec_o = { v1, v2 };
+	direc_vec = {v1, v2};
+	direc_vec_o = {v1, v2};
 	if ((myTrackDesc != NULL) && (myTrackDesc->getTorcsTrack() != track)) {
 		delete myTrackDesc;
 		myTrackDesc = NULL;
@@ -645,17 +643,19 @@ static int onSKeyAction(int key, int modifier, int state) {
 static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
 	/************ACC***********/
-	*dist_to_ocar = 10000000.0;
-
+	*dist_to_ocar = -10000000.0;
 
 	/* update some values needed */
 	mycar->update(myTrackDesc, car, s);
+	if (car->pub.trkPos.toLeft < car->pub.trkPos.toRight)
+		mycar->isonLeft = true;
+	else
+		mycar->isonLeft = false;
 	double raced_dist = mycar->getCarPtr()->race.distRaced;
 	double raced_dist_o = 0;
 
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
-
 
 	/* update the other cars just once */
 	if (currenttime != s->currentTime) {
@@ -672,8 +672,12 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 											- ocar[i].getCurrentPos()->y),
 									2.0));
 			raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
-
-			if (temp != 0 && (raced_dist_o - raced_dist) > 0) {
+			if (ocar[i].getCarPtr()->pub.trkPos.toLeft
+					< ocar[i].getCarPtr()->pub.trkPos.toRight)
+				ocar[i].isonLeft = true;
+			else
+				ocar[i].isonLeft = false;
+			if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = MIN(temp, *dist_to_ocar);
 				printf("dist_to_ocar : %f\n", *dist_to_ocar);
@@ -936,15 +940,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //		semop(semid, &semclose,1);
 		/*******************************************/
 
-
-
-
 //
 		car->_steerCmd = leftSteer + rightSteer;
-
-
-
-
 
 	} else {
 		float length = 0.0;
@@ -973,13 +970,16 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		}
 
 		length = lookahead - length + seg->length;
-		if(car->_trkPos.toRight < car->_trkPos.toLeft) {
-			a.x = (seg->vertex[TR_SL].x * 4 / 15 + seg->vertex[TR_SR].x * 11 / 15);
-			a.y = (seg->vertex[TR_SL].y * 4 / 15 + seg->vertex[TR_SR].y * 11 / 15);
-		}
-		else {
-			a.x = (seg->vertex[TR_SL].x * 11 / 15 + seg->vertex[TR_SR].x * 4 / 15);
-			a.y = (seg->vertex[TR_SL].y * 11 / 15 + seg->vertex[TR_SR].y * 4 / 15);
+		if (car->_trkPos.toRight < car->_trkPos.toLeft) {
+			a.x = (seg->vertex[TR_SL].x * 4 / 15
+					+ seg->vertex[TR_SR].x * 11 / 15);
+			a.y = (seg->vertex[TR_SL].y * 4 / 15
+					+ seg->vertex[TR_SR].y * 11 / 15);
+		} else {
+			a.x = (seg->vertex[TR_SL].x * 11 / 15
+					+ seg->vertex[TR_SR].x * 4 / 15);
+			a.y = (seg->vertex[TR_SL].y * 11 / 15
+					+ seg->vertex[TR_SR].y * 4 / 15);
 		}
 
 		if (seg->type == TR_STR) {
@@ -1205,7 +1205,6 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //			printf("ACC : %d\n", *rec_acc);
 //			printf("LKAS : %d\n", *rec_lkas);
 //			printf("TARGETSPEED: %d\n", *rec_targetspeed);
-
 
 	if (s->currentTime > 1.0) {
 		// thanks Christos for the following: gradual accel/brake changes for on/off controls.
@@ -1651,24 +1650,23 @@ static double calculate_CC(bool updown) {
 	/* Adaptive Cruise Control */
 	printf("dist_to_ocar : %f\n", *dist_to_ocar);
 	printf("target speed : %f\n", target_speed);
-	if(*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
+	if (*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
 		error_2 = TARGET_DIST - *dist_to_ocar;
 		pid = pow(2.5, fabs(error_2) * KP_2) / 2;
 	}
 	if (updown) {
-		if (error_2 < 0.0 || error < 0.0){
-			if(error_2 < 0.0 && *speed_ocar*1.3 > car_speed) {
+		if (error_2 < 0.0 || error < 0.0) {
+			if (error_2 < 0.0 && *speed_ocar * 1.3 > car_speed) {
 				double y = (-12.5) * *dist_to_ocar + 1250;
 				MAX(y, 0);
-				target_speed += *dist_to_ocar * ( 1 / (y + 1));
+				target_speed += *dist_to_ocar * (1 / (y + 1));
 			}
 			return MIN(fabs(pid), 1.0);
 		}
 		return 0;
 	} else {
-		if (error_2 > 0.0 || error > 0.0 )
-		{
-			if(error_2 > 0.0) {
+		if (error_2 > 0.0 || error > 0.0) {
+			if (error_2 > 0.0) {
 				target_speed -= 0.1;
 			}
 			return MIN(fabs(pid), 1.0);

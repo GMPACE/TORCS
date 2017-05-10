@@ -78,6 +78,7 @@ class AbstractCar
 class MyCar : public AbstractCar
 {
 	public:
+		bool isonLeft;
 		/* possible behaviours */
 		enum {
 			INSANE = 0, PUSH = 1, NORMAL = 2, CAREFUL = 3, SLOW = 4, START = 5
@@ -193,7 +194,7 @@ class MyCar : public AbstractCar
 class OtherCar: public AbstractCar
 {
 	public:
-
+		bool isonLeft;
 		void init(TrackDesc* itrack, tCarElt* car, tSituation *situation);
 		void update(void);
 
