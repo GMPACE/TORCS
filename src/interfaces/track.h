@@ -326,7 +326,7 @@ typedef struct trackSeg {
     t3Dd vertex[4];		/**< Coord of the 4 corners of the segment.
 				   <br>Index in:
 				   - TR_SL
-				   - TR_SL
+				   - TR_SR
 				   - TR_EL
 				   - TR_ER
 				 */
