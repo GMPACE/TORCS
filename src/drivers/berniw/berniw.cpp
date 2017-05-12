@@ -34,7 +34,7 @@ static int pitcmd(int index, tCarElt* car, tSituation *s);
 static void shutdown(int index);
 
 /* Hwancheol */
-double target_speed = 14;
+static double target_speed_bn = 14;
 static double calculate_CC(bool updown);
 static double car_speed = 0.0;
 static double* dist_to_ocar;
@@ -177,7 +177,7 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 	else
 		myc->isonLeft = false;
 	car_speed = myc->getSpeed();
-	printf("car_speed : %f\n", car_speed);
+	printf("berniw - car_speed : %f\n", car_speed);
 	/* decide how we want to drive */
 	if (car->_dammage < myc->undamaged / 3 && myc->bmode != myc->NORMAL) {
 		myc->loadBehaviour(myc->NORMAL);
@@ -211,7 +211,7 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 				ocar[i].isonLeft = false;
 			if (temp != 0 && (raced_dist_o - raced_dist) > 0 && myc->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
-				*dist_to_ocar = MIN(temp, *dist_to_ocar);
+				*dist_to_ocar = MAX(temp, *dist_to_ocar);
 			}
 		}
 	}
@@ -589,7 +589,7 @@ double calculate_CC(bool updown) {
 	const double KP = 0.5;
 	const double KP_2 = 1.0;
 	const double TARGET_DIST = 15;
-	double error = car_speed - target_speed;
+	double error = car_speed - target_speed_bn;
 	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
@@ -602,9 +602,9 @@ double calculate_CC(bool updown) {
 			if (error_2 < 0.0 && *speed_ocar * 1.3 > car_speed) {
 				double y = (-12.5) * *dist_to_ocar + 1250;
 				MAX(y, 0);
-				target_speed += *dist_to_ocar * (1 / (y + 1));
-				if (target_speed > 13)
-					target_speed = 13;
+				target_speed_bn += *dist_to_ocar * (1 / (y + 1));
+				if (target_speed_bn > 13)
+					target_speed_bn = 13;
 			}
 			return MIN(fabs(pid), 1.0);
 		}
@@ -612,7 +612,7 @@ double calculate_CC(bool updown) {
 	} else {
 		if (error_2 > 0.0 || error > 0.0) {
 			if (error_2 > 0.0) {
-				target_speed -= 0.1;
+				target_speed_bn -= 0.1;
 			}
 			return MIN(fabs(pid), 1.0);
 		}

@@ -51,8 +51,8 @@ static void ReRaceRules(tCarElt *car);
 /* Hwancheol */
 extern const short MODECHECK = 3;
 short onoff_Mode = 0;
-double target_speed = 0;
-double current_speed = 0;
+static double target_speed = 0;
+static double current_speed = 0;
 /* Hwancheol */
 
 /* Compute Pit stop time */
@@ -146,6 +146,7 @@ ReManage(tCarElt *car)
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
 	
 	current_speed = car->_speed_x;
+	car->pub.target_speed = target_speed;
 	if (car->_speed_x > car->_topSpeed) {
 		car->_topSpeed = car->_speed_x;
 	}

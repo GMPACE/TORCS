@@ -218,8 +218,12 @@ typedef struct {
 #define RM_CAR_STATE_SIMU_NO_MOVE	0x00010000 				/**< Simulation without car move (i.e. clutch applied and no wheel move)  */
 	tPosd corner[4];
 
+
+	/* Hwancheol */
+	double target_speed;
 } tPublicCar;
 /* structure access */
+#define _target_speed pub.target_speed;
 #define _DynGC		pub.DynGC
 #define _pos_X		pub.DynGC.pos.x
 #define _pos_Y		pub.DynGC.pos.y

@@ -61,7 +61,6 @@ static const double g = 9.81;
 #define DRWD 0
 #define DFWD 1
 #define D4WD 2
-
 /* Hwancheol */
 #define MIN(a, b) (a < b) ? a : b
 #define MAX(a, b) (a > b) ? a : b
@@ -75,10 +74,11 @@ static void newrace(int index, tCarElt* car, tSituation *s);
 static int pitcmd(int index, tCarElt* car, tSituation *s);
 
 /* Hwancheol */
-double car_speed = 0;
-double target_speed = 0;
+static double car_speed = 0;
 tdble drivespeed = 0.0;
 short onoff_Mode = 0;
+static short current_mode = 0;
+static short prev_mode = 0;
 
 v2d prev_pos;
 //struct sembuf semopen = { 0, -1, SEM_UNDO };
@@ -87,7 +87,8 @@ v2d prev_pos;
 static double* dist_to_ocar;
 static bool* acc_flag;
 static double* speed_ocar;
-static double calculate_CC(bool updown);
+static double temp_target_speed = -1;
+static double calculate_CC(bool updown, tCarElt* car);
 typedef struct {
 	v3d pre_v;
 	v3d current_v;
@@ -369,7 +370,6 @@ extern "C" int human(tModInfo *modInfo) {
 ////		exit(1);
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
-
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -516,7 +516,7 @@ static void initTrack(int index, tTrack* track, void *carHandle,
  *
  */
 
-void newrace(int index, tCarElt* car, tSituation *s) {
+static void newrace(int index, tCarElt* car, tSituation *s) {
 	prev_pos.x = car->_pos_X;
 	prev_pos.y = car->_pos_Y;
 	mycar = new MyCar(myTrackDesc, car, s);
@@ -636,7 +636,6 @@ static int onKeyAction(unsigned char key, int modifier, int state) {
 
 static int onSKeyAction(int key, int modifier, int state) {
 	currentSKey[key] = state;
-
 	return 0;
 }
 
@@ -644,7 +643,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
 	/************ACC***********/
 	*dist_to_ocar = -10000000.0;
-
+	if(current_mode != onoff_Mode){
+		prev_mode = current_mode;
+		current_mode = onoff_Mode;
+	}
 	/* update some values needed */
 	mycar->update(myTrackDesc, car, s);
 	if (car->pub.trkPos.toLeft < car->pub.trkPos.toRight)
@@ -656,7 +658,6 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
-
 	/* update the other cars just once */
 	if (currenttime != s->currentTime) {
 		currenttime = s->currentTime;
@@ -677,10 +678,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				ocar[i].isonLeft = true;
 			else
 				ocar[i].isonLeft = false;
-			if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
+			if (temp != 0 && (raced_dist_o - raced_dist) > 0
+					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
-				*dist_to_ocar = MIN(temp, *dist_to_ocar);
-				printf("dist_to_ocar : %f\n", *dist_to_ocar);
+				*dist_to_ocar = MAX(temp, *dist_to_ocar);
 			}
 //			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
 //					mycar->getCurrentPos()->y);
@@ -924,11 +925,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		rightSteer = 0;
 		break;
 	}
-	if ((onoff_Mode & 1) != 1) {
+	if ((onoff_Mode & 1) == 1) {
 
 		/*shared memory & semaphore change value*/
 		/*NaYeon*/
-
 //		if(semop(semid,&semopen,1) == -1)
 //		{
 //			perror("semop error : ");
@@ -941,9 +941,6 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		/*******************************************/
 
 //
-		car->_steerCmd = leftSteer + rightSteer;
-
-	} else {
 		float length = 0.0;
 		float angle = 0.0;
 		float dist = 0.0;
@@ -981,7 +978,6 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			a.y = (seg->vertex[TR_SL].y * 11 / 15
 					+ seg->vertex[TR_SR].y * 4 / 15);
 		}
-
 		if (seg->type == TR_STR) {
 			v2d d;
 			d.x = (seg->vertex[TR_EL].x - seg->vertex[TR_SL].x) / seg->length;
@@ -1002,6 +998,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		NORM_PI_PI(angle);
 
 		car->_steerCmd = angle;
+
+	} else {
+		car->_steerCmd = leftSteer + rightSteer;
 	}
 
 	car_speed = car->_speed_x;
@@ -1041,8 +1040,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //		car->_brakeCmd = brake_value;
 		/* for K7 */
 		/* CC Mode On */
-		if ((onoff_Mode & (short) 2) == (short) 2)
-			car->_brakeCmd = calculate_CC(false);
+		if ((onoff_Mode & (short) 2) == (short) 2) {
+
+			car->_brakeCmd = calculate_CC(false, car);
+		}
 		break;
 
 		/* TODO : K7 Mapping Part */
@@ -1157,13 +1158,13 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //		printf("accel : %d\n", atan_accel);
 //		car->_accelCmd = atan_accel;
 		/* for K7 */
-		if (car->_brakeCmd > 0)
-			car->_accelCmd = 0;
+
 		/* CC Mode On */
 		if ((onoff_Mode & (short) 2) == (short) 2)
-			car->_accelCmd = calculate_CC(true);
+			car->_accelCmd = calculate_CC(true, car);
 		/* printf("  axO:%f  accelCmd:%f\n", ax0, car->_accelCmd); */
-
+		if (car->_brakeCmd > 0)
+			car->_accelCmd = 0;
 		break;
 		/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
@@ -1185,11 +1186,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 	/* Hwancheol */
 	/******Data Logging Part******/
-
 	printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
-	printf("중앙선과의 거리 : %fm\n", car->pub.trkPos.toMiddle);
 	printf("스티어링 : %f%\n", car->_steerCmd * 100);
-
+	if((onoff_Mode & (short) 2) != (short) 2) {
+		temp_target_speed = -1;
+	}
 	/* Memo : Common_drive의 호출 주기 0.02s ~ 0.022s
 	 /* Hwancheol */
 
@@ -1205,10 +1206,17 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //			printf("ACC : %d\n", *rec_acc);
 //			printf("LKAS : %d\n", *rec_lkas);
 //			printf("TARGETSPEED: %d\n", *rec_targetspeed);
-
 	if (s->currentTime > 1.0) {
 		// thanks Christos for the following: gradual accel/brake changes for on/off controls.
 		const tdble inc_rate = 0.2f;
+		tdble d_brake = car->_brakeCmd - HCtx[idx]->pbrake;
+		if (fabs(d_brake) > inc_rate
+				&& car->_brakeCmd > HCtx[idx]->pbrake) {
+			car->_brakeCmd = MIN(car->_brakeCmd,
+					HCtx[idx]->pbrake + inc_rate * d_brake / fabs(d_brake));
+		}
+		HCtx[idx]->pbrake = car->_brakeCmd;
+
 
 		if (cmd[CMD_BRAKE].type == GFCTRL_TYPE_JOY_BUT
 				|| cmd[CMD_BRAKE].type == GFCTRL_TYPE_MOUSE_BUT
@@ -1359,6 +1367,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		}
 	}
 #endif
+
 #endif
 
 	HCtx[idx]->lap = car->_laps;
@@ -1593,7 +1602,8 @@ static void drive_at(int index, tCarElt* car, tSituation *s) {
 
 static int pitcmd(int index, tCarElt* car, tSituation *s) {
 	tdble f1, f2;
-	tdble ns;
+	tdble ns;if (car->_brakeCmd > 0)
+		car->_accelCmd = 0;
 	int idx = index - 1;
 
 	HCtx[idx]->NbPitStops++;
@@ -1635,21 +1645,24 @@ static int pitcmd(int index, tCarElt* car, tSituation *s) {
 			}
 		}
 	}
-
 	return ROB_PIT_MENU; /* The player is able to modify the value by menu */
 }
 
 /* Hwancheol */
-static double calculate_CC(bool updown) {
+static double calculate_CC(bool updown, tCarElt* car) {
 	const double KP = 0.5;
 	const double KP_2 = 1.0;
 	const double TARGET_DIST = 15;
-	double error = car_speed - target_speed;
+
+	if(temp_target_speed == -1)
+		temp_target_speed = car->pub.target_speed;
+
+	double error = car_speed - temp_target_speed;
 	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
 	printf("dist_to_ocar : %f\n", *dist_to_ocar);
-	printf("target speed : %f\n", target_speed);
+	//printf("target speed : %f\n", car->pub.target_speed);
 	if (*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
 		error_2 = TARGET_DIST - *dist_to_ocar;
 		pid = pow(2.5, fabs(error_2) * KP_2) / 2;
@@ -1658,8 +1671,8 @@ static double calculate_CC(bool updown) {
 		if (error_2 < 0.0 || error < 0.0) {
 			if (error_2 < 0.0 && *speed_ocar * 1.3 > car_speed) {
 				double y = (-12.5) * *dist_to_ocar + 1250;
-				MAX(y, 0);
-				target_speed += *dist_to_ocar * (1 / (y + 1));
+				y= MAX(y, 0);
+				temp_target_speed += *dist_to_ocar * (1 / (y + 1));
 			}
 			return MIN(fabs(pid), 1.0);
 		}
@@ -1667,13 +1680,12 @@ static double calculate_CC(bool updown) {
 	} else {
 		if (error_2 > 0.0 || error > 0.0) {
 			if (error_2 > 0.0) {
-				target_speed -= 0.1;
+				temp_target_speed -= 0.1;
 			}
 			return MIN(fabs(pid), 1.0);
 		}
 		return 0;
 	}
-
 }
 
 /* Hwancheol */

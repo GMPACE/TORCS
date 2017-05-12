@@ -178,7 +178,7 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 	else
 		myc->isonLeft = false;
 	car_speed = myc->getSpeed();
-	printf("car_speed : %f\n", car_speed);
+	printf("berniw2 - car_speed : %f\n", car_speed);
 	/* decide how we want to drive */
 	if (car->_dammage < myc->undamaged / 3 && myc->bmode != myc->NORMAL) {
 		myc->loadBehaviour(myc->NORMAL);
@@ -212,7 +212,7 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 				ocar[i].isonLeft = false;
 			if (temp != 0 && (raced_dist_o - raced_dist) > 0 && myc->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
-				*dist_to_ocar = MIN(temp, *dist_to_ocar);
+				*dist_to_ocar = MAX(temp, *dist_to_ocar);
 			}
 		}
 	}

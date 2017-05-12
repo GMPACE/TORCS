@@ -36,7 +36,6 @@ extern void ReTimeMod (void *vcmd);
 extern void changeMode_LKAS(void *);
 extern void changeMode_CC(void *);
 extern short onoff_Mode;
-extern double target_speed;
 extern tRmInfo	*ReInfo;
 
 #endif /* _RACEENGINE_H_ */ 

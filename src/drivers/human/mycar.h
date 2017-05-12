@@ -79,6 +79,7 @@ class MyCar : public AbstractCar
 {
 	public:
 		bool isonLeft;
+		double target_speed;
 		/* possible behaviours */
 		enum {
 			INSANE = 0, PUSH = 1, NORMAL = 2, CAREFUL = 3, SLOW = 4, START = 5
