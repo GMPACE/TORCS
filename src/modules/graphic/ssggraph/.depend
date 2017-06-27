@@ -3,7 +3,7 @@ grmain.o: grmain.cpp /usr/include/stdc-predef.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -21,12 +21,12 @@ grmain.o: grmain.cpp /usr/include/stdc-predef.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/ctype.h /usr/include/assert.h \
@@ -38,13 +38,15 @@ grmain.o: grmain.cpp /usr/include/stdc-predef.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -52,13 +54,12 @@ grmain.o: grmain.cpp /usr/include/stdc-predef.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -69,27 +70,27 @@ grmain.o: grmain.cpp /usr/include/stdc-predef.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grmain.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grscreen.h grcam.h grboard.h grtrackmap.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grscene.h \
- grmultitexstate.h grtexture.h grloadsgi.h grsound.h \
- /usr/include/plib/sl.h /usr/include/plib/slPortability.h \
+ /home/kang/TORCS/export/include/glfeatures.h grscene.h grmultitexstate.h \
+ grtexture.h grloadsgi.h grsound.h /usr/include/plib/sl.h \
+ /usr/include/plib/slPortability.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/linux/soundcard.h \
  /usr/include/linux/ioctl.h /usr/include/x86_64-linux-gnu/asm/ioctl.h \
  /usr/include/asm-generic/ioctl.h /usr/include/linux/patchkey.h \
@@ -104,7 +105,7 @@ grboard.o: grboard.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -121,9 +122,11 @@ grboard.o: grboard.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -141,28 +144,27 @@ grboard.o: grboard.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/config.h grcam.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/portability.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/config.h grcam.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -174,38 +176,37 @@ grboard.o: grboard.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h grboard.h grtrackmap.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h grboard.h grtrackmap.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/glu.h /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h grmain.h \
- grssgext.h grtexture.h grloadsgi.h grshadow.h grskidmarks.h grsmoke.h \
- grcar.h grutil.h /home/ubuntu/TORCS/export/include/robottools.h
+ /usr/include/GL/glu.h /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h grmain.h grssgext.h \
+ grtexture.h grloadsgi.h grshadow.h grskidmarks.h grsmoke.h grcar.h \
+ grutil.h /home/kang/TORCS/export/include/robottools.h
 ssggraph.o: ssggraph.cpp /usr/include/stdc-predef.h /usr/include/GL/gl.h \
- /usr/include/GL/glext.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/include/GL/glext.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/inttypes.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h /usr/include/stdio.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
@@ -219,8 +220,8 @@ ssggraph.o: ssggraph.cpp /usr/include/stdc-predef.h /usr/include/GL/gl.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -239,11 +240,13 @@ ssggraph.o: ssggraph.cpp /usr/include/stdc-predef.h /usr/include/GL/gl.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/xlocale.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -251,7 +254,7 @@ ssggraph.o: ssggraph.cpp /usr/include/stdc-predef.h /usr/include/GL/gl.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
@@ -262,32 +265,32 @@ ssggraph.o: ssggraph.cpp /usr/include/stdc-predef.h /usr/include/GL/gl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h grmain.h \
+ /home/kang/TORCS/export/include/screen_properties.h grmain.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h \
- /usr/include/plib/ssgconf.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h
 grcam.o: grcam.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -303,6 +306,8 @@ grcam.o: grcam.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -311,12 +316,11 @@ grcam.o: grcam.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/memory.h \
  /usr/include/string.h /usr/include/GL/gl.h /usr/include/GL/glext.h \
- /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
- /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
- /usr/include/ctype.h /usr/include/assert.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/inttypes.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h \
+ /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/GL/glu.h /usr/include/plib/ssg.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/assert.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -324,22 +328,21 @@ grcam.o: grcam.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/robottools.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/robottools.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -350,24 +353,24 @@ grcam.o: grcam.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h /home/ubuntu/TORCS/export/include/graphic.h \
- grcam.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grscreen.h grboard.h \
- grtrackmap.h /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h grmain.h grscene.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/kang/TORCS/export/include/portability.h \
+ /home/kang/TORCS/config.h /home/kang/TORCS/export/include/graphic.h \
+ grcam.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grscreen.h grboard.h grtrackmap.h \
+ /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h grmain.h grscene.h \
  grmultitexstate.h grtexture.h grloadsgi.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grutil.h
 grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
@@ -375,6 +378,8 @@ grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -382,7 +387,7 @@ grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -399,12 +404,12 @@ grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -416,20 +421,19 @@ grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -440,27 +444,26 @@ grcar.o: grcar.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/robottools.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/robottools.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grcam.h grscene.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
+ /home/kang/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
  grtrackmap.h grssgext.h grutil.h grcarlight.h
 grscreen.o: grscreen.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
@@ -468,11 +471,11 @@ grscreen.o: grscreen.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -498,13 +501,15 @@ grscreen.o: grscreen.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -512,15 +517,15 @@ grscreen.o: grscreen.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -531,27 +536,26 @@ grscreen.o: grscreen.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grutil.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h grmain.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grscene.h grmultitexstate.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grutil.h grtexture.h /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grscene.h grmultitexstate.h \
  grshadow.h grskidmarks.h grcar.h grboard.h grtrackmap.h grcarlight.h \
  grscreen.h grcam.h
 grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
@@ -559,6 +563,8 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -566,7 +572,7 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -583,12 +589,12 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -600,14 +606,14 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -616,8 +622,8 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/plib/ssgaParticleSystem.h /usr/include/plib/ssgaFire.h \
  /usr/include/plib/ssgAux.h /usr/include/plib/ssgaWaveSystem.h \
  /usr/include/plib/ssgaLensFlare.h /usr/include/plib/ssgaScreenDump.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -628,33 +634,34 @@ grscene.o: grscene.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/robottools.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/robottools.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grcam.h grscene.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grloadsgi.h grutil.h \
+ /home/kang/TORCS/export/include/glfeatures.h grloadsgi.h grutil.h \
  grssgext.h
 grutil.o: grutil.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -662,7 +669,7 @@ grutil.o: grutil.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -679,12 +686,12 @@ grutil.o: grutil.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -696,20 +703,19 @@ grutil.o: grutil.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -720,35 +726,34 @@ grutil.o: grutil.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grutil.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h grmultitexstate.h grscene.h
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grutil.h grtexture.h /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h \
+ grmultitexstate.h grscene.h
 grshadow.o: grshadow.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -774,13 +779,15 @@ grshadow.o: grshadow.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -788,12 +795,12 @@ grshadow.o: grshadow.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  grshadow.h
 grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
@@ -801,6 +808,8 @@ grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -808,7 +817,7 @@ grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -825,12 +834,12 @@ grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -842,20 +851,19 @@ grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -866,27 +874,26 @@ grsmoke.o: grsmoke.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/robottools.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/robottools.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grcam.h grscene.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
+ /home/kang/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
  grtrackmap.h grssgext.h grutil.h
 grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/math.h /usr/include/features.h \
@@ -894,6 +901,8 @@ grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -901,7 +910,7 @@ grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -918,12 +927,12 @@ grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -935,20 +944,19 @@ grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -959,25 +967,25 @@ grskidmarks.o: grskidmarks.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/robottools.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
- grcar.h grcam.h grscene.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/robottools.h grmain.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h grcar.h \
+ grcam.h grscene.h grmultitexstate.h grtexture.h \
+ /home/kang/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
  grtrackmap.h grssgext.h grutil.h
 grloadac.o: grloadac.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
@@ -985,11 +993,11 @@ grloadac.o: grloadac.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -1015,13 +1023,15 @@ grloadac.o: grloadac.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1029,17 +1039,17 @@ grloadac.o: grloadac.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
- /usr/include/zlib.h /usr/include/x86_64-linux-gnu/zconf.h grssgext.h \
- grtexture.h /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/zlib.h /usr/include/zconf.h grssgext.h grtexture.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1050,36 +1060,36 @@ grloadac.o: grloadac.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h grvtxtable.h grmultitexstate.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h \
+ grvtxtable.h grmultitexstate.h grmain.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h
 grmultitexstate.o: grmultitexstate.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -1105,13 +1115,15 @@ grmultitexstate.o: grmultitexstate.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1119,17 +1131,17 @@ grmultitexstate.o: grmultitexstate.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1140,35 +1152,35 @@ grmultitexstate.o: grmultitexstate.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h grmain.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h
 grvtxtable.o: grvtxtable.cpp /usr/include/stdc-predef.h \
  /usr/include/plib/ssg.h /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -1194,13 +1206,15 @@ grvtxtable.o: grvtxtable.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1208,17 +1222,17 @@ grvtxtable.o: grvtxtable.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  grvtxtable.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1229,38 +1243,38 @@ grvtxtable.o: grvtxtable.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h grmain.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grcam.h grshadow.h \
- grskidmarks.h grscene.h grcar.h grutil.h
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grcam.h grshadow.h grskidmarks.h \
+ grscene.h grcar.h grutil.h
 grtrackmap.o: grtrackmap.cpp /usr/include/stdc-predef.h grtrackmap.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tgf.h /usr/include/stdio.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tgf.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
@@ -1274,8 +1288,8 @@ grtrackmap.o: grtrackmap.cpp /usr/include/stdc-predef.h grtrackmap.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -1294,11 +1308,13 @@ grtrackmap.o: grtrackmap.cpp /usr/include/stdc-predef.h grtrackmap.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/xlocale.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1306,12 +1322,12 @@ grtrackmap.o: grtrackmap.cpp /usr/include/stdc-predef.h grtrackmap.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -1321,20 +1337,20 @@ grtrackmap.o: grtrackmap.cpp /usr/include/stdc-predef.h grtrackmap.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/GL/gl.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/GL/gl.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h grmain.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h grmain.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h \
  /usr/include/plib/ssgconf.h
 grtexture.o: grtexture.cpp /usr/include/stdc-predef.h grtexture.h \
@@ -1343,11 +1359,11 @@ grtexture.o: grtexture.cpp /usr/include/stdc-predef.h grtexture.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/ssg.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/stdlib.h \
@@ -1373,13 +1389,15 @@ grtexture.o: grtexture.cpp /usr/include/stdc-predef.h grtexture.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1387,16 +1405,16 @@ grtexture.o: grtexture.cpp /usr/include/stdc-predef.h grtexture.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/glfeatures.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1407,29 +1425,30 @@ grtexture.o: grtexture.cpp /usr/include/stdc-predef.h grtexture.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- grloadsgi.h
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h grloadsgi.h
 grcarlight.o: grcarlight.cpp /usr/include/stdc-predef.h \
  /usr/include/math.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1437,7 +1456,7 @@ grcarlight.o: grcarlight.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h /usr/include/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -1454,12 +1473,12 @@ grcarlight.o: grcarlight.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h /usr/include/plib/ul.h \
  /usr/include/string.h /usr/include/assert.h /usr/include/unistd.h \
@@ -1471,20 +1490,19 @@ grcarlight.o: grcarlight.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/plib/ssgconf.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /usr/include/plib/ssgconf.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1495,27 +1513,26 @@ grcarlight.o: grcarlight.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h /usr/include/plib/js.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/robottools.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grmain.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h /usr/include/plib/js.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/robottools.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grmain.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h grshadow.h grskidmarks.h \
  grsmoke.h grcar.h grcam.h grscene.h grmultitexstate.h grtexture.h \
- /home/ubuntu/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
+ /home/kang/TORCS/export/include/glfeatures.h grloadsgi.h grboard.h \
  grtrackmap.h grssgext.h grutil.h grcarlight.h
 CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  SoundInterface.h /usr/include/plib/sl.h /usr/include/stdio.h \
@@ -1523,11 +1540,11 @@ CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/plib/slPortability.h /usr/include/plib/ul.h \
@@ -1553,13 +1570,15 @@ CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1567,7 +1586,7 @@ CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -1580,8 +1599,8 @@ CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/ioctls.h \
  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1592,45 +1611,46 @@ CarSoundData.o: CarSoundData.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h sound_defines.h \
  QSoundChar.h CarSoundData.h
 TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
@@ -1639,11 +1659,11 @@ TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/plib/ul.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -1668,13 +1688,15 @@ TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1682,7 +1704,7 @@ TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -1697,8 +1719,8 @@ TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h sound_defines.h \
- SoundInterface.h /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ SoundInterface.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1709,56 +1731,57 @@ TorcsSound.o: TorcsSound.cpp /usr/include/stdc-predef.h TorcsSound.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc QSoundChar.h
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc QSoundChar.h
 PlibSoundInterface.o: PlibSoundInterface.cpp /usr/include/stdc-predef.h \
  SoundInterface.h /usr/include/plib/sl.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/plib/slPortability.h /usr/include/plib/ul.h \
@@ -1784,13 +1807,15 @@ PlibSoundInterface.o: PlibSoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1798,7 +1823,7 @@ PlibSoundInterface.o: PlibSoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -1811,8 +1836,8 @@ PlibSoundInterface.o: PlibSoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/ioctls.h \
  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1823,45 +1848,46 @@ PlibSoundInterface.o: PlibSoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h sound_defines.h \
  QSoundChar.h CarSoundData.h
 OpenalSoundInterface.o: OpenalSoundInterface.cpp \
@@ -1871,11 +1897,11 @@ OpenalSoundInterface.o: OpenalSoundInterface.cpp \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/plib/slPortability.h /usr/include/plib/ul.h \
@@ -1901,13 +1927,15 @@ OpenalSoundInterface.o: OpenalSoundInterface.cpp \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1915,7 +1943,7 @@ OpenalSoundInterface.o: OpenalSoundInterface.cpp \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -1928,8 +1956,8 @@ OpenalSoundInterface.o: OpenalSoundInterface.cpp \
  /usr/include/asm-generic/ioctls.h \
  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -1940,45 +1968,46 @@ OpenalSoundInterface.o: OpenalSoundInterface.cpp \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h sound_defines.h \
  QSoundChar.h CarSoundData.h
 grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
@@ -1986,6 +2015,8 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -1993,13 +2024,13 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/ubuntu/TORCS/export/include/tgfclient.h \
- /home/ubuntu/TORCS/export/include/tgf.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /home/kang/TORCS/export/include/tgfclient.h \
+ /home/kang/TORCS/export/include/tgf.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
@@ -2013,8 +2044,8 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -2033,14 +2064,14 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/xlocale.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /usr/include/string.h /home/ubuntu/TORCS/export/include/osspec.h \
+ /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /usr/include/string.h /home/kang/TORCS/export/include/osspec.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
@@ -2051,23 +2082,22 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ubuntu/TORCS/export/include/screen_properties.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/portability.h \
- /home/ubuntu/TORCS/config.h grsound.h grcam.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/plib/sl.h \
+ /home/kang/TORCS/export/include/screen_properties.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ grsound.h grcam.h /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/plib/sl.h \
  /usr/include/plib/slPortability.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/linux/soundcard.h \
  /usr/include/linux/ioctl.h /usr/include/x86_64-linux-gnu/asm/ioctl.h \
@@ -2080,31 +2110,32 @@ grsound.o: grsound.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h grmain.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h \
  /usr/include/plib/ssgconf.h sound_defines.h SoundInterface.h \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
+ /usr/include/c++/5/vector /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h QSoundChar.h CarSoundData.h
 SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  SoundInterface.h /usr/include/plib/sl.h /usr/include/stdio.h \
@@ -2112,11 +2143,11 @@ SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
  /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/plib/slPortability.h /usr/include/plib/ul.h \
@@ -2142,13 +2173,15 @@ SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -2156,7 +2189,7 @@ SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h /usr/include/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h /usr/include/errno.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
@@ -2169,8 +2202,8 @@ SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/ioctls.h \
  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/plib/sg.h \
- /home/ubuntu/TORCS/export/include/raceman.h \
- /home/ubuntu/TORCS/export/include/tgf.h \
+ /home/kang/TORCS/export/include/raceman.h \
+ /home/kang/TORCS/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -2181,44 +2214,45 @@ SoundInterface.o: SoundInterface.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
- /usr/include/asm-generic/param.h /usr/include/c++/4.8/cstring \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /home/ubuntu/TORCS/export/include/osspec.h \
- /home/ubuntu/TORCS/export/include/car.h \
- /home/ubuntu/TORCS/export/include/track.h \
- /home/ubuntu/TORCS/export/include/tmath/linalg_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v2_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v3_t.h \
- /home/ubuntu/TORCS/export/include/tmath/v4_t.h \
- /home/ubuntu/TORCS/export/include/tmath/straight2_t.h \
- /home/ubuntu/TORCS/export/include/graphic.h \
- /home/ubuntu/TORCS/export/include/simu.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
+ /usr/include/asm-generic/param.h /usr/include/c++/5/cstring \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
+ /home/kang/TORCS/export/include/osspec.h \
+ /home/kang/TORCS/export/include/car.h \
+ /home/kang/TORCS/export/include/track.h \
+ /home/kang/TORCS/export/include/tmath/linalg_t.h \
+ /home/kang/TORCS/export/include/tmath/v2_t.h \
+ /home/kang/TORCS/export/include/tmath/v3_t.h \
+ /home/kang/TORCS/export/include/tmath/v4_t.h \
+ /home/kang/TORCS/export/include/tmath/straight2_t.h \
+ /home/kang/TORCS/export/include/graphic.h \
+ /home/kang/TORCS/export/include/simu.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_algobase.h \
+ /usr/include/c++/5/bits/functexcept.h \
+ /usr/include/c++/5/bits/exception_defines.h \
+ /usr/include/c++/5/bits/cpp_type_traits.h \
+ /usr/include/c++/5/ext/type_traits.h \
+ /usr/include/c++/5/ext/numeric_traits.h \
+ /usr/include/c++/5/bits/stl_pair.h /usr/include/c++/5/bits/move.h \
+ /usr/include/c++/5/bits/concept_check.h \
+ /usr/include/c++/5/bits/stl_iterator_base_types.h \
+ /usr/include/c++/5/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/5/debug/debug.h /usr/include/c++/5/bits/stl_iterator.h \
+ /usr/include/c++/5/bits/ptr_traits.h \
+ /usr/include/c++/5/bits/predefined_ops.h \
+ /usr/include/c++/5/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/5/bits/c++allocator.h \
+ /usr/include/c++/5/ext/new_allocator.h /usr/include/c++/5/new \
+ /usr/include/c++/5/exception \
+ /usr/include/c++/5/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/ext/alloc_traits.h \
+ /usr/include/c++/5/bits/stl_uninitialized.h \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h \
+ /usr/include/c++/5/bits/range_access.h \
+ /usr/include/c++/5/bits/vector.tcc TorcsSound.h /usr/include/AL/al.h \
  /usr/include/AL/alc.h /usr/include/AL/alut.h sound_defines.h \
  QSoundChar.h CarSoundData.h

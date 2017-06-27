@@ -45,6 +45,11 @@
 #include <robot.h>
 
 #include <playerpref.h>
+#include <fstream>
+#include <time.h>
+#include <sys/time.h>
+#include <sstream>
+#include <string>
 #include "pref.h"
 #include "human.h"
 
@@ -85,10 +90,25 @@ v2d prev_pos;
 //struct sembuf semclose = { 0, 1, SEM_UNDO };
 
 static double* dist_to_ocar;
+static double* dist_to_ocar_dlane;
 static bool* acc_flag;
 static double* speed_ocar;
 static double temp_target_speed = -1;
 static double calculate_CC(bool updown, tCarElt* car);
+/* 한이음 */
+static double cur_dist_l;
+static double pre_dist_l;
+static double sum_error_l;
+static double cur_dist_r;
+static double pre_dist_r;
+static double sum_error_r;
+static int change_count_l;
+static int change_count_r;
+static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle);
+/* 한이음 */
+
+using namespace std;
+
 typedef struct {
 	v3d pre_v;
 	v3d current_v;
@@ -97,6 +117,8 @@ typedef struct {
 
 direct_vec direc_vec;
 direct_vec direc_vec_o;
+
+ofstream f_output;
 /* Hwancheol */
 int joyPresent = 0;
 
@@ -162,6 +184,7 @@ static void shutdown(int index) {
 //	delete(dist_to_ocar);
 //	delete(acc_flag);
 	onoff_Mode = 0;
+	f_output.close();
 }
 
 /*
@@ -417,8 +440,28 @@ extern "C" int human(tModInfo *modInfo) {
  * Remarks
  *
  */
+string to_string(int n)
+{
+	stringstream s;
+	s << n;
+	return s.str();
+}
+
 static void initTrack(int index, tTrack* track, void *carHandle,
 		void **carParmHandle, tSituation *s) {
+	struct tm* datetime;
+	time_t t;
+	t = time(NULL);
+	datetime = localtime(&t);
+	string path = "/home/kang/temp/";
+	string s_t = path.append(
+				to_string(datetime->tm_year + 1900)).append("-").append(
+				to_string(datetime->tm_mon + 1)).append("-").append(
+				to_string(datetime->tm_mday)).append("_").append(
+				to_string(datetime->tm_hour)).append(":").append(
+				to_string(datetime->tm_min)).append(":").append(
+				to_string(datetime->tm_sec));
+	f_output.open(s_t.c_str());
 
 	v3d v1, v2;
 	v1.x = 0.0;
@@ -521,6 +564,7 @@ static void newrace(int index, tCarElt* car, tSituation *s) {
 	prev_pos.y = car->_pos_Y;
 	mycar = new MyCar(myTrackDesc, car, s);
 	dist_to_ocar = new double();
+	dist_to_ocar_dlane = new double();
 	speed_ocar = new double();
 	acc_flag = new bool();
 	*acc_flag = false;
@@ -642,7 +686,8 @@ static int onSKeyAction(int key, int modifier, int state) {
 static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
 	/************ACC***********/
-	*dist_to_ocar = -10000000.0;
+	*dist_to_ocar = -1;
+	*dist_to_ocar_dlane = -1;
 	if(current_mode != onoff_Mode){
 		prev_mode = current_mode;
 		current_mode = onoff_Mode;
@@ -655,7 +700,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		mycar->isonLeft = false;
 	double raced_dist = mycar->getCarPtr()->race.distRaced;
 	double raced_dist_o = 0;
-
+	/* 한이음 */
+	//ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
 	/* update the other cars just once */
@@ -682,6 +728,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = MAX(temp, *dist_to_ocar);
+			}
+			else if (temp != 0 && (raced_dist_o - raced_dist) <= 0
+					&& mycar->isonLeft != ocar[i].isonLeft) {
+				*dist_to_ocar_dlane = MAX(temp, *dist_to_ocar_dlane);
 			}
 //			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
 //					mycar->getCurrentPos()->y);
@@ -1185,12 +1235,67 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	}
 
 	/* Hwancheol */
-	/******Data Logging Part******/
-	printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
-	printf("스티어링 : %f%\n", car->_steerCmd * 100);
 	if((onoff_Mode & (short) 2) != (short) 2) {
-		temp_target_speed = -1;
+			temp_target_speed = -1;
+		}
+	/******Data Logging Part******/
+
+	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
+	//printf("스티어링 : %f%\n", car->_steerCmd * 100);
+	struct timeval val;
+	struct tm* datetime;
+	gettimeofday(&val, NULL);
+	time_t t;
+	t = time(NULL);
+	datetime = localtime(&t);
+	string s_t = to_string(datetime->tm_hour).append(":").append(
+				 to_string(datetime->tm_min)).append(":").append(
+				 to_string(datetime->tm_sec)).append(".").append(
+				 to_string(val.tv_usec));
+	f_output << "#";
+	f_output << s_t 		   << endl;
+	f_output << car->pub.speed << " ";
+	f_output << car->_enginerpm << " ";
+	f_output << car->_accelCmd << " ";
+	f_output << car->_steerCmd << " ";
+	f_output << car->_yaw << " ";
+	if(mycar->isonLeft) {
+		f_output << "1" << " ";
+		f_output << car->pub.trkPos.toLeft << " ";
+		f_output << car->pub.trkPos.toMiddle << " ";
 	}
+	else {
+		f_output << "2" << " ";
+		f_output << car->pub.trkPos.toMiddle << " ";
+		f_output << car->pub.trkPos.toRight << " ";
+	}
+	f_output << *dist_to_ocar << " ";
+	f_output << *dist_to_ocar_dlane << " ";
+	f_output << endl;
+//
+//	cout << "#";
+//	cout << s_t 		   << endl;
+//	cout << car->pub.speed << " ";
+//	cout << car->_enginerpm << " ";
+//	cout << car->_accelCmd << " ";
+//	cout << car->_steerCmd << " ";
+//	cout << car->_yaw << " ";
+//	if(mycar->isonLeft) {
+//		cout << "1" << " ";
+//		cout << car->pub.trkPos.toLeft << " ";
+//		cout << car->pub.trkPos.toMiddle << " ";
+//	}
+//	else {
+//		cout << "2" << " ";
+//		cout << car->pub.trkPos.toMiddle << " ";
+//		cout << car->pub.trkPos.toRight << " ";
+//	}
+	if(mycar->isonLeft)
+		printf("left \n");
+	else
+		printf("right \n");
+	printf("%f %f\n", *dist_to_ocar, *dist_to_ocar_dlane);
+
 	/* Memo : Common_drive의 호출 주기 0.02s ~ 0.022s
 	 /* Hwancheol */
 
@@ -1661,7 +1766,7 @@ static double calculate_CC(bool updown, tCarElt* car) {
 	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
-	printf("dist_to_ocar : %f\n", *dist_to_ocar);
+	//printf("dist_to_ocar : %f\n", *dist_to_ocar);
 	//printf("target speed : %f\n", car->pub.target_speed);
 	if (*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
 		error_2 = TARGET_DIST - *dist_to_ocar;
@@ -1687,5 +1792,80 @@ static double calculate_CC(bool updown, tCarElt* car) {
 		return 0;
 	}
 }
+/* LDWS RETURN CODE DEFINE */
+#define LDWS_BUFFER_RESET 	 0
+#define LDWS_CALCULATING	 1
+#define LDWS_ON_LEVEL1 	 	 2
+#define LDWS_ON_LEVEL2 	 	 3
+#define LDWS_ON_LEVEL3 	 	 4
 
+#define LDWS_ERROR 		     5
+
+/* LDWS CONSTANT DEFINE */
+#define INTEGRAL_TH_1	     1.0
+#define INTEGRAL_TH_2	     1.5
+#define INTEGRAL_TH_3	     2.0
+
+static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle) {
+	double track_width = dist_to_left + dist_to_right;
+	bool change_flag_l;
+	bool change_flag_r;
+	pre_dist_l = cur_dist_l;
+	pre_dist_r = cur_dist_r;
+
+	if(isOnleft) {
+//		printf("LEFT");
+		cur_dist_l = dist_to_left / (track_width / 2);
+		cur_dist_r = dist_to_middle / (track_width / 2);
+	}
+	else {
+//		printf("RIGHT");
+		cur_dist_l = -dist_to_middle / (track_width / 2);
+		cur_dist_r = dist_to_right / (track_width / 2);
+	}
+	if(fabs(cur_dist_l-pre_dist_l)/pre_dist_l*100 <= 1 || cur_dist_l >= pre_dist_l)
+		change_count_l++;
+	else
+		change_count_l = 0;
+	if(fabs(cur_dist_r-pre_dist_r)/pre_dist_r*100 <= 1 || cur_dist_r >= pre_dist_r)
+		change_count_r++;
+	else
+		change_count_r = 0;
+
+	if(change_count_l == 5) {
+		change_count_l = 0;
+		sum_error_l = 0;
+		change_flag_l = true;
+	}
+	if(change_count_r == 5) {
+		change_count_r = 0;
+		sum_error_r = 0;
+		change_flag_r = true;
+	}
+
+
+	double error_ldws_l = fabs(0.5 - cur_dist_l);
+	sum_error_l += error_ldws_l;
+	double error_ldws_r = fabs(0.5 - cur_dist_r);
+	sum_error_r += error_ldws_r;
+	if(sum_error_l >= INTEGRAL_TH_3 || sum_error_r >= INTEGRAL_TH_3) {
+		printf("LDWS - level 3 ON!!!!\n");
+		return LDWS_ON_LEVEL3;
+	}
+	else if(sum_error_l >= INTEGRAL_TH_2 || sum_error_r >= INTEGRAL_TH_2) {
+		printf("LDWS - level 2 ON!!!!\n");
+		return LDWS_ON_LEVEL2;
+	}
+	else if(sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
+		printf("LDWS - level 1 ON!!!!\n");
+		return LDWS_ON_LEVEL1;
+	}
+//	printf("dist(left) : %f\n", cur_dist_l);
+//	printf("error sum(left) : %f\n", sum_error_l);
+//	printf("dist(right) : %f\n", cur_dist_r);
+//	printf("error sum(right) : %f\n", sum_error_r);
+//	printf("LDWS_CALCULATING\n");
+	return LDWS_CALCULATING;
+
+}
 /* Hwancheol */

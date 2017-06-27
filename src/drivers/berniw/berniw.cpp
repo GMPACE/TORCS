@@ -177,7 +177,6 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 	else
 		myc->isonLeft = false;
 	car_speed = myc->getSpeed();
-	printf("berniw - car_speed : %f\n", car_speed);
 	/* decide how we want to drive */
 	if (car->_dammage < myc->undamaged / 3 && myc->bmode != myc->NORMAL) {
 		myc->loadBehaviour(myc->NORMAL);
