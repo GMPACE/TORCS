@@ -147,6 +147,10 @@ static void reAddKeys(void) {
 			NULL);
 	GfuiAddKey(reScreenHandle, '1', "CC Mode On/Off", (void*) 0, changeMode_CC,
 			NULL);
+	GfuiAddKey(reScreenHandle, 'f', "Lane Change Start/Stop", (void*) 0, turn_lc_signal,
+			NULL);
+	GfuiAddKey(reScreenHandle, 'r', "Recording On/Off", (void*) 0, record,
+				NULL);
 	/* Hwancheol */
 
 

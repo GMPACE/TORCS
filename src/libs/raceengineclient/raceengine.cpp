@@ -53,6 +53,9 @@ extern const short MODECHECK = 3;
 short onoff_Mode = 0;
 static double target_speed = 0;
 static double current_speed = 0;
+tCarElt* mycar = new tCarElt();
+bool lc_signal = false;
+bool record_signal = false;
 /* Hwancheol */
 
 /* Compute Pit stop time */
@@ -144,9 +147,11 @@ ReManage(tCarElt *car)
 	char buf[BUFSIZE];
 	
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
-	
-	current_speed = car->_speed_x;
-	car->pub.target_speed = target_speed;
+	if(!strcmp(car->info.name, "Player")) {
+		mycar = car;
+		current_speed = car->_speed_x;
+	}
+
 	if (car->_speed_x > car->_topSpeed) {
 		car->_topSpeed = car->_speed_x;
 	}
@@ -844,7 +849,9 @@ void changeMode_CC(void *) {
 		onoff_Mode -= 2;
 	else onoff_Mode += 2;
 	changeMode();
-	target_speed = current_speed;
+	if (!strcmp(mycar->info.name, "Player")) {
+		mycar->pub.target_speed = current_speed;
+	}
 }
 
 void changeMode_LKAS(void *) {
@@ -854,4 +861,28 @@ void changeMode_LKAS(void *) {
 	changeMode();
 }
 
+void turn_lc_signal(void *) {
+	char* msg;
+	lc_signal = !lc_signal;
+	if(!strcmp(mycar->info.name, "Player")) {
+		mycar->pub.lc_signal = lc_signal;
+	}
+	if(lc_signal)
+		msg = "Lane Change Start";
+	else
+		msg = "Lane Change Stop";
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void record(void *) {
+	char* msg;
+	record_signal = !record_signal;
+	if(!strcmp(mycar->info.name, "Player")) {
+		mycar->pub.record_signal = record_signal;
+	}
+	if(record_signal)
+		msg = "Recording On";
+	else
+		msg = "Recording Off";
+	ReRaceBigMsgSet(msg, 1.5);
+}
 /* Hwancheol */

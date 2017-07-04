@@ -69,6 +69,7 @@ static const double g = 9.81;
 /* Hwancheol */
 #define MIN(a, b) (a < b) ? a : b
 #define MAX(a, b) (a > b) ? a : b
+#define RECORD_COUNT 20
 /* Hwancheol */
 
 static void initTrack(int index, tTrack* track, void *carHandle,
@@ -84,6 +85,8 @@ tdble drivespeed = 0.0;
 short onoff_Mode = 0;
 static short current_mode = 0;
 static short prev_mode = 0;
+double cur_speed;
+double pre_speed;
 
 v2d prev_pos;
 //struct sembuf semopen = { 0, -1, SEM_UNDO };
@@ -104,6 +107,10 @@ static double pre_dist_r;
 static double sum_error_r;
 static int change_count_l;
 static int change_count_r;
+static int record_count = RECORD_COUNT;
+static long current_time;
+static long prev_time;
+static std::string f_output_string;
 static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle);
 /* 한이음 */
 
@@ -1242,36 +1249,48 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
 	//printf("스티어링 : %f%\n", car->_steerCmd * 100);
-	struct timeval val;
-	struct tm* datetime;
-	gettimeofday(&val, NULL);
-	time_t t;
-	t = time(NULL);
-	datetime = localtime(&t);
-	string s_t = to_string(datetime->tm_hour).append(":").append(
-				 to_string(datetime->tm_min)).append(":").append(
-				 to_string(datetime->tm_sec)).append(".").append(
-				 to_string(val.tv_usec));
-	f_output << "#";
-	f_output << s_t 		   << endl;
-	f_output << car->pub.speed << " ";
-	f_output << car->_enginerpm << " ";
-	f_output << car->_accelCmd << " ";
-	f_output << car->_steerCmd << " ";
-	f_output << car->_yaw << " ";
-	if(mycar->isonLeft) {
-		f_output << "1" << " ";
-		f_output << car->pub.trkPos.toLeft << " ";
-		f_output << car->pub.trkPos.toMiddle << " ";
+	pre_speed = cur_speed;
+	cur_speed = car->pub.speed;
+	if (car->pub.record_signal) {
+		struct timeval val;
+		gettimeofday(&val, NULL);
+		prev_time = current_time;
+		current_time = val.tv_usec;
+		prev_time /= 100000;
+		current_time /= 100000;
+		if (current_time - prev_time == 2) {
+			double accelerate_ = cur_speed - pre_speed;
+			if (record_count == RECORD_COUNT)
+				f_output_string.append("#");
+			f_output_string.append(to_string(car->pub.speed * 3600 / 1000)).append(" ").append(
+					to_string(accelerate_*100)).append(" ").append(
+					to_string(car->_enginerpm)).append(" ").append(
+					to_string(car->_accelCmd*100)).append(" ").append(
+					to_string(car->_steerCmd*100)).append(" ").append(
+					to_string(car->_yaw*100)).append(" ");
+			if (mycar->isonLeft) {
+				f_output_string.append("1 ").append(
+						to_string(car->pub.trkPos.toLeft*100)).append(" ").append(
+						to_string(car->pub.trkPos.toMiddle*100)).append(" ");
+			} else {
+				f_output_string.append("2 ").append(
+						to_string(car->pub.trkPos.toMiddle*100)).append(" ").append(
+						to_string(car->pub.trkPos.toRight*100)).append(" ");
+			}
+			f_output_string.append(to_string(*dist_to_ocar * 100)).append(" ").append(
+					to_string(*dist_to_ocar_dlane * 100)).append(" ");
+			if (car->pub.lc_signal)
+				f_output_string.append("1");
+			else
+				f_output_string.append("2");
+			f_output_string.append("\n");
+			record_count--;
+			if(record_count == 0) {
+				f_output << f_output_string.c_str() << endl;
+				record_count = RECORD_COUNT;
+			}
+		}
 	}
-	else {
-		f_output << "2" << " ";
-		f_output << car->pub.trkPos.toMiddle << " ";
-		f_output << car->pub.trkPos.toRight << " ";
-	}
-	f_output << *dist_to_ocar << " ";
-	f_output << *dist_to_ocar_dlane << " ";
-	f_output << endl;
 //
 //	cout << "#";
 //	cout << s_t 		   << endl;
@@ -1290,11 +1309,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //		cout << car->pub.trkPos.toMiddle << " ";
 //		cout << car->pub.trkPos.toRight << " ";
 //	}
-	if(mycar->isonLeft)
-		printf("left \n");
-	else
-		printf("right \n");
-	printf("%f %f\n", *dist_to_ocar, *dist_to_ocar_dlane);
+//	if(mycar->isonLeft)
+//		printf("left \n");
+//	else
+//		printf("right \n");
+//	printf("%f %f\n", *dist_to_ocar, *dist_to_ocar_dlane);
 
 	/* Memo : Common_drive의 호출 주기 0.02s ~ 0.022s
 	 /* Hwancheol */
@@ -1795,11 +1814,13 @@ static double calculate_CC(bool updown, tCarElt* car) {
 /* LDWS RETURN CODE DEFINE */
 #define LDWS_BUFFER_RESET 	 0
 #define LDWS_CALCULATING	 1
-#define LDWS_ON_LEVEL1 	 	 2
-#define LDWS_ON_LEVEL2 	 	 3
-#define LDWS_ON_LEVEL3 	 	 4
 
-#define LDWS_ERROR 		     5
+#define LDWS_ON_LEVEL0       2
+#define LDWS_ON_LEVEL1 	 	 3
+#define LDWS_ON_LEVEL2 	 	 4
+#define LDWS_ON_LEVEL3 	 	 5
+
+#define LDWS_ERROR 		     6
 
 /* LDWS CONSTANT DEFINE */
 #define INTEGRAL_TH_1	     1.0
@@ -1859,6 +1880,10 @@ static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double
 	else if(sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
 		printf("LDWS - level 1 ON!!!!\n");
 		return LDWS_ON_LEVEL1;
+	}
+	else {
+		printf("================LDWS - level 0 Stable===============\n");
+		return LDWS_ON_LEVEL0;
 	}
 //	printf("dist(left) : %f\n", cur_dist_l);
 //	printf("error sum(left) : %f\n", sum_error_l);

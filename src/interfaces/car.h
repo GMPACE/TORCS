@@ -221,6 +221,8 @@ typedef struct {
 
 	/* Hwancheol */
 	double target_speed;
+	bool lc_signal;
+	bool record_signal;
 } tPublicCar;
 /* structure access */
 #define _target_speed pub.target_speed;

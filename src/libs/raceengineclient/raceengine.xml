@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
     file        : raceengine.xml
     created     : Sat Nov 16 19:39:26 CET 2002
-    copyright   : (C) 2002 by Eric Espié                         
-    email       : Eric.Espie@torcs.org   
-    version     : $Id: raceengine.xml,v 1.5 2005/02/01 15:55:52 berniw Exp $                                  
+    copyright   : (C) 2002 by Eric Espiï¿½
+    email       : Eric.Espie@torcs.org
+    version     : $Id: raceengine.xml,v 1.5 2005/02/01 15:55:52 berniw Exp $
 -->
 
 <!--    This program is free software; you can redistribute it and/or modify  -->
@@ -25,9 +25,7 @@
   <section name="Movie Capture">
     <attstr name="enable capture" in="yes,no" val="no"/>
     <attnum name="fps" val="25"/>
-    <attstr name="output directory" val="/home/torcs/captures"/>
+    <attstr name="output directory" val="/home/kang/captures"/>
   </section>
 
 </params>
-
-

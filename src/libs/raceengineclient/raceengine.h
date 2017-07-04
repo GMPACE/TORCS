@@ -35,6 +35,9 @@ extern void ReTimeMod (void *vcmd);
 
 extern void changeMode_LKAS(void *);
 extern void changeMode_CC(void *);
+extern void turn_lc_signal(void *);
+extern void record(void *);
+
 extern short onoff_Mode;
 extern tRmInfo	*ReInfo;
 
