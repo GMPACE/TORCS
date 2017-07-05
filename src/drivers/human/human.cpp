@@ -110,6 +110,8 @@ static int change_count_r;
 static int record_count = RECORD_COUNT;
 static long current_time;
 static long prev_time;
+static bool cur_rc_sig;
+static bool pre_rc_sig;
 static std::string f_output_string;
 static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle);
 /* 한이음 */
@@ -1105,16 +1107,25 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 
 		/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
-		car->_brakeCmd = joyInfo->levelup[cmd[CMD_BRAKE].val];
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_brakeCmd = calculate_CC(false, car);
+		else
+			car->_brakeCmd = joyInfo->levelup[cmd[CMD_BRAKE].val];
 		break;
 	case GFCTRL_TYPE_MOUSE_BUT:
 		car->_brakeCmd = mouseInfo->button[cmd[CMD_BRAKE].val];
 		break;
 	case GFCTRL_TYPE_KEYBOARD:
-		car->_brakeCmd = keyInfo[cmd[CMD_BRAKE].val].state;
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_brakeCmd = calculate_CC(false, car);
+		else
+			car->_brakeCmd = keyInfo[cmd[CMD_BRAKE].val].state;
 		break;
 	case GFCTRL_TYPE_SKEYBOARD:
-		car->_brakeCmd = skeyInfo[cmd[CMD_BRAKE].val].state;
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_brakeCmd = calculate_CC(false, car);
+		else
+			car->_brakeCmd = skeyInfo[cmd[CMD_BRAKE].val].state;
 		break;
 	default:
 		car->_brakeCmd = 0;
@@ -1225,16 +1236,25 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		break;
 		/* TODO : K7 Mapping Part */
 	case GFCTRL_TYPE_JOY_BUT:
-		car->_accelCmd = joyInfo->levelup[cmd[CMD_THROTTLE].val];
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_accelCmd = calculate_CC(true, car);
+		else
+			car->_accelCmd = joyInfo->levelup[cmd[CMD_THROTTLE].val];
 		break;
 	case GFCTRL_TYPE_MOUSE_BUT:
 		car->_accelCmd = mouseInfo->button[cmd[CMD_THROTTLE].val];
 		break;
 	case GFCTRL_TYPE_KEYBOARD:
-		car->_accelCmd = keyInfo[cmd[CMD_THROTTLE].val].state;
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_accelCmd = calculate_CC(true, car);
+		else
+			car->_accelCmd = keyInfo[cmd[CMD_THROTTLE].val].state;
 		break;
 	case GFCTRL_TYPE_SKEYBOARD:
-		car->_accelCmd = skeyInfo[cmd[CMD_THROTTLE].val].state;
+		if ((onoff_Mode & (short) 2) == (short) 2)
+			car->_accelCmd = calculate_CC(true, car);
+		else
+			car->_accelCmd = skeyInfo[cmd[CMD_THROTTLE].val].state;
 		break;
 	default:
 		car->_accelCmd = 0;
@@ -1251,6 +1271,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	//printf("스티어링 : %f%\n", car->_steerCmd * 100);
 	pre_speed = cur_speed;
 	cur_speed = car->pub.speed;
+	pre_rc_sig = cur_rc_sig;
+	cur_rc_sig = car->pub.record_signal;
+	if(pre_rc_sig != cur_rc_sig) {
+		record_count = RECORD_COUNT;
+	}
 	if (car->pub.record_signal) {
 		struct timeval val;
 		gettimeofday(&val, NULL);
@@ -1260,8 +1285,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		current_time /= 100000;
 		if (current_time - prev_time == 2) {
 			double accelerate_ = cur_speed - pre_speed;
-			if (record_count == RECORD_COUNT)
+			if (record_count == RECORD_COUNT) {
+				f_output_string = "";
 				f_output_string.append("#");
+			}
 			f_output_string.append(to_string(car->pub.speed * 3600 / 1000)).append(" ").append(
 					to_string(accelerate_*100)).append(" ").append(
 					to_string(car->_enginerpm)).append(" ").append(
