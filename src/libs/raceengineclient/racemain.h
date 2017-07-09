@@ -2,7 +2,7 @@
 
     file        : racemain.h
     created     : Sat Nov 16 12:14:57 CET 2002
-    copyright   : (C) 2002 by Eric Espié                        
+    copyright   : (C) 2002 by Eric Espiï¿½                        
     email       : eric.espie@torcs.org   
     version     : $Id: racemain.h,v 1.3 2004/04/05 18:25:00 olethros Exp $                                  
 
@@ -33,6 +33,20 @@ extern int  ReRaceStop(void);
 extern int  ReRaceEnd(void);
 extern int  RePostRace(void);
 extern int  ReEventShutdown(void);
+
+union semun
+{
+	int val;
+	struct semid_ds *buf;
+	unsigned short int *array;
+};
+
+extern void init_shared_memory();
+extern void delete_shared_memory();
+extern int shmid;
+extern char* shared_memory[1024];
+extern int skey;
+extern char* send_data[1024];
 
 #endif /* _RACEMAIN_H_ */ 
 

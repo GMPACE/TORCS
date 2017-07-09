@@ -53,7 +53,7 @@ cGrScreen::cGrScreen(int myid)
 	active = 0;
 	selectNextFlag = 0;
 	selectPrevFlag = 0;
-	mirrorFlag = 1;
+	mirrorFlag = 0;
 	memset(cams, 0, sizeof(cams));
 	viewRatio = 1.33;
 	cars = 0;

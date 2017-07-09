@@ -84,13 +84,13 @@ static void reSkipPreStart(void * /* dummy */) {
 
 static void reMovieCapture(void * /* dummy */) {
 	tRmMovieCapture *capture = &(ReInfo->movieCapture);
-
 	if (!capture->enabled || (ReInfo->_displayMode == RM_DISP_MODE_NONE)) {
 		GfOut("Video Capture Mode Not Enabled\n");
 		return;
 	}
 
 	capture->state = 1 - capture->state;
+	printf("capture\n");
 	if (capture->state) {
 		GfOut("Video Capture Mode On\n");
 		capture->currentFrame = 0;
@@ -168,6 +168,8 @@ static void reAddKeys(void) {
 	//GfuiAddKey(reScreenHandle, '0', "One step simulation",    (void*)1, reOneStep, NULL);
 #endif
 	GfuiAddKey(reScreenHandle, 'c', "Movie Capture", (void*) 0, reMovieCapture,
+	NULL);
+	GfuiAddKey(reScreenHandle, 'u', "Berniw speed down", (void*)0, berniw_speed_down,
 	NULL);
 
 }

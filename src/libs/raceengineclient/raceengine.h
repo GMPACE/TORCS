@@ -37,7 +37,7 @@ extern void changeMode_LKAS(void *);
 extern void changeMode_CC(void *);
 extern void turn_lc_signal(void *);
 extern void record(void *);
-
+extern void berniw_speed_down(void *);
 extern short onoff_Mode;
 extern tRmInfo	*ReInfo;
 

@@ -496,6 +496,7 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 		}
 	}
 	/* for test // Hwancheol */
+	target_speed_bn = car->pub.target_speed;
 	car->_accelCmd = calculate_CC(true);
 	car->_brakeCmd = calculate_CC(false);
 

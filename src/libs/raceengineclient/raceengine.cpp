@@ -39,6 +39,12 @@
 
 #include "raceengine.h"
 
+#include <sys/shm.h>
+#include <sys/sem.h>
+#include <sys/ipc.h>
+#include <unistd.h>
+#include <string.h>
+#include <sstream>
 static double	msgDisp;
 static double	bigMsgDisp;
 
@@ -54,8 +60,11 @@ short onoff_Mode = 0;
 static double target_speed = 0;
 static double current_speed = 0;
 tCarElt* mycar = new tCarElt();
+tCarElt* berniw = new tCarElt();
 bool lc_signal = false;
 bool record_signal = false;
+
+
 /* Hwancheol */
 
 /* Compute Pit stop time */
@@ -134,6 +143,12 @@ ReRaceBigMsgSet(const char *msg, double life)
 	}
 }
 
+std::string to_string(int n)
+{
+	std::stringstream s;
+	s << n;
+	return s.str();
+}
 
 static void
 ReManage(tCarElt *car)
@@ -145,11 +160,25 @@ ReManage(tCarElt *car)
 	tSituation *s = ReInfo->s;
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
-	
+	/* shared memory */
+	std::string data = "";
+	data.append(to_string(ReInfo->s->raceInfo.ncars)).append("#");
+
+	for(int i = 0; i < ReInfo->s->raceInfo.ncars; i++) {
+		data.append(ReInfo->carList[i].info.name).append(":").append(to_string(ReInfo->carList[i].pub.DynGC.pos.x)).append(",")
+				.append(to_string(ReInfo->carList[i].pub.DynGC.pos.y)).append("&");
+	}
+	//printf("%s\n",data.c_str());
+	strcpy(*send_data, data.c_str());
+	/* shared memory */
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
+
 	if(!strcmp(car->info.name, "Player")) {
 		mycar = car;
 		current_speed = car->_speed_x;
+	}
+	else if(!strcmp(car->info.name, "berniw 4")) {
+		berniw = car;
 	}
 
 	if (car->_speed_x > car->_topSpeed) {
@@ -714,9 +743,10 @@ reCapture(void)
 	glPixelStorei(GL_PACK_ALIGNMENT, 1);
 	glReadBuffer(GL_FRONT);
 	glReadPixels((sw-vw)/2, (sh-vh)/2, vw, vh, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)img);
-
+	char* msg = "Capture";
 	snprintf(buf, BUFSIZE, "%s/torcs-%4.4d-%8.8d.png", capture->outputBase, capture->currentCapture, capture->currentFrame++);
 	GfImgWritePng(img, buf, vw, vh);
+	ReRaceBigMsgSet(msg, 1.5);
 	free(img);
 }
 
@@ -729,7 +759,7 @@ ReUpdate(void)
 	int mode = RM_ASYNC;
 	int i;
 	const int MAXSTEPS = 2000;
-	
+
 	START_PROFILE("ReUpdate");
 	ReInfo->_refreshDisplay = 0;
 	switch (ReInfo->_displayMode) {
@@ -883,6 +913,14 @@ void record(void *) {
 		msg = "Recording On";
 	else
 		msg = "Recording Off";
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void berniw_speed_down(void *) {
+	char* msg;
+	if(!strcmp(berniw->info.name, "berniw 4")) {
+		berniw->pub.target_speed++;
+	}
+	msg = "berniw speed up!";
 	ReRaceBigMsgSet(msg, 1.5);
 }
 /* Hwancheol */

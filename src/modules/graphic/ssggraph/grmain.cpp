@@ -290,6 +290,7 @@ initView(int x, int y, int width, int height, int /* flag */, void *screen)
 
 	grInitScene();
 
+
 	grLodFactorValue = GfParmGetNum(grHandle, GR_SCT_GRAPHIC, GR_ATT_LODFACTOR, NULL, 1.0);
 
 	const char* wheelDetailOption = GfParmGetStr(grHandle, GR_SCT_GRAPHIC, GR_ATT_WHEELRENDERING, GR_ATT_WHEELRENDERING_DETAILED);
