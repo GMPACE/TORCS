@@ -166,7 +166,9 @@ ReManage(tCarElt *car)
 
 	for(int i = 0; i < ReInfo->s->raceInfo.ncars; i++) {
 		data.append(ReInfo->carList[i].info.name).append(":").append(to_string(ReInfo->carList[i].pub.DynGC.pos.x)).append(",")
-				.append(to_string(ReInfo->carList[i].pub.DynGC.pos.y)).append("&");
+				.append(to_string(ReInfo->carList[i].pub.DynGC.pos.y)).append("%")
+				.append(to_string(ReInfo->carList[i].pub.trkPos.toLeft)).append("@")
+				.append(to_string(ReInfo->carList[i].race.distRaced)).append("&");
 	}
 	//printf("%s\n",data.c_str());
 	strcpy(*send_data, data.c_str());

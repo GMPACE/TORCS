@@ -2,6 +2,7 @@
  * socket.cpp
  *
  *  Created on: 2017. 4. 3
+ *  Last Modified : 2017. 6.27
  *      Author: NaYeon Kim
  */
 
@@ -218,7 +219,7 @@ int main(void)
 /********************************Change Mode -> Shared_Memory********************************/
 
 		//Create Shared Memory _ receive Mode value
-		shmid_recmode = shmget((key_t)skey_recmode, sizeof(int), 0777);
+		shmid_recmode = shmget((key_t)skey_recmode, sizeof(int), 0777|IPC_CREAT);
 		if(shmid_recmode == -1)
 		{
 			perror("shmget failed of shmid_recmode : ");
@@ -278,7 +279,7 @@ int main(void)
  int car_speed = 40;
  int car_rpm = 500;
  int car_gear = 0;
- int car_steer = 30;
+ int car_steer = 70;
  int car_odometer = 0;
 
  string car_speed_s;
@@ -293,7 +294,7 @@ int main(void)
  string str2 = "";
 
  string test[19] = {"Empty", "Accel","Brake", "Steer","gear","UpperRampStatic","UpperRamp","Ramp","RampAuto","WiperMove","WiperTrigger","WiperOff","WiperAuto"
-,"WiperLow","WiperHigh","RightTurn","LeftTurn","Bright","LampTrigger" };
+,"WiperLow","WiperHigh","RightTurn","LeftTurn","Bright","LampTrigger"};
 
 
 
@@ -303,7 +304,10 @@ int main(void)
  bool check_value = true;//true -> 자동모드 , false -> 수동모드
 
 
- while (1)
+
+
+*r_mode = 1;
+ while (1)	
  {
 
 /*************************************자율주행모드*********************************************/
@@ -319,6 +323,16 @@ int main(void)
 		 car_speed = *r_speed;
 		 car_rpm = (*r_rpm)*10;
 		 car_steer = *r_steer;
+
+
+
+//		 car_speed = car_speed;
+//		 car_rpm = car_rpm;
+//		 car_steer = car_steer;
+//
+//		 car_speed = car_speed;
+//		 car_rpm = car_rpm;
+//		 car_steer = car_steer;
 
 
 		 car_speed_s =ToString(car_speed);

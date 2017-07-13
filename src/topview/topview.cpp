@@ -14,6 +14,7 @@
 #include <sys/sem.h>
 #include <sys/ipc.h>
 #include <unistd.h>
+#include <cmath>
 #include "vec.hpp"
 #include "mat.hpp"
 #include "transform.hpp"
@@ -40,7 +41,7 @@ GLint loc_u_M;
 GLint loc_u_V;
 GLint loc_u_P;
 float ang = 0.0f;
-float eyex = 0.0f, eyey = 0.0f, eyez = 100.0f, centerx = 0.0f, centery = 0.0f,
+float eyex = 0.0f, eyey = 0.0f, eyez = 10.0f, centerx = 0.0f, centery = 0.0f,
 		centerz = 0.0f, upx = 0.0f, upy = 1.0f, upz = 0.0f;
 kmuvcl::Camera cam(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz);
 
@@ -143,14 +144,16 @@ int main(int argc, char* argv[]) {
 char splited_data[30][10];
 
 struct car_Position {
-	char name[15];
-	kmuvcl::math::vec2i position;
+	char name[25];
+	kmuvcl::math::vec2d position;
+	double dist_to_left;
+	double dist_raced;
 };
 car_Position car_positions[10];
 
 void split_data(int index) {
 	char *ptr;
-	char temp[1024];
+	char temp[2048];
 	memcpy(temp, *receive_data, sizeof(temp));
 	ptr = strtok(temp, "#");
 	memcpy(temp, strtok(NULL, "#"), sizeof(temp));
@@ -158,14 +161,22 @@ void split_data(int index) {
 	for (int i = 0; i < index; i++)
 		ptr = strtok(NULL, "&");
 	ptr = strtok(ptr, ":");
-	memcpy(car_positions[index].name, ptr, sizeof(ptr));
+	memcpy(car_positions[index].name, ptr, sizeof(ptr)+ 10);
 	ptr = strtok(NULL, ":");
 	memcpy(temp, ptr, sizeof(temp));
 	ptr = strtok(temp, ",");
 	car_positions[index].position[0] = atoi(ptr);
 	ptr = strtok(NULL, ",");
 	car_positions[index].position[1] = atoi(ptr);
-	//printf("name : %s (%d, %d)\n", car_positions[index].name, car_positions[index].position(0), car_positions[index].position(1));
+	memcpy(temp, ptr, sizeof(temp));
+	ptr = strtok(temp, "%");
+	ptr = strtok(NULL, "%");
+	car_positions[index].dist_to_left = atoi(ptr);
+	memcpy(temp, ptr, sizeof(temp));
+	ptr = strtok(temp, "@");
+	ptr = strtok(NULL, "@");
+	car_positions[index].dist_raced = atoi(ptr);
+	//printf("name : %s (%d, %d) dist to left : %f dist raced : %f\n", car_positions[index].name, car_positions[index].position(0), car_positions[index].position(1), car_positions[index].dist_to_left, car_positions[index].dist_raced);
 }
 
 void myIdle() {
@@ -243,25 +254,44 @@ void mydisplay() {
 	glUniformMatrix4fv(loc_u_M, 1, false, M);
 	glUniformMatrix4fv(loc_u_V, 1, false, V);
 	glUniformMatrix4fv(loc_u_P, 1, false, P);
+	kmuvcl::math::vec2d my_position;
+	double my_dist_to_left;
+	double my_dist_raced;
+	double theta;
 	for (int i = 0; i < count; i++) {
-		particles[i].position = car_positions[i].position;
 		if (!strcmp("Player", car_positions[i].name)) {
+			my_position = car_positions[i].position;
+			my_dist_to_left = car_positions[i].dist_to_left;
+			my_dist_raced = car_positions[i].dist_raced;
+			particles[i].position(0) = 0.f;
+			particles[i].position(1) = 0.f;
+			particles[i].position(2) = 0.f;
+			particles[i].position(3) = 0.f;
 			particles[i].color.r = 0;
 			particles[i].color.g = 0;
 			particles[i].color.b = 1;
 			particles[i].color.a = 1;
-			eyex = (float) particles[i].position(0);
-			eyey = (float) particles[i].position(1);
-			eyez = 10.f;
-			centerx = eyex;
-			centery = eyey;
-			centerz = 0;
-			upx = 0.f;
-			upy = 1.f;
-			upz = 0.f;
-			cam = kmuvcl::Camera(eyex, eyey, eyez, centerx, centery, centerz,
-					upx, upy, upz);
-		} else {
+		}else {
+			double d_cos_theta; // d * cos(theta)
+			kmuvcl::math::vec2d dist_vec = my_position-car_positions[i].position;
+			double dist = sqrt(pow(my_position(0) - car_positions[i].position(0), 2) + pow(my_position(1) - car_positions[i].position(1), 2));
+			d_cos_theta = my_dist_to_left - car_positions[i].dist_to_left;
+			theta = acos(fabs(d_cos_theta) / dist);
+
+			if(d_cos_theta > 0)  // left
+				particles[i].position(0) = dist*cos(theta);
+			else  				// right
+				particles[i].position(0) = -dist*cos(theta);
+
+			if(my_dist_raced > car_positions[i].dist_raced) // bottom
+				particles[i].position(1) = -dist*sin(theta);
+			else
+				particles[i].position(1) = dist*sin(theta);
+
+			particles[i].position(2) = 0.f;
+			particles[i].position(3) = 0.f;
+			printf("(%f, %f)\n", particles[i].position(0), particles[i].position(1));
+
 			particles[i].color.r = 1;
 			particles[i].color.g = 0;
 			particles[i].color.b = 0;
@@ -274,4 +304,3 @@ void mydisplay() {
 
 	glutSwapBuffers();
 }
-
