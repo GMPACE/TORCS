@@ -2,7 +2,7 @@
  * socket.cpp
  *
  *  Created on: 2017. 4. 3
- *  Last Modified : 2017. 6.27
+ *  Last Modified : 2017. 7. 14
  *      Author: NaYeon Kim
  */
 
@@ -45,8 +45,6 @@ union semun
 
 
 
-
-
 int main(void)
 {
 
@@ -77,6 +75,8 @@ int main(void)
 
 	int *process_num;
 	int local_num;
+	int mode_count=0;
+	int test_count=0;
 
 //	struct sembuf semopen = {0,-1,SEM_UNDO};
 //	struct sembuf semclose = {0,1,SEM_UNDO};
@@ -235,6 +235,7 @@ int main(void)
 		}
 
 		int* r_mode = (int *)shared_memory_recmode;
+		*r_mode = 0;//초기 설정은 수동모드로 설정 
 
 
 
@@ -301,38 +302,40 @@ int main(void)
  char send_data[]="dataautosteer0autogear0speed030rpm0500gear0steer-020odometer0eom";
 
 
- bool check_value = true;//true -> 자동모드 , false -> 수동모드
+ 
 
 
 
 
-*r_mode = 0;
+
  while (1)	
  {
+	
 
 /*************************************자율주행모드*********************************************/
 	 if(*r_mode == 1)//auto mode
 
 	 {
-//		 if(check_value == false) check_value = true;
-
+		 mode_count = 0;
+		 test_count++;
 
 		 send_data[13] = '1';//change autosteer value
 
 
-/*		 car_speed = *r_speed;
+		 car_speed = *r_speed;
 		 car_rpm = (*r_rpm)*10;
 		 car_steer = *r_steer;
+		 //car_steer = 105;
 
-*/
 
-		 car_speed = car_speed;
-		 car_rpm = car_rpm;
-		 car_steer = car_steer;
 
-		 car_speed = car_speed;
-		 car_rpm = car_rpm;
-		 car_steer = car_steer;
+//		 car_speed = car_speed;
+//		 car_rpm = car_rpm;
+//		 car_steer = car_steer;
+//
+//		 car_speed = car_speed;
+//		 car_rpm = car_rpm;
+//		 car_steer = car_steer;
 
 
 		 car_speed_s =ToString(car_speed);
@@ -454,20 +457,27 @@ int main(void)
 
 
 
+/*
+		 if(test_count>9000)//모드 변환 테스트용
+		 {
+			printf("mode->0");
+			*r_mode =0;
+		 }
 
-
+*/
 	 }
 /***************************************수동 모드**************************************/
 	 else if (*r_mode == 0)
 	 {
+		
+		 if(mode_count == 0)//자동모드에서 수동모드로 바뀌는 순간 audo->Manual로 바꿔주는 작업
 
-//		 if(check_value == true)//자동모드에서 수동모드로 바뀌는 순간
-//
-//		 {
-//			 send_data[13] = 0;//steer mode is manual
-//			 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
-//			 check_value = false;
-//		 }
+		 {
+			 printf("count");
+			 send_data[13] = 0;//steer mode is manual
+			 write(s,(void*)send_data,sizeof(send_data));//change steer mode auto -> manual
+			 mode_count++;
+		 }
 
 		 cout<<"mode : "<<*r_mode<<endl;
 
@@ -506,7 +516,8 @@ int main(void)
 				*w_brake = atoi(ptr);
 				printf("brake: %d\n", *w_brake);
 			 }
-			 if(count == 3)
+
+			 if(count == 10)
 			 {
 				*w_steer = atoi(ptr);
 				string to_string(ptr);
