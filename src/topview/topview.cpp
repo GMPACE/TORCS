@@ -41,7 +41,7 @@ GLint loc_u_M;
 GLint loc_u_V;
 GLint loc_u_P;
 float ang = 0.0f;
-float eyex = 0.0f, eyey = 0.0f, eyez = 10.0f, centerx = 0.0f, centery = 0.0f,
+float eyex = 0.0f, eyey = 0.0f, eyez = 1000.0f, centerx = 0.0f, centery = 0.0f,
 		centerz = 0.0f, upx = 0.0f, upy = 1.0f, upz = 0.0f;
 kmuvcl::Camera cam(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz);
 
@@ -96,18 +96,18 @@ void draw_Particle(Particle& p) {
 		color[i + 2] = p.color.b;
 		color[i + 3] = p.color.a;
 	}
-	position[0] = p.position(0) - 1.f;
-	position[1] = p.position(1);
+	position[0] = p.position(0) - 100;
+	position[1] = p.position(1) - 50 * sqrt(3);
 	position[2] = 0.f;
 	position[3] = 1.f;
 
-	position[4] = p.position(0) + 1.f;
-	position[5] = p.position(1);
+	position[4] = p.position(0) + 100;
+	position[5] = p.position(1) - 50 * sqrt(3);
 	position[6] = 0.f;
 	position[7] = 1.f;
 
 	position[8] = p.position(0);
-	position[9] = p.position(1) + 1.f;
+	position[9] = p.position(1) + 50 * sqrt(3);
 	position[10] = 0.f;
 	position[11] = 1.f;
 
@@ -171,7 +171,7 @@ void split_data(int index) {
 	memcpy(temp, ptr, sizeof(temp));
 	ptr = strtok(temp, "%");
 	ptr = strtok(NULL, "%");
-	car_positions[index].dist_to_left = atoi(ptr);
+	car_positions[index].dist_to_left = atoi(ptr) * 100;
 	memcpy(temp, ptr, sizeof(temp));
 	ptr = strtok(temp, "@");
 	ptr = strtok(NULL, "@");
@@ -275,6 +275,7 @@ void mydisplay() {
 			double d_cos_theta; // d * cos(theta)
 			kmuvcl::math::vec2d dist_vec = my_position-car_positions[i].position;
 			double dist = sqrt(pow(my_position(0) - car_positions[i].position(0), 2) + pow(my_position(1) - car_positions[i].position(1), 2));
+			dist *= 100;
 			d_cos_theta = my_dist_to_left - car_positions[i].dist_to_left;
 			theta = acos(fabs(d_cos_theta) / dist);
 

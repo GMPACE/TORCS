@@ -277,119 +277,119 @@ extern "C" int human(tModInfo *modInfo) {
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
 	char sstring[BUFSIZE];
-	/*NaYeon*/
-	shmid = shmget((key_t) skey, sizeof(int), 0777);
-	if (shmid == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-
-//			semid = semget((key_t) sekey, 0, 0777);
-//			if (semid == -1) {
-//				perror("semget failed : ");
-//				exit(1);
-//			}
-	shared_memory = shmat(shmid, (void *) 0, 0);
-	if (!shared_memory) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	torcs_steer = (int*) shared_memory;
-
-	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
-	if (shmid2 == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory2 = shmat(shmid2, (void *) 0, 0);
-	if (!shared_memory2) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	ptr_brake = (int*) shared_memory2;
-
-	shmid3 = shmget((key_t) skey3, sizeof(int), 0777);
-	if (shmid3 == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory3 = shmat(shmid3, (void *) 0, 0);
-	if (!shared_memory3) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	ptr_accel = (int*) shared_memory3;
-
-
-
-	shmid_recspeed = shmget((key_t) skey_recspeed, sizeof(int), 0777);
-	if (shmid_recspeed == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory_recspeed = shmat(shmid_recspeed, (void *) 0, 0);
-	if (!shared_memory_recspeed) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	rec_speed = (int*) shared_memory_recspeed;
-
-
-
-	shmid_recrpm = shmget((key_t) skey_recrpm, sizeof(int), 0777);
-	if (shmid_recrpm == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory_recrpm = shmat(shmid_recrpm, (void *) 0, 0);
-	if (!shared_memory_recrpm) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	rec_rpm = (int*) shared_memory_recrpm;
-
-
-
-	shmid_recsteer = shmget((key_t) skey_recsteer, sizeof(int), 0777);
-	if (shmid_recsteer == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory_recsteer = shmat(shmid_recsteer, (void *) 0, 0);
-	if (!shared_memory_recsteer) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	rec_steer = (int*) shared_memory_recsteer;
-
-
-
-//	shmid_acc = shmget((key_t) skey_acc, sizeof(int), 0777);
-//	if (shmid_acc == -1) {
+//	/*NaYeon*/
+//	shmid = shmget((key_t) skey, sizeof(int), 0777);
+//	if (shmid == -1) {
 //		perror("shmget failed :");
 ////		exit(1);
 //	}
-//	printf("test7\n");
-//	shared_memory_acc = shmat(shmid_acc, (void *) 0, 0);
+//
+////			semid = semget((key_t) sekey, 0, 0777);
+////			if (semid == -1) {
+////				perror("semget failed : ");
+////				exit(1);
+////			}
+//	shared_memory = shmat(shmid, (void *) 0, 0);
+//	if (!shared_memory) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	torcs_steer = (int*) shared_memory;
+//
+//	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
+//	if (shmid2 == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory2 = shmat(shmid2, (void *) 0, 0);
+//	if (!shared_memory2) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	ptr_brake = (int*) shared_memory2;
+//
+//	shmid3 = shmget((key_t) skey3, sizeof(int), 0777);
+//	if (shmid3 == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory3 = shmat(shmid3, (void *) 0, 0);
+//	if (!shared_memory3) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	ptr_accel = (int*) shared_memory3;
+//
+//
+//
+//	shmid_recspeed = shmget((key_t) skey_recspeed, sizeof(int), 0777);
+//	if (shmid_recspeed == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory_recspeed = shmat(shmid_recspeed, (void *) 0, 0);
+//	if (!shared_memory_recspeed) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	rec_speed = (int*) shared_memory_recspeed;
+//
+//
+//
+//	shmid_recrpm = shmget((key_t) skey_recrpm, sizeof(int), 0777);
+//	if (shmid_recrpm == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory_recrpm = shmat(shmid_recrpm, (void *) 0, 0);
+//	if (!shared_memory_recrpm) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	rec_rpm = (int*) shared_memory_recrpm;
+//
+//
+//
+//	shmid_recsteer = shmget((key_t) skey_recsteer, sizeof(int), 0777);
+//	if (shmid_recsteer == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory_recsteer = shmat(shmid_recsteer, (void *) 0, 0);
+//	if (!shared_memory_recsteer) {
+//		perror("shmat failed");
+////		exit(1);
+//	}
+//	rec_steer = (int*) shared_memory_recsteer;
+//
+//
+//
+////	shmid_acc = shmget((key_t) skey_acc, sizeof(int), 0777);
+////	if (shmid_acc == -1) {
+////		perror("shmget failed :");
+//////		exit(1);
+////	}
+////	printf("test7\n");
+////	shared_memory_acc = shmat(shmid_acc, (void *) 0, 0);
+////	if (!shared_memory_acc) {
+////		perror("shmat failed");
+//////		exit(1);
+////	}
+////	rec_acc = (int*) shared_memory_acc;
+//
+//
+//	shmid_lkas = shmget((key_t) skey_lkas, sizeof(int), 0777);
+//	if (shmid_lkas == -1) {
+//		perror("shmget failed :");
+////		exit(1);
+//	}
+//	shared_memory_lkas = shmat(shmid_lkas, (void *) 0, 0);
 //	if (!shared_memory_acc) {
 //		perror("shmat failed");
 ////		exit(1);
 //	}
-//	rec_acc = (int*) shared_memory_acc;
-
-
-	shmid_lkas = shmget((key_t) skey_lkas, sizeof(int), 0777);
-	if (shmid_lkas == -1) {
-		perror("shmget failed :");
-//		exit(1);
-	}
-	shared_memory_lkas = shmat(shmid_lkas, (void *) 0, 0);
-	if (!shared_memory_acc) {
-		perror("shmat failed");
-//		exit(1);
-	}
-	rec_lkas = (int*) shared_memory_lkas;
-
+//	rec_lkas = (int*) shared_memory_lkas;
+//
 
 //	shmid_targetspeed = shmget((key_t) skey_targetspeed, sizeof(int), 0777);
 //	if (shmid_acc == -1) {
@@ -1345,14 +1345,14 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Memo : Common_drive의 호출 주기 0.02s ~ 0.022s
 	 /* Hwancheol */
 
-	/*NaYeon*/
-			/*receive data setting */
-			*rec_steer = car->_steerCmd * 180* (-1);
-			*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
-			*rec_rpm = car->_enginerpm;
-//	/* Hwancheol */
-//			*rec_acc = (onoff_Mode & (short) 2);
-			*rec_lkas = (onoff_Mode & (short) 1);
+//	/*NaYeon*/
+//			/*receive data setting */
+//			*rec_steer = car->_steerCmd * 180* (-1);
+//			*rec_speed = car->pub.speed * 3.6; //m/s-> km/h convert
+//			*rec_rpm = car->_enginerpm;
+////	/* Hwancheol */
+////			*rec_acc = (onoff_Mode & (short) 2);
+//			*rec_lkas = (onoff_Mode & (short) 1);
 			//*rec_targetspeed = car->pub.target_speed * 3.6;
 //			printf("ACC : %d\n", *rec_acc);
 //			printf("LKAS : %d\n", *rec_lkas);
