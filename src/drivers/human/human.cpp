@@ -993,9 +993,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 //			perror("semop error : ");
 //			exit(0);
 //		}
-		double k7_steer = ((double) (*torcs_steer)) / 180;
+//		double k7_steer = ((double) (*torcs_steer)) / 180;
 ////		printf("after access shared memory\n");
-		car->_steerCmd = k7_steer;
+//		car->_steerCmd = k7_steer;
 //		semop(semid, &semclose,1);
 		/*******************************************/
 

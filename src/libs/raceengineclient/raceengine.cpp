@@ -60,7 +60,8 @@ short onoff_Mode = 0;
 static double target_speed = 0;
 static double current_speed = 0;
 tCarElt* mycar = new tCarElt();
-tCarElt* berniw = new tCarElt();
+tCarElt* berniw4 = new tCarElt();
+tCarElt* berniw5 = new tCarElt();
 bool lc_signal = false;
 bool record_signal = false;
 
@@ -168,7 +169,8 @@ ReManage(tCarElt *car)
 		data.append(ReInfo->carList[i].info.name).append(":").append(to_string(ReInfo->carList[i].pub.DynGC.pos.x)).append(",")
 				.append(to_string(ReInfo->carList[i].pub.DynGC.pos.y)).append("%")
 				.append(to_string(ReInfo->carList[i].pub.trkPos.toLeft)).append("@")
-				.append(to_string(ReInfo->carList[i].race.distRaced)).append("&");
+				.append(to_string(ReInfo->carList[i].race.distRaced)).append("$")
+				.append(to_string(ReInfo->carList[i].pub.driver_intent)).append("&");
 	}
 	//printf("%s\n",data.c_str());
 	strcpy(*send_data, data.c_str());
@@ -180,7 +182,10 @@ ReManage(tCarElt *car)
 		current_speed = car->_speed_x;
 	}
 	else if(!strcmp(car->info.name, "berniw 4")) {
-		berniw = car;
+		berniw4 = car;
+	}
+	else if(!strcmp(car->info.name, "berniw 5")) {
+		berniw5 = car;
 	}
 
 	if (car->_speed_x > car->_topSpeed) {
@@ -917,12 +922,78 @@ void record(void *) {
 		msg = "Recording Off";
 	ReRaceBigMsgSet(msg, 1.5);
 }
-void berniw_speed_down(void *) {
+void berniw_speed_up(void *) {
 	char* msg;
-	if(!strcmp(berniw->info.name, "berniw 4")) {
-		berniw->pub.target_speed++;
+	if(!strcmp(berniw4->info.name, "berniw 4")) {
+		berniw4->pub.target_speed++;
 	}
 	msg = "berniw speed up!";
 	ReRaceBigMsgSet(msg, 1.5);
+}
+void berniw_speed_down(void *) {
+	char* msg;
+	if(!strcmp(berniw4->info.name, "berniw 4")) {
+		berniw4->pub.target_speed--;
+	}
+	msg = "berniw speed down!";
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void select_car_2(void *) {
+	char* msg;
+
+	if (!strcmp(berniw4->info.name, "berniw 4")) {
+		berniw4->pub.is_selected = !berniw4->pub.is_selected;
+		if (berniw4->pub.is_selected) {
+			msg = "select berniw 4";
+		}
+	}
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void select_car_3(void *) {
+	char* msg;
+
+	if (!strcmp(berniw5->info.name, "berniw 5")) {
+		berniw5->pub.is_selected = !berniw5->pub.is_selected;
+		if (berniw5->pub.is_selected) {
+			msg = "select berniw 5";
+		}
+	}
+	ReRaceBigMsgSet(msg, 1.5);
+}
+void turn_signal_l(void *num) {
+	char* msg;
+	if (berniw4->pub.is_selected) {
+		if(berniw4->pub.driver_intent == 1)
+			berniw4->pub.driver_intent = 0;
+		else
+			berniw4->pub.driver_intent = 1;
+		msg = "turn left";
+	}
+	if (berniw5->pub.is_selected) {
+		if(berniw5->pub.driver_intent == 1)
+			berniw5->pub.driver_intent = 0;
+		else
+			berniw5->pub.driver_intent = 1;
+		msg = "turn left";
+	}
+//	ReRaceBigMsgSet(msg, 1.5);
+}
+void turn_signal_r(void *num) {
+	char* msg;
+	if (berniw4->pub.is_selected) {
+		if (berniw4->pub.driver_intent == 2)
+			berniw4->pub.driver_intent = 0;
+		else
+			berniw4->pub.driver_intent = 2;
+		msg = "turn left";
+	}
+	if (berniw5->pub.is_selected) {
+		if (berniw5->pub.driver_intent == 2)
+			berniw5->pub.driver_intent = 0;
+		else
+			berniw5->pub.driver_intent = 2;
+		msg = "turn left";
+	}
+//	ReRaceBigMsgSet(msg, 1.5);
 }
 /* Hwancheol */

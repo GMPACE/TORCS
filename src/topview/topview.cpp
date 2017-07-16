@@ -19,7 +19,8 @@
 #include "mat.hpp"
 #include "transform.hpp"
 #include "Camera.hpp"
-#include "cstring"
+#include <cstring>
+#include "SOIL.h"
 
 using namespace std;
 
@@ -33,13 +34,17 @@ void init();
 void mydisplay();
 void myIdle();
 GLuint create_shader_from_file(const std::string& filename, GLuint shader_type);
-
+void set_texture(const char* filename, GLuint* texid_);
 GLuint program; // 쉐이더 프로그램 객체의 레퍼런스 값
 GLint loc_a_position;
 GLint loc_a_color;
+GLint loc_a_texcoord;
+GLint loc_u_texid;
+GLint loc_u_tex_flag;
 GLint loc_u_M;
 GLint loc_u_V;
 GLint loc_u_P;
+GLuint texid;
 float ang = 0.0f;
 float eyex = 0.0f, eyey = 0.0f, eyez = 1000.0f, centerx = 0.0f, centery = 0.0f,
 		centerz = 0.0f, upx = 0.0f, upy = 1.0f, upz = 0.0f;
@@ -54,6 +59,7 @@ struct Color {
 struct Particle {
 	kmuvcl::math::vec2i position;
 	Color color;
+	int use_tex;
 };
 /* shared memory */
 int shmid;
@@ -87,39 +93,91 @@ void delete_shared_memory() {
 }
 /* shared memory */
 void draw_Particle(Particle& p) {
-	GLfloat position[12];
-	GLfloat color[12];
-	GLuint indices[3];
-	for (int i = 0; i < 12; i += 4) {
+	GLfloat position[16];
+	GLfloat color[16];
+	GLuint indices[6];
+//	GLfloat texcoords[] = {
+//	      1,1,  1,0, 0,0,  0,1, //right
+//	};
+//	GLfloat texcoords[] = {
+//			0,1,  0,0, 1,0,  1,1, // left
+//	 };
+
+
+
+
+	for (int i = 0; i < 16; i += 4) {
 		color[i] = p.color.r;
 		color[i + 1] = p.color.g;
 		color[i + 2] = p.color.b;
 		color[i + 3] = p.color.a;
 	}
 	position[0] = p.position(0) - 100;
-	position[1] = p.position(1) - 50 * sqrt(3);
+	position[1] = p.position(1) - 100;
 	position[2] = 0.f;
 	position[3] = 1.f;
 
-	position[4] = p.position(0) + 100;
-	position[5] = p.position(1) - 50 * sqrt(3);
+	position[4] = p.position(0) - 100;
+	position[5] = p.position(1) + 100;
 	position[6] = 0.f;
 	position[7] = 1.f;
 
-	position[8] = p.position(0);
-	position[9] = p.position(1) + 50 * sqrt(3);
+	position[8] = p.position(0) + 100;
+	position[9] = p.position(1) + 100;
 	position[10] = 0.f;
 	position[11] = 1.f;
 
-	indices[0] = 0;
-	indices[1] = 1;
-	indices[2] = 2;
+	position[12] = p.position(0) + 100;
+	position[13] = p.position(1) - 100;
+	position[14] = 0.f;
+	position[15] = 1.f;
 
+	indices[0] = 0;
+	indices[1] = 3;
+	indices[2] = 2;
+	indices[3] = 2;
+	indices[4] = 1;
+	indices[5] = 0;
+	GLfloat texcoords[8];
+	if (p.use_tex > 0) {
+		glUniform1i(loc_u_tex_flag, 1);
+		for(int i = 2; i <= 14; i += 4) {
+			position[i] = 1.f;
+		}
+		if(p.use_tex == 1) {
+			texcoords[0] = 0;
+			texcoords[1] = 1;
+			texcoords[2] = 0;
+			texcoords[3] = 0;
+			texcoords[4] = 1;
+			texcoords[5] = 0;
+			texcoords[6] = 1;
+			texcoords[7] = 1;
+		} else {
+			texcoords[0] = 1;
+			texcoords[1] = 1;
+			texcoords[2] = 1;
+			texcoords[3] = 0;
+			texcoords[4] = 0;
+			texcoords[5] = 0;
+			texcoords[6] = 0;
+			texcoords[7] = 1;
+		}
+	}
+	else {
+		glUniform1i(loc_u_tex_flag, 0);
+	}
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, texid);
+	glUniform1i(loc_u_texid, 1);
 	glEnableVertexAttribArray(loc_a_color);
 	glEnableVertexAttribArray(loc_a_position);
+	glEnableVertexAttribArray(loc_a_texcoord);
 	glVertexAttribPointer(loc_a_position, 4, GL_FLOAT, GL_FALSE, 0, position);
 	glVertexAttribPointer(loc_a_color, 4, GL_FLOAT, GL_FALSE, 0, color);
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, indices);
+	glVertexAttribPointer(loc_a_texcoord, 2, GL_FLOAT, GL_FALSE, 0, texcoords);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
+	glDisableVertexAttribArray(loc_a_texcoord);
 	glDisableVertexAttribArray(loc_a_color);
 	glDisableVertexAttribArray(loc_a_position);
 }
@@ -148,6 +206,7 @@ struct car_Position {
 	kmuvcl::math::vec2d position;
 	double dist_to_left;
 	double dist_raced;
+	int driver_intent;
 };
 car_Position car_positions[10];
 
@@ -176,7 +235,14 @@ void split_data(int index) {
 	ptr = strtok(temp, "@");
 	ptr = strtok(NULL, "@");
 	car_positions[index].dist_raced = atoi(ptr);
-	//printf("name : %s (%d, %d) dist to left : %f dist raced : %f\n", car_positions[index].name, car_positions[index].position(0), car_positions[index].position(1), car_positions[index].dist_to_left, car_positions[index].dist_raced);
+	memcpy(temp, ptr, sizeof(temp));
+	ptr = strtok(temp, "$");
+	ptr = strtok(NULL, "$");
+	car_positions[index].driver_intent = atoi(ptr);
+	printf("name : %s (%d, %d) dist to left : %f dist raced : %f driver_intent : %d\n",
+			car_positions[index].name, car_positions[index].position(0),
+			car_positions[index].position(1), car_positions[index].dist_to_left,
+			car_positions[index].dist_raced, car_positions[index].driver_intent);
 }
 
 void myIdle() {
@@ -227,6 +293,11 @@ void init() {
 	loc_a_position = glGetAttribLocation(program, "a_position");
 	loc_a_color = glGetAttribLocation(program, "a_color");
 
+	loc_u_texid        = glGetUniformLocation(program, "u_texid");
+	loc_u_tex_flag     = glGetUniformLocation(program, "u_tex_flag");
+	loc_a_texcoord     = glGetAttribLocation(program, "a_texcoord");
+
+	set_texture("turn_signal.jpg", &texid);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
@@ -247,7 +318,7 @@ void mydisplay() {
 	mat4x4f R = rotate(ang, 0.0f, 1.0f, 0.0f);
 	M = T * R;
 	V = cam.lookAt();
-	P = perspective(cam.getZoom(), 1.0f, 0.001f, 1000.0f);
+	P = perspective(cam.getZoom(), 1.0f, 0.001f, 10000.0f);
 
 	glUseProgram(program);
 
@@ -271,6 +342,7 @@ void mydisplay() {
 			particles[i].color.g = 0;
 			particles[i].color.b = 1;
 			particles[i].color.a = 1;
+			particles[i].use_tex = 0;
 		}else {
 			double d_cos_theta; // d * cos(theta)
 			kmuvcl::math::vec2d dist_vec = my_position-car_positions[i].position;
@@ -291,7 +363,8 @@ void mydisplay() {
 
 			particles[i].position(2) = 0.f;
 			particles[i].position(3) = 0.f;
-			printf("(%f, %f)\n", particles[i].position(0), particles[i].position(1));
+
+			particles[i].use_tex = car_positions[i].driver_intent;
 
 			particles[i].color.r = 1;
 			particles[i].color.g = 0;
@@ -304,4 +377,20 @@ void mydisplay() {
 	glUseProgram(0);
 
 	glutSwapBuffers();
+}
+void set_texture(const char* filename, GLuint* texid_) {
+  int width, height, channels;
+  unsigned char* image = SOIL_load_image(filename,
+    &width, &height, &channels, SOIL_LOAD_RGB);
+
+  glGenTextures(1, texid_);
+  glBindTexture(GL_TEXTURE_2D, *texid_);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,     GL_CLAMP_TO_EDGE);
+  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,     GL_CLAMP_TO_EDGE);
+
+  SOIL_free_image_data(image);
 }

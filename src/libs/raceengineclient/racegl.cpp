@@ -150,7 +150,19 @@ static void reAddKeys(void) {
 	GfuiAddKey(reScreenHandle, 'f', "Lane Change Start/Stop", (void*) 0, turn_lc_signal,
 			NULL);
 	GfuiAddKey(reScreenHandle, 'r', "Recording On/Off", (void*) 0, record,
-				NULL);
+			NULL);
+	GfuiAddKey(reScreenHandle, '7', "2nd Car Select", (void*)0, select_car_2,
+			NULL);
+	GfuiAddKey(reScreenHandle, '8', "3rd Car Select", (void*)0, select_car_3,
+			NULL);
+	GfuiAddKey(reScreenHandle, 'u', "Berniw speed up", (void*)0, berniw_speed_up,
+			NULL);
+	GfuiAddKey(reScreenHandle, 'd', "Berniw speed up", (void*)0, berniw_speed_down,
+		NULL);
+	GfuiAddKey(reScreenHandle, 'q', "Berniw speed up", (void*)0, turn_signal_l,
+		NULL);
+	GfuiAddKey(reScreenHandle, 'w', "Berniw speed up", (void*)0, turn_signal_r,
+		NULL);
 	/* Hwancheol */
 
 
@@ -169,8 +181,7 @@ static void reAddKeys(void) {
 #endif
 	GfuiAddKey(reScreenHandle, 'c', "Movie Capture", (void*) 0, reMovieCapture,
 	NULL);
-	GfuiAddKey(reScreenHandle, 'u', "Berniw speed down", (void*)0, berniw_speed_down,
-	NULL);
+
 
 }
 
