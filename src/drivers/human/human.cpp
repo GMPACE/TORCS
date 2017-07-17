@@ -720,7 +720,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	double raced_dist = mycar->getCarPtr()->race.distRaced;
 	double raced_dist_o = 0;
 	/* 한이음 */
-	//ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
+	car->pub.ldws = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
 	/* update the other cars just once */
@@ -1853,9 +1853,14 @@ static double calculate_CC(bool updown, tCarElt* car) {
 #define LDWS_CALCULATING	 1
 
 #define LDWS_ON_LEVEL0       2
-#define LDWS_ON_LEVEL1 	 	 3
-#define LDWS_ON_LEVEL2 	 	 4
-#define LDWS_ON_LEVEL3 	 	 5
+#define LDWS_ON_LEVEL1_LEFT  3
+#define LDWS_ON_LEVEL2_LEFT  4
+#define LDWS_ON_LEVEL3_LEFT	 5
+#define LDWS_ON_LEVEL1_RIGHT 6
+#define LDWS_ON_LEVEL2_RIGHT 7
+#define LDWS_ON_LEVEL3_RIGHT 8
+
+
 
 #define LDWS_ERROR 		     6
 
@@ -1906,17 +1911,30 @@ static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double
 	sum_error_l += error_ldws_l;
 	double error_ldws_r = fabs(0.5 - cur_dist_r);
 	sum_error_r += error_ldws_r;
-	if(sum_error_l >= INTEGRAL_TH_3 || sum_error_r >= INTEGRAL_TH_3) {
+
+	if(sum_error_l >= INTEGRAL_TH_3) {
 		printf("LDWS - level 3 ON!!!!\n");
-		return LDWS_ON_LEVEL3;
+		return LDWS_ON_LEVEL3_LEFT;
 	}
-	else if(sum_error_l >= INTEGRAL_TH_2 || sum_error_r >= INTEGRAL_TH_2) {
+	else if(sum_error_r >= INTEGRAL_TH_3) {
+		printf("LDWS - level 3 ON!!!!\n");
+		return LDWS_ON_LEVEL3_RIGHT;
+	}
+	else if(sum_error_l >= INTEGRAL_TH_2) {
 		printf("LDWS - level 2 ON!!!!\n");
-		return LDWS_ON_LEVEL2;
+		return LDWS_ON_LEVEL2_LEFT;
 	}
-	else if(sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
+	else if(sum_error_r >= INTEGRAL_TH_2) {
+		printf("LDWS - level 2 ON!!!!\n");
+		return LDWS_ON_LEVEL2_RIGHT;
+	}
+	else if(sum_error_l >= INTEGRAL_TH_1) {
 		printf("LDWS - level 1 ON!!!!\n");
-		return LDWS_ON_LEVEL1;
+		return LDWS_ON_LEVEL1_LEFT;
+	}
+	else if(sum_error_r >= INTEGRAL_TH_1) {
+		printf("LDWS - level 1 ON!!!!\n");
+		return LDWS_ON_LEVEL1_RIGHT;
 	}
 	else {
 		printf("================LDWS - level 0 Stable===============\n");

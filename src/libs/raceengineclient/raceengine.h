@@ -43,6 +43,7 @@ extern void select_car_2(void*);
 extern void select_car_3(void*);
 extern void turn_signal_l(void*);
 extern void turn_signal_r(void*);
+extern void change_lc_state(void* num);
 extern short onoff_Mode;
 extern tRmInfo	*ReInfo;
 

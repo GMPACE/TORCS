@@ -163,6 +163,11 @@ static void reAddKeys(void) {
 		NULL);
 	GfuiAddKey(reScreenHandle, 'w', "Berniw speed up", (void*)0, turn_signal_r,
 		NULL);
+	GfuiAddKey(reScreenHandle, ';', "Left lane state change for lane change", (void*)1, change_lc_state,
+		NULL);
+	GfuiAddKey(reScreenHandle, 39, "Right lane state change for lane change", (void*)2, change_lc_state,
+		NULL);
+
 	/* Hwancheol */
 
 

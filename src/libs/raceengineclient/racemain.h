@@ -26,6 +26,11 @@
 #ifndef _RACEMAIN_H_
 #define _RACEMAIN_H_
 
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+
 extern int  ReRaceEventInit(void);
 extern int  RePreRace(void);
 extern int  ReRaceStart(void);
@@ -48,6 +53,11 @@ extern char* shared_memory[1024];
 extern int skey;
 extern char* send_data[1024];
 
+extern void set_tcpip();
+extern int my_socket;
+extern struct sockaddr_in addr;
+#define TCPIP_PORT_NUM 6342
+#define TCPIP_SERVER_IP "192.168.56.1"
 #endif /* _RACEMAIN_H_ */ 
 
 

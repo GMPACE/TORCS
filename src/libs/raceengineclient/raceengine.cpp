@@ -151,6 +151,14 @@ std::string to_string(int n)
 	return s.str();
 }
 
+#define LDWS_ON_LEVEL0       2
+#define LDWS_ON_LEVEL1_LEFT  3
+#define LDWS_ON_LEVEL2_LEFT  4
+#define LDWS_ON_LEVEL3_LEFT	 5
+#define LDWS_ON_LEVEL1_RIGHT 6
+#define LDWS_ON_LEVEL2_RIGHT 7
+#define LDWS_ON_LEVEL3_RIGHT 8
+
 static void
 ReManage(tCarElt *car)
 {
@@ -181,10 +189,51 @@ ReManage(tCarElt *car)
 	if(!strcmp(car->info.name, "Player")) {
 		mycar = car;
 		current_speed = car->_speed_x;
+		int arrow_data = 0;
+		if(car->pub.driver_intent == 1) {
+			if(car->pub.lc_state == 1)
+			{
+				arrow_data = 4;
+			}
+			else
+			{
+				arrow_data = 3;
+			}
+		}
+		else if(car->pub.driver_intent == 2) {
+			if(car->pub.lc_state == 2)
+			{
+				arrow_data = 8;
+			}
+			else
+			{
+				arrow_data = 7;
+			}
+		}
+		else if(car->pub.ldws > 0) {
+			if(car->pub.ldws == LDWS_ON_LEVEL1_LEFT)
+			{
+				arrow_data = 1;
+			}
+			else if(car->pub.ldws == LDWS_ON_LEVEL2_LEFT || car->pub.ldws == LDWS_ON_LEVEL3_LEFT)
+			{
+				arrow_data = 2;
+			}
+			else if(car->pub.ldws == LDWS_ON_LEVEL1_RIGHT)
+			{
+				arrow_data = 5;
+			}
+			else if(car->pub.ldws == LDWS_ON_LEVEL2_RIGHT || car->pub.ldws == LDWS_ON_LEVEL3_RIGHT)
+			{
+				arrow_data = 6;
+			}
+		}
 
-		data_ui.append(to_string(car->pub.driver_intent)).append("#").append(to_string(onoff_Mode));
+		data_ui.append(to_string(arrow_data)).append("#").append(to_string(onoff_Mode));
+
+		write(my_socket, (void*)data_ui.c_str(), 1024);
 	}
-	strcpy(*send_data2, data_ui.c_str());
+
 	else if(!strcmp(car->info.name, "berniw 4")) {
 		berniw4 = car;
 	}
@@ -864,7 +913,6 @@ ReTimeMod (void *vcmd)
 	ReRaceMsgSet(buf, 5);
 }
 
-/* Hwancheol */
 static void changeMode() {
 	char* msg;
 	switch(onoff_Mode & MODECHECK) {
@@ -999,5 +1047,12 @@ void turn_signal_r(void *num) {
 		msg = "turn left";
 	}
 //	ReRaceBigMsgSet(msg, 1.5);
+}
+void change_lc_state(void *num) {
+	long state = (long)num;
+	if(mycar->pub.lc_state > 0)
+		mycar->pub.lc_state = 0;
+	else
+		mycar->pub.lc_state = state;
 }
 /* Hwancheol */
