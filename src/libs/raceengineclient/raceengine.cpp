@@ -163,6 +163,7 @@ ReManage(tCarElt *car)
 	char buf[BUFSIZE];
 	/* shared memory */
 	std::string data = "";
+	std::string data_ui = "";
 	data.append(to_string(ReInfo->s->raceInfo.ncars)).append("#");
 
 	for(int i = 0; i < ReInfo->s->raceInfo.ncars; i++) {
@@ -180,7 +181,10 @@ ReManage(tCarElt *car)
 	if(!strcmp(car->info.name, "Player")) {
 		mycar = car;
 		current_speed = car->_speed_x;
+
+		data_ui.append(to_string(car->pub.driver_intent)).append("#").append(to_string(onoff_Mode));
 	}
+	strcpy(*send_data2, data_ui.c_str());
 	else if(!strcmp(car->info.name, "berniw 4")) {
 		berniw4 = car;
 	}

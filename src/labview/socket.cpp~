@@ -51,7 +51,7 @@ int main(void)
 
 	char ReceiveData[256];
 	int strLen;
-	int shmid,shmid2,shmid3; //shared memory
+	int shmid,shmid2,shmid3, shmid4; //shared memory
 	int shmid_recspeed,shmid_recrpm,shmid_recwheel; //shared memory of receive data
 	int shmid_recmode;
 	int semid;//세마포어
@@ -59,14 +59,16 @@ int main(void)
 	void *shared_memory = (void *)0;//~3 -> send data
 	void *shared_memory2 = (void *)0;
 	void *shared_memory3 = (void *)0;
+	void *shared_memory4 = (void *)0;
 	void *shared_memory_recspeed = (void *)0;//receive data
 	void *shared_memory_recrpm = (void *)0;
 	void *shared_memory_recwheel = (void *)0;
 	void *shared_memory_recmode = (void *)0;
 	char buff[1024];
 	int skey = 5678;//shared memory1-> key
-	int skey2 = 1234;
+	int skey2 = 3147;
 	int skey3 = 2345;
+	int skey4 = 2015;
 	int skey_recspeed = 3456;//shared memory_receive data key
 	int skey_recrpm = 4567;
 	int skey_recwheel = 6789;
@@ -145,11 +147,31 @@ int main(void)
 		perror("shmat failed");
 		exit(0);
 	}
+
+	//공유메모리 공간 만들기 3
+	shmid4 = shmget((key_t)skey4, sizeof(int), 0777|IPC_CREAT);
+	if(shmid4 == -1)
+	{
+		perror("shmget failed : ");
+		exit(0);
+	}
+
+	//공유메모리 맵핑 3
+	shared_memory4 = shmat(shmid4, (void *)0, 0);
+	if(!shared_memory4)
+	{
+		perror("shmat failed");
+		exit(0);
+	}
 	//공유메모리 변수 생성
 	  int* w_steer;
 	  w_steer = (int *)shared_memory;
-	  int* w_brake = (int*)shared_memory2;
-	  int* w_accel = (int*)shared_memory3;
+	  int* w_brake;
+	  w_brake = (int *)shared_memory2;
+	  int* w_accel;
+	  w_accel = (int *)shared_memory3;
+	  int* w_brake2;
+	  w_brake2 = (int *)shared_memory4;
 
 
 
@@ -317,7 +339,7 @@ int main(void)
 
 	 {
 		 mode_count = 0;
-		 test_count++;
+		 //test_count++;
 
 		 send_data[13] = '1';//change autosteer value
 
@@ -514,6 +536,7 @@ int main(void)
 			 if(count == 2)
 			 {
 				*w_brake = atoi(ptr);
+				//*w_brake2 = atoi(ptr);
 				printf("brake: %d\n", *w_brake);
 			 }
 
@@ -522,7 +545,7 @@ int main(void)
 				*w_steer = atoi(ptr);
 				string to_string(ptr);
 				if(*w_steer == 0) {
-					*w_steer = atoi(to_string.substr(6, 3).c_str());
+					*w_steer = atoi(to_string.substr(6, 4).c_str());
 				}
 				printf("steer : %d\n", *w_steer);
 				break;

@@ -354,10 +354,14 @@ static void* StartRaceHookInit(void)
 }
 
 int skey = 1234;
+int skey = 8507;
 char* shared_memory[1024];
+char* shared_memory2[1024];
 int shmid = 0;
+int shmid2 = 0;
 
 char* send_data[1024];
+char* send_data2[1024];
 void init_shared_memory() {
 	shmid = shmget((key_t) skey, sizeof(int), 0777 | IPC_CREAT);
 	if (shmid == -1) {
@@ -371,9 +375,27 @@ void init_shared_memory() {
 		exit(0);
 	}
 	send_data[0] = shared_memory[0];
+
+	shmid2 = shmget((key_t) skey2, sizeof(int), 0777 | IPC_CREAT);
+	if (shmid2 == -1) {
+		perror("shmget failed");
+		exit(0);
+	}
+	shared_memory2[0] = (char*) shmat(shmid2, (void *)0, 0);
+	if(!shared_memory2[0])
+	{
+		perror("shmat failed");
+		exit(0);
+	}
+	send_data2[0] = shared_memory2[0];
 }
+
 void delete_shared_memory() {
 	if(shmdt(shared_memory) < 0) {
+		perror("shmdt failed");
+		exit(0);
+	}
+	if(shmdt(shared_memory2) < 0) {
 		perror("shmdt failed");
 		exit(0);
 	}

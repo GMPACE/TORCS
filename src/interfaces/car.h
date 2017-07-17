@@ -225,6 +225,7 @@ typedef struct {
 	bool record_signal;
 	int driver_intent; // 0 : straight 1 : left turn 2: right turn
 	bool is_selected;
+	int ui_data;
 } tPublicCar;
 /* structure access */
 #define _target_speed pub.target_speed;
