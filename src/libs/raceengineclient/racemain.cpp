@@ -81,6 +81,7 @@ AbortRaceHookActivate(void * /* dummy */)
 	ReInfo->_reSimItf.shutdown();
 	if (ReInfo->_displayMode == RM_DISP_MODE_NORMAL) {
 		ReInfo->_reGraphicItf.shutdowncars();
+#include <sys/types.h>
 		startMenuMusic();
 	}
 	ReInfo->_reGraphicItf.shutdowntrack();
@@ -357,8 +358,9 @@ char* shared_memory[1024];
 int shmid = 0;
 int shmid2 = 0;
 
-int my_socket = 0;
-struct sockaddr_in addr;
+int my_socket, conn_desc;
+struct sockaddr_in addr, addr_client;
+socklen_t size_client;
 
 char* send_data[1024];
 void init_shared_memory() {
@@ -382,7 +384,32 @@ void delete_shared_memory() {
 		exit(0);
 	}
 }
+void set_tcpip() {
+	my_socket = socket(AF_INET, SOCK_STREAM, 0);
+	if (my_socket == -1) {
+		printf("Socket 오류\n");
+		exit(1);
+	}
+	bzero((char *)&addr, sizeof(addr));
+	addr.sin_family = AF_INET;
+	addr.sin_addr.s_addr = INADDR_ANY;
+	addr.sin_port = htons(TCPIP_PORT_NUM);
+	addr.sin_addr.s_addr = inet_addr(TCPIP_SERVER_IP);
 
+	if(bind(my_socket, (struct sockaddr *)&addr, sizeof(addr)) < 0){
+		printf("Failed to bind\n");
+	}
+	listen(my_socket, 1);
+	printf("Waiting for connection...\n");
+	/* tcp ip */
+	size_client = sizeof(addr_client);
+	conn_desc = accept(my_socket, (struct sockaddr *) &addr_client,
+			&size_client);
+	if (conn_desc == -1)
+		printf("Failed accepting connection\n");
+	else
+		printf("Connected\n");
+}
 /* return state mode */
 int ReRaceStart(void)
 {
@@ -399,22 +426,6 @@ int ReRaceStart(void)
 	ReInfo->_reCarInfo = (tReCarInfo*)calloc(GfParmGetEltNb(params, RM_SECT_DRIVERS), sizeof(tReCarInfo));
 
 	init_shared_memory();
-	my_socket = socket(AF_INET, SOCK_STREAM, 0);
-	if (my_socket == -1) {
-		printf("Socket 오류\n");
-		exit(1);
-	}
-	sockaddr_in addr;
-	addr.sin_family = AF_INET;
-	addr.sin_port = htons(TCPIP_PORT_NUM);
-	addr.sin_addr.s_addr = inet_addr(TCPIP_SERVER_IP);
-
-	if(connect(my_socket, (struct sockaddr*)&addr, sizeof(addr)) == -1)
-	{
-		printf("서버 연결 오류\n");
-		exit(1);
-	}
-	printf("서버 연결 성공\n");
 
 
 	/* Drivers starting order */
@@ -691,6 +702,8 @@ int ReEventShutdown(void)
 	}
 	FREEZ(ReInfo->_reCarInfo);
 	delete_shared_memory();
+	close(conn_desc);
+	close(my_socket);
 	return RM_SYNC | ret;
 }
 

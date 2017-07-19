@@ -186,6 +186,8 @@ ReManage(tCarElt *car)
 	/* shared memory */
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
 
+
+
 	if(!strcmp(car->info.name, "Player")) {
 		mycar = car;
 		current_speed = car->_speed_x;

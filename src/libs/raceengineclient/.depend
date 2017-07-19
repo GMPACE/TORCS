@@ -87,6 +87,16 @@ singleplayer.o: singleplayer.cpp /usr/include/stdc-predef.h \
  /home/kang/TORCS/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /home/kang/TORCS/export/include/graphic.h \
  /home/kang/TORCS/export/include/simu.h raceengine.h racemain.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
  raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
@@ -231,7 +241,17 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/c++/5/bits/stl_tree.h /usr/include/c++/5/bits/stl_map.h \
  /usr/include/c++/5/bits/stl_multimap.h \
  /home/kang/TORCS/export/include/musicplayer/musicplayer.h raceengine.h \
- racemain.h racestate.h racegl.h raceresults.h raceinit.h \
+ racemain.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ racestate.h racegl.h raceresults.h raceinit.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
@@ -332,6 +352,14 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/kang/TORCS/export/include/exitmenu.h \
  /home/kang/TORCS/export/include/musicplayer/musicplayer.h \
  /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
+ raceengine.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
+ /usr/include/x86_64-linux-gnu/bits/ipc.h \
+ /usr/include/x86_64-linux-gnu/sys/shm.h \
+ /usr/include/x86_64-linux-gnu/bits/shm.h \
+ /usr/include/x86_64-linux-gnu/sys/sem.h \
+ /usr/include/x86_64-linux-gnu/bits/sem.h racegl.h raceresults.h \
+ racestate.h racemanmenu.h racemain.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/sys/uio.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
@@ -340,15 +368,8 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/asm/socket.h \
  /usr/include/asm-generic/socket.h \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h raceengine.h raceinit.h \
- /usr/include/x86_64-linux-gnu/sys/ipc.h \
- /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
- /usr/include/x86_64-linux-gnu/bits/ipc.h \
- /usr/include/x86_64-linux-gnu/sys/shm.h \
- /usr/include/x86_64-linux-gnu/bits/shm.h \
- /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h racegl.h raceresults.h \
- racestate.h racemanmenu.h racemain.h
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h
 racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -441,8 +462,17 @@ racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /home/kang/TORCS/export/include/racescreens.h \
  /home/kang/TORCS/export/include/driverconfig.h \
  /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
- raceengine.h racemain.h raceinit.h \
- /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ raceengine.h racemain.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
@@ -538,8 +568,18 @@ racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /home/kang/TORCS/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /home/kang/TORCS/export/include/graphic.h \
  /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/racescreens.h racemain.h raceinit.h \
- /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/kang/TORCS/export/include/racescreens.h racemain.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
@@ -635,8 +675,18 @@ racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /home/kang/TORCS/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /home/kang/TORCS/export/include/graphic.h \
  /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robot.h racemain.h raceinit.h \
- /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/kang/TORCS/export/include/robot.h racemain.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
@@ -737,7 +787,17 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /home/kang/TORCS/export/include/racescreens.h \
  /home/kang/TORCS/export/include/robottools.h \
  /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
- racemain.h racegl.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ racemain.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ racegl.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
@@ -894,7 +954,17 @@ raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /home/kang/TORCS/export/include/racescreens.h \
  /home/kang/TORCS/export/include/robottools.h \
  /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
- racemain.h racegl.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ racemain.h /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ racegl.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
