@@ -233,7 +233,8 @@ ReManage(tCarElt *car)
 
 		data_ui.append(to_string(arrow_data)).append("#").append(to_string(onoff_Mode));
 
-		write(my_socket, (void*)data_ui.c_str(), 1024);
+		//write(my_socket, (void*)data_ui.c_str(), 1024);
+		strcpy(*send_data, data.c_str());
 	}
 
 	else if(!strcmp(car->info.name, "berniw 4")) {

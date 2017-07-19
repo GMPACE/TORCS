@@ -532,7 +532,15 @@ static void drive(int index, tCarElt* car, tSituation *situation) {
 							mpf->getPathSeg(myc->getCurrentSegId())->getLoc())
 							> myc->TURNTOL)) {
 				angle = queryAngleToTrack(car);
-				car->_steerCmd = (-angle > 0.0) ? 1.0 : -1.0;
+				if (car->pub.keyboard_steer == 1) {
+					car->_steerCmd = -0.3;
+				}
+				else if (car->pub.keyboard_steer == 2) {
+					car->_steerCmd = 0.3;
+				}
+				else {
+					car->_steerCmd = (-angle > 0.0) ? 1.0 : -1.0;
+				}
 				car->_brakeCmd = 0.0;
 
 				if (myc->accel < 1.0) {

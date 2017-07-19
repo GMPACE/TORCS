@@ -50,17 +50,15 @@ union semun
 extern void init_shared_memory();
 extern void delete_shared_memory();
 extern int shmid;
+extern int shmid_ui;
 extern char* shared_memory[1024];
+extern char* shared_memory_ui[1024];
 extern int skey;
+extern int skey_ui;
 extern char* send_data[1024];
+extern char* send_data_ui[1024];
 
-extern void set_tcpip();
-extern int my_socket, conn_desc;
-extern struct sockaddr_in addr;
-extern struct sockaddr_in addr_client;
-extern socklen_t size_client;
-#define TCPIP_PORT_NUM 6342
-#define TCPIP_SERVER_IP "192.168.56.1"
+
 #endif /* _RACEMAIN_H_ */ 
 
 
