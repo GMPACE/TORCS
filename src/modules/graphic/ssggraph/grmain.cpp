@@ -273,7 +273,7 @@ initView(int x, int y, int width, int height, int /* flag */, void *screen)
 	GfuiAddSKey(screen, GLUT_KEY_F10,  "Follow Car Zoomed", (void*)8, grSelectCamera, NULL);
 	GfuiAddSKey(screen, GLUT_KEY_F11,  "TV Director View",  (void*)9, grSelectCamera, NULL);
 
-	GfuiAddKey(screen, '5',            "FPS Counter",      (void*)3, grSelectBoard, NULL);
+	//GfuiAddKey(screen, '5',            "FPS Counter",      (void*)3, grSelectBoard, NULL);
 	GfuiAddKey(screen, '4',            "G/Cmd Graph",      (void*)4, grSelectBoard, NULL);
 	GfuiAddKey(screen, '3',            "Leaders Board",    (void*)2, grSelectBoard, NULL);
 	//GfuiAddKey(screen, '2',            "Driver Counters",  (void*)1, grSelectBoard, NULL);

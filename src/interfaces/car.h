@@ -228,6 +228,7 @@ typedef struct {
 	int ui_data;
 	int ldws;
 	int lc_state;
+	int keyboard_steer;
 } tPublicCar;
 /* structure access */
 #define _target_speed pub.target_speed;

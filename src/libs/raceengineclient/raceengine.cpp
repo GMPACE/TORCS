@@ -978,19 +978,55 @@ void record(void *) {
 }
 void berniw_speed_up(void *) {
 	char* msg;
-	if(!strcmp(berniw4->info.name, "berniw 4")) {
+	if (berniw4->pub.is_selected) {
 		berniw4->pub.target_speed++;
 	}
-	msg = "berniw speed up!";
-	ReRaceBigMsgSet(msg, 1.5);
-}
-void berniw_speed_down(void *) {
-	char* msg;
-	if(!strcmp(berniw4->info.name, "berniw 4")) {
-		berniw4->pub.target_speed--;
+	if (berniw5->pub.is_selected) {
+		berniw5->pub.target_speed++;
 	}
 	msg = "berniw speed down!";
 	ReRaceBigMsgSet(msg, 1.5);
+
+}
+void berniw_speed_down(void *) {
+	char* msg;
+	if (berniw4->pub.is_selected) {
+		berniw4->pub.target_speed--;
+	}
+	if (berniw5->pub.is_selected) {
+		berniw5->pub.target_speed--;
+	}
+	msg = "berniw speed down!";
+	ReRaceBigMsgSet(msg, 1.5);
+
+}
+void berniw_steer_left(void *) {
+	if (berniw4->pub.is_selected) {
+		if(berniw4->pub.keyboard_steer != 1)
+			berniw4->pub.keyboard_steer = 1;
+		else
+			berniw4->pub.keyboard_steer = 0;
+	}
+	if (berniw5->pub.is_selected) {
+		if(berniw5->pub.keyboard_steer != 1)
+			berniw5->pub.keyboard_steer = 1;
+		else
+			berniw5->pub.keyboard_steer = 0;
+	}
+}
+void berniw_steer_right(void *) {
+	if (berniw4->pub.is_selected) {
+		if (berniw4->pub.keyboard_steer != 2)
+			berniw4->pub.keyboard_steer = 2;
+		else
+			berniw4->pub.keyboard_steer = 0;
+	}
+	if (berniw5->pub.is_selected) {
+		if (berniw5->pub.keyboard_steer != 2)
+			berniw5->pub.keyboard_steer = 2;
+		else
+			berniw5->pub.keyboard_steer = 0;
+	}
 }
 void select_car_2(void *) {
 	char* msg;

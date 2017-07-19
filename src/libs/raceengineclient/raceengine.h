@@ -44,6 +44,8 @@ extern void select_car_3(void*);
 extern void turn_signal_l(void*);
 extern void turn_signal_r(void*);
 extern void change_lc_state(void* num);
+extern void berniw_steer_left(void *);
+extern void berniw_steer_right(void *);
 extern short onoff_Mode;
 extern tRmInfo	*ReInfo;
 
