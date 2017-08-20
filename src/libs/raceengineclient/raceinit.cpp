@@ -92,6 +92,7 @@ ReInit(void)
 	if (strcmp(GfParmGetStr(ReInfo->_reParam, RM_SECT_MOVIE_CAPTURE, RM_ATT_CAPTURE_ENABLE, "no"), "no") == 0){
 		capture->enabled = 0;
 	} else {
+		printf("capture enabled = 1\n");
 		capture->enabled = 1;
 		capture->state = 0;
 		capture->deltaFrame = 1.0 / GfParmGetNum(ReInfo->_reParam, RM_SECT_MOVIE_CAPTURE, RM_ATT_CAPTURE_FPS, NULL, 1.0);

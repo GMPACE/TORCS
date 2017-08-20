@@ -90,7 +90,6 @@ static void reMovieCapture(void * /* dummy */) {
 	}
 
 	capture->state = 1 - capture->state;
-	printf("capture\n");
 	if (capture->state) {
 		GfOut("Video Capture Mode On\n");
 		capture->currentFrame = 0;
