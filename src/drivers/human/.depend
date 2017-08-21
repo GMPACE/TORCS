@@ -60,8 +60,8 @@ human.o: human.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
  /usr/include/x86_64-linux-gnu/bits/sem.h \
- /home/kang/TORCS/export/include/tgfclient.h \
- /home/kang/TORCS/export/include/tgf.h \
+ /home/oh/torcs-1.3.7/export/include/tgfclient.h \
+ /home/oh/torcs-1.3.7/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -76,30 +76,32 @@ human.o: human.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /home/oh/torcs-1.3.7/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
- /home/kang/TORCS/export/include/screen_properties.h \
- /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
- /home/kang/TORCS/export/include/track.h \
- /home/kang/TORCS/export/include/tmath/linalg_t.h \
- /home/kang/TORCS/export/include/tmath/v2_t.h \
- /home/kang/TORCS/export/include/tmath/v3_t.h \
- /home/kang/TORCS/export/include/tmath/v4_t.h \
- /home/kang/TORCS/export/include/tmath/straight2_t.h \
- /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/kang/TORCS/export/include/raceman.h \
- /home/kang/TORCS/export/include/graphic.h \
- /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robottools.h \
- /home/kang/TORCS/export/include/robot.h \
- /home/kang/TORCS/export/include/playerpref.h /usr/include/c++/5/fstream \
- /usr/include/c++/5/istream /usr/include/c++/5/ios \
- /usr/include/c++/5/iosfwd /usr/include/c++/5/bits/stringfwd.h \
- /usr/include/c++/5/bits/memoryfwd.h /usr/include/c++/5/bits/postypes.h \
- /usr/include/c++/5/cwchar /usr/include/c++/5/exception \
+ /home/oh/torcs-1.3.7/export/include/screen_properties.h \
+ /home/oh/torcs-1.3.7/export/include/portability.h \
+ /home/oh/torcs-1.3.7/config.h \
+ /home/oh/torcs-1.3.7/export/include/track.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/linalg_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v2_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v3_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v4_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/straight2_t.h \
+ /home/oh/torcs-1.3.7/export/include/car.h /usr/include/plib/sg.h \
+ /home/oh/torcs-1.3.7/export/include/raceman.h \
+ /home/oh/torcs-1.3.7/export/include/graphic.h \
+ /home/oh/torcs-1.3.7/export/include/simu.h \
+ /home/oh/torcs-1.3.7/export/include/robottools.h \
+ /home/oh/torcs-1.3.7/export/include/robot.h \
+ /home/oh/torcs-1.3.7/export/include/playerpref.h \
+ /usr/include/c++/5/fstream /usr/include/c++/5/istream \
+ /usr/include/c++/5/ios /usr/include/c++/5/iosfwd \
+ /usr/include/c++/5/bits/stringfwd.h /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/postypes.h /usr/include/c++/5/cwchar \
+ /usr/include/c++/5/exception \
  /usr/include/c++/5/bits/atomic_lockfree_defines.h \
  /usr/include/c++/5/bits/char_traits.h \
  /usr/include/c++/5/bits/stl_algobase.h \
@@ -191,8 +193,8 @@ pref.o: pref.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/kang/TORCS/export/include/tgfclient.h \
- /home/kang/TORCS/export/include/tgf.h \
+ /home/oh/torcs-1.3.7/export/include/tgfclient.h \
+ /home/oh/torcs-1.3.7/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -215,7 +217,7 @@ pref.o: pref.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h /home/kang/TORCS/export/include/osspec.h \
+ /usr/include/string.h /home/oh/torcs-1.3.7/export/include/osspec.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
@@ -233,21 +235,22 @@ pref.o: pref.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/kang/TORCS/export/include/screen_properties.h \
- /home/kang/TORCS/export/include/portability.h /home/kang/TORCS/config.h \
- /home/kang/TORCS/export/include/track.h \
- /home/kang/TORCS/export/include/tmath/linalg_t.h \
- /home/kang/TORCS/export/include/tmath/v2_t.h \
- /home/kang/TORCS/export/include/tmath/v3_t.h \
- /home/kang/TORCS/export/include/tmath/v4_t.h \
- /home/kang/TORCS/export/include/tmath/straight2_t.h \
- /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/kang/TORCS/export/include/raceman.h \
- /home/kang/TORCS/export/include/graphic.h \
- /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robottools.h \
- /home/kang/TORCS/export/include/robot.h \
- /home/kang/TORCS/export/include/playerpref.h pref.h human.h spline.h \
+ /home/oh/torcs-1.3.7/export/include/screen_properties.h \
+ /home/oh/torcs-1.3.7/export/include/portability.h \
+ /home/oh/torcs-1.3.7/config.h \
+ /home/oh/torcs-1.3.7/export/include/track.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/linalg_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v2_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v3_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v4_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/straight2_t.h \
+ /home/oh/torcs-1.3.7/export/include/car.h /usr/include/plib/sg.h \
+ /home/oh/torcs-1.3.7/export/include/raceman.h \
+ /home/oh/torcs-1.3.7/export/include/graphic.h \
+ /home/oh/torcs-1.3.7/export/include/simu.h \
+ /home/oh/torcs-1.3.7/export/include/robottools.h \
+ /home/oh/torcs-1.3.7/export/include/robot.h \
+ /home/oh/torcs-1.3.7/export/include/playerpref.h pref.h human.h spline.h \
  trackdesc.h ../berniw/linalg.h mycar.h pathfinder.h linalg.h
 spline.o: spline.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -309,7 +312,7 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h /home/kang/TORCS/export/include/tgf.h \
+ /usr/include/string.h /home/oh/torcs-1.3.7/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -337,14 +340,14 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/kang/TORCS/export/include/osspec.h \
- /home/kang/TORCS/export/include/track.h \
- /home/kang/TORCS/export/include/tmath/linalg_t.h \
- /home/kang/TORCS/export/include/tmath/v2_t.h \
- /home/kang/TORCS/export/include/tmath/v3_t.h \
- /home/kang/TORCS/export/include/tmath/v4_t.h \
- /home/kang/TORCS/export/include/tmath/straight2_t.h \
- /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
+ /home/oh/torcs-1.3.7/export/include/osspec.h \
+ /home/oh/torcs-1.3.7/export/include/track.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/linalg_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v2_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v3_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v4_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/straight2_t.h \
+ /home/oh/torcs-1.3.7/export/include/car.h /usr/include/plib/sg.h \
  /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -358,18 +361,18 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/kang/TORCS/export/include/raceman.h \
- /home/kang/TORCS/export/include/graphic.h \
- /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robot.h \
- /home/kang/TORCS/export/include/robottools.h ../berniw/linalg.h human.h \
- pref.h /home/kang/TORCS/export/include/tgfclient.h \
+ /home/oh/torcs-1.3.7/export/include/raceman.h \
+ /home/oh/torcs-1.3.7/export/include/graphic.h \
+ /home/oh/torcs-1.3.7/export/include/simu.h \
+ /home/oh/torcs-1.3.7/export/include/robot.h \
+ /home/oh/torcs-1.3.7/export/include/robottools.h ../berniw/linalg.h \
+ human.h pref.h /home/oh/torcs-1.3.7/export/include/tgfclient.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h \
- /home/kang/TORCS/export/include/screen_properties.h spline.h mycar.h \
+ /home/oh/torcs-1.3.7/export/include/screen_properties.h spline.h mycar.h \
  pathfinder.h linalg.h
 pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -401,8 +404,9 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h pref.h /home/kang/TORCS/export/include/tgfclient.h \
- /home/kang/TORCS/export/include/tgf.h \
+ /usr/include/string.h pref.h \
+ /home/oh/torcs-1.3.7/export/include/tgfclient.h \
+ /home/oh/torcs-1.3.7/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -430,7 +434,7 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /home/oh/torcs-1.3.7/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
@@ -448,19 +452,19 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/kang/TORCS/export/include/screen_properties.h \
- /home/kang/TORCS/export/include/track.h \
- /home/kang/TORCS/export/include/tmath/linalg_t.h \
- /home/kang/TORCS/export/include/tmath/v2_t.h \
- /home/kang/TORCS/export/include/tmath/v3_t.h \
- /home/kang/TORCS/export/include/tmath/v4_t.h \
- /home/kang/TORCS/export/include/tmath/straight2_t.h \
- /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/kang/TORCS/export/include/raceman.h \
- /home/kang/TORCS/export/include/graphic.h \
- /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robot.h \
- /home/kang/TORCS/export/include/robottools.h spline.h trackdesc.h \
+ /home/oh/torcs-1.3.7/export/include/screen_properties.h \
+ /home/oh/torcs-1.3.7/export/include/track.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/linalg_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v2_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v3_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v4_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/straight2_t.h \
+ /home/oh/torcs-1.3.7/export/include/car.h /usr/include/plib/sg.h \
+ /home/oh/torcs-1.3.7/export/include/raceman.h \
+ /home/oh/torcs-1.3.7/export/include/graphic.h \
+ /home/oh/torcs-1.3.7/export/include/simu.h \
+ /home/oh/torcs-1.3.7/export/include/robot.h \
+ /home/oh/torcs-1.3.7/export/include/robottools.h spline.h trackdesc.h \
  ../berniw/linalg.h mycar.h pathfinder.h linalg.h
 mycar.o: mycar.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -492,8 +496,9 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h pref.h /home/kang/TORCS/export/include/tgfclient.h \
- /home/kang/TORCS/export/include/tgf.h \
+ /usr/include/string.h pref.h \
+ /home/oh/torcs-1.3.7/export/include/tgfclient.h \
+ /home/oh/torcs-1.3.7/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -521,7 +526,7 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/kang/TORCS/export/include/osspec.h /usr/include/GL/glut.h \
+ /home/oh/torcs-1.3.7/export/include/osspec.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
  /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
@@ -539,17 +544,17 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h human.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/kang/TORCS/export/include/screen_properties.h \
- /home/kang/TORCS/export/include/track.h \
- /home/kang/TORCS/export/include/tmath/linalg_t.h \
- /home/kang/TORCS/export/include/tmath/v2_t.h \
- /home/kang/TORCS/export/include/tmath/v3_t.h \
- /home/kang/TORCS/export/include/tmath/v4_t.h \
- /home/kang/TORCS/export/include/tmath/straight2_t.h \
- /home/kang/TORCS/export/include/car.h /usr/include/plib/sg.h \
- /home/kang/TORCS/export/include/raceman.h \
- /home/kang/TORCS/export/include/graphic.h \
- /home/kang/TORCS/export/include/simu.h \
- /home/kang/TORCS/export/include/robot.h \
- /home/kang/TORCS/export/include/robottools.h spline.h trackdesc.h \
+ /home/oh/torcs-1.3.7/export/include/screen_properties.h \
+ /home/oh/torcs-1.3.7/export/include/track.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/linalg_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v2_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v3_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/v4_t.h \
+ /home/oh/torcs-1.3.7/export/include/tmath/straight2_t.h \
+ /home/oh/torcs-1.3.7/export/include/car.h /usr/include/plib/sg.h \
+ /home/oh/torcs-1.3.7/export/include/raceman.h \
+ /home/oh/torcs-1.3.7/export/include/graphic.h \
+ /home/oh/torcs-1.3.7/export/include/simu.h \
+ /home/oh/torcs-1.3.7/export/include/robot.h \
+ /home/oh/torcs-1.3.7/export/include/robottools.h spline.h trackdesc.h \
  ../berniw/linalg.h mycar.h pathfinder.h linalg.h
