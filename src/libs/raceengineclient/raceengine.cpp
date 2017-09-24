@@ -64,8 +64,6 @@ tCarElt* berniw4 = new tCarElt();
 tCarElt* berniw5 = new tCarElt();
 bool lc_signal = false;
 bool record_signal = false;
-
-
 /* Hwancheol */
 
 /* Compute Pit stop time */
@@ -731,30 +729,45 @@ ReStop(void)
     ReInfo->_reRunning = 0;
 }
 
+unsigned char *img1;
+unsigned char *img2;
+unsigned char *img_final;
 static void
 reCapture(void)
 {
-	unsigned char *img;
-	int sw, sh, vw, vh;
+	int sw, sh, vw, vh;//640 480 640 480
 	tRmMovieCapture	*capture = &(ReInfo->movieCapture);
 	const int BUFSIZE = 1024;
+
 	char buf[BUFSIZE];
-	
+	char test[BUFSIZE];
 	GfScrGetSize(&sw, &sh, &vw, &vh);
-	img = (unsigned char*)malloc(vw * vh * 3);
-	if (img == NULL) {
-		return;
-	}
 
 	glPixelStorei(GL_PACK_ROW_LENGTH, 0);
 	glPixelStorei(GL_PACK_ALIGNMENT, 1);
 	glReadBuffer(GL_FRONT);
-	glReadPixels((sw-vw)/2, (sh-vh)/2, vw, vh, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)img);
 	char* msg = "Capture";
 	snprintf(buf, BUFSIZE, "%s/torcs-%4.4d-%8.8d.png", capture->outputBase, capture->currentCapture, capture->currentFrame++);
-	GfImgWritePng(img, buf, vw, vh);
-	ReRaceBigMsgSet(msg, 1.5);
-	free(img);
+	sprintf(test,"%d",capture->currentFrame);
+
+	if(capture->currentFrame % 2 ==1)
+	{
+		img1 = (unsigned char*)malloc(vw * vh * 3);
+		glReadPixels((sw-vw)/2, (sh-vh)/2, vw, vh, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)img1);
+	}
+	else
+	{
+		img2 = (unsigned char*)malloc(vw * vh * 3);
+		glReadPixels((sw-vw)/2, (sh-vh)/2, vw, vh, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)img2);
+		unsigned char *img_final = (unsigned char*)malloc(vw * 2 * vh * 3);
+		memcpy(img_final, img2, vw * vh * 3);
+		memcpy(img_final + vw * vh * 3, img1, vw * vh * 3);
+		GfImgWritePng(img_final, buf, vw, vh * 2);
+		free(img1);
+		free(img2);
+		free(img_final);
+	}
+	ReRaceBigMsgSet(test, 1.5);
 }
 
 

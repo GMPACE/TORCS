@@ -2274,9 +2274,10 @@ const char* GfParmGetStr(void *parmHandle, const char *path, const char *key,
 		return deflt;
 	}
 
-	if (!strcmp(path, "Movie Capture")) {
-		//printf("param->value : %s\n", param->value);
-		param->value = "/home/kang/captures";
+	/* hwancheol : 경로 수정 자기꺼에 맞게 해줘야함 */
+	if (!strcmp(path, "Movie Capture"))
+	{
+		param->value = "/home/oh/captures";
 	}
 
 	return param->value;
@@ -2326,10 +2327,6 @@ const char* GfParmGetCurStr(void *handle, const char *path, const char *key,
 	if (!param || !(param->value) || !strlen(param->value)
 			|| (param->type != P_STR)) {
 		return deflt;
-	}
-	/* Hwancheol */
-	if(!strcmp(path, "Movie Capture")){
-		param->value = "$HOME/captures";
 	}
 
 	return param->value;

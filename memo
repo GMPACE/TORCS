@@ -1,0 +1,14 @@
+===========================Memo for Torcs===========================
+
+<환철>
+human.cpp에서 drive_at : 자동변속 -> common_drive 호출 
+commont_drive : 여기서 k7 - mapping 작업해주어야함.
+tgfclient/control.cpp : KeyBinding.
+raceengineclient/racegl.cpp -> reAddKeys : Function KeySetting
+
+
+<나연>
+
+
+
+<윤석>

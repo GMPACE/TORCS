@@ -45,7 +45,6 @@ extern void turn_signal_l(void*);
 extern void turn_signal_r(void*);
 extern short onoff_Mode;
 extern tRmInfo	*ReInfo;
-
 #endif /* _RACEENGINE_H_ */ 
 
 

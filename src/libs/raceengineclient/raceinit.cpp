@@ -57,13 +57,12 @@ typedef struct
 	int index;
 	tModList *curmod;
 } tMainMod;
-
 /* Race Engine Initialization */
 void
 ReInit(void)
 {
 	tRmMovieCapture *capture;
-
+	/* Hwancheol - Oh */
 	ReShutdown();
 
 	ReInfo = (tRmInfo *)calloc(1, sizeof(tRmInfo));
