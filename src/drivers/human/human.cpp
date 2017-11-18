@@ -707,8 +707,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		mycar->isonLeft = true;
 	else
 		mycar->isonLeft = false;
-	double raced_dist = mycar->getCarPtr()->race.distRaced;
-	double raced_dist_o = 0;
+	//double raced_dist = mycar->getCarPtr()->race.distRaced;
+	//double raced_dist_o = 0;
+	double myCar_x = mycar->getCurrentPos()->x;
+	double oCar_x = 0;
 	/* 한이음 */
 	//ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
@@ -727,21 +729,25 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 									(mycar->getCurrentPos()->y
 											- ocar[i].getCurrentPos()->y),
 									2.0));
-			raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
+			//raced_dist_o = ocar[i].getCarPtr()->race.distRaced;
+			oCar_x = ocar[i].getCurrentPos()->x;
 			if (ocar[i].getCarPtr()->pub.trkPos.toLeft
 					< ocar[i].getCarPtr()->pub.trkPos.toRight)
 				ocar[i].isonLeft = true;
 			else
 				ocar[i].isonLeft = false;
-			if (temp != 0 && (raced_dist_o - raced_dist) > 0
-					&& mycar->isonLeft == ocar[i].isonLeft) {
+			//if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
+
+			//printf("%f %f %f\n", myCar_x, oCar_x, temp);
+			if(temp != 0 && (oCar_x - myCar_x > 0) && mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = MAX(temp, *dist_to_ocar);
 			}
-			else if (temp != 0 && (raced_dist_o - raced_dist) <= 0
-					&& mycar->isonLeft != ocar[i].isonLeft) {
+			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
+			else if(temp != 0 && (oCar_x - myCar_x <= 0) && mycar->isonLeft == ocar[i].isonLeft) {
 				*dist_to_ocar_dlane = MAX(temp, *dist_to_ocar_dlane);
 			}
+
 //			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
 //					mycar->getCurrentPos()->y);
 //			printf("other car's position : (%f, %f)\n",

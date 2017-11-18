@@ -943,22 +943,22 @@ void record(void *) {
 void berniw_speed_up(void *) {
 	char* msg;
 	if(!strcmp(berniw1->info.name, "berniw 1")) {
-		berniw1->pub.target_speed += 1.0f;
+		berniw1->pub.target_speed++;
 	}
 	if(!strcmp(berniw2->info.name, "berniw 2")) {
-		berniw2->pub.target_speed += 1.1f;
+		berniw2->pub.target_speed++;
 	}
 	if(!strcmp(berniw3->info.name, "berniw 3")) {
-		berniw3->pub.target_speed += 1.2f;
+		berniw3->pub.target_speed++;
 	}
 	if(!strcmp(berniw4->info.name, "berniw 4")) {
-		berniw4->pub.target_speed += 1.3f;
+		berniw4->pub.target_speed++;
 	}
 	if(!strcmp(berniw5->info.name, "berniw 5")) {
-		berniw5->pub.target_speed += 1.4f;
+		berniw5->pub.target_speed++;
 	}
 	if(!strcmp(berniw6->info.name, "berniw 6")) {
-		berniw6->pub.target_speed += 1.5f;
+		berniw6->pub.target_speed++;
 	}
 	msg = "berniw speed up!";
 	ReRaceBigMsgSet(msg, 1.5);
