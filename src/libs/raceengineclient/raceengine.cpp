@@ -60,8 +60,13 @@ short onoff_Mode = 0;
 static double target_speed = 0;
 static double current_speed = 0;
 tCarElt* mycar = new tCarElt();
+
+tCarElt* berniw1 = new tCarElt();
+tCarElt* berniw2 = new tCarElt();
+tCarElt* berniw3 = new tCarElt();
 tCarElt* berniw4 = new tCarElt();
 tCarElt* berniw5 = new tCarElt();
+tCarElt* berniw6 = new tCarElt();
 bool lc_signal = false;
 bool record_signal = false;
 
@@ -181,11 +186,23 @@ ReManage(tCarElt *car)
 		mycar = car;
 		current_speed = car->_speed_x;
 	}
+	else if(!strcmp(car->info.name, "berniw 1")) {
+		berniw1 = car;
+	}
+	else if(!strcmp(car->info.name, "berniw 2")) {
+		berniw2 = car;
+	}
+	else if(!strcmp(car->info.name, "berniw 3")) {
+		berniw3 = car;
+	}
 	else if(!strcmp(car->info.name, "berniw 4")) {
 		berniw4 = car;
 	}
 	else if(!strcmp(car->info.name, "berniw 5")) {
 		berniw5 = car;
+	}
+	else if(!strcmp(car->info.name, "berniw 4")) {
+		berniw6 = car;
 	}
 
 	if (car->_speed_x > car->_topSpeed) {
@@ -925,8 +942,23 @@ void record(void *) {
 }
 void berniw_speed_up(void *) {
 	char* msg;
+	if(!strcmp(berniw1->info.name, "berniw 1")) {
+		berniw1->pub.target_speed += 1.0f;
+	}
+	if(!strcmp(berniw2->info.name, "berniw 2")) {
+		berniw2->pub.target_speed += 1.1f;
+	}
+	if(!strcmp(berniw3->info.name, "berniw 3")) {
+		berniw3->pub.target_speed += 1.2f;
+	}
 	if(!strcmp(berniw4->info.name, "berniw 4")) {
-		berniw4->pub.target_speed++;
+		berniw4->pub.target_speed += 1.3f;
+	}
+	if(!strcmp(berniw5->info.name, "berniw 5")) {
+		berniw5->pub.target_speed += 1.4f;
+	}
+	if(!strcmp(berniw6->info.name, "berniw 6")) {
+		berniw6->pub.target_speed += 1.5f;
 	}
 	msg = "berniw speed up!";
 	ReRaceBigMsgSet(msg, 1.5);

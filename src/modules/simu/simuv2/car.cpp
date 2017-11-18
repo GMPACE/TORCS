@@ -296,31 +296,46 @@ SimCarUpdateWheelPos(tCar *car)
 }
 static int count = 0;
 #define CONST_MOVE_CAR_X 100.0
-#define CONST_MOVE_CAR_Y 10.0
+#define CONST_MOVE_CAR_Y 207.0
+
+float myCar_x;
+
 static void
 SimCarUpdatePos(tCar *car)
 {
 	tdble vx, vy;
+	float dist = 0;
 	
 	vx = car->DynGCg.vel.x;
 	vy = car->DynGCg.vel.y;
-	
 	
 	car->DynGCg.pos.x += vx * SimDeltaTime;
 	car->DynGCg.pos.y += vy * SimDeltaTime;
 	car->DynGCg.pos.z += car->DynGCg.vel.z * SimDeltaTime;
 
+	if(car->carElt->index == 0) {
+		myCar_x = car->DynGCg.pos.x;
+	} else {
+		dist = car->DynGCg.pos.x - myCar_x;
+	}
+
 	if(isStarted && car->carElt->pub.is_initial) {
-		printf("(%f, %f)\n", car->DynGCg.pos.x, car->DynGCg.pos.y);
-		car->DynGCg.pos.x = 600.0f + CONST_MOVE_CAR_X * car->carElt->index; 
-		car->DynGCg.pos.y = 10.0f + CONST_MOVE_CAR_Y * car->carElt->index; 
-		
+		car->DynGCg.pos.x = 100.0f + CONST_MOVE_CAR_X * car->carElt->index;
+
+		if(car->carElt->index % 2) {
+			car->DynGCg.pos.y = CONST_MOVE_CAR_Y;
+		} else {
+			car->DynGCg.pos.y = CONST_MOVE_CAR_Y + 4;
+		}
+
 		car->carElt->pub.is_initial = false;
 		count++;
 		if(count == 4)
 			isStarted = false;
+	} else if(car->carElt->index != 0 && dist < -150) {
+		car->DynGCg.pos.x = myCar_x + 350;
 	}
-	printf("(%f, %f)\n", car->DynGCg.pos.x, car->DynGCg.pos.y);
+
 	car->DynGCg.pos.ax += car->DynGCg.vel.ax * SimDeltaTime;
 	car->DynGCg.pos.ay += car->DynGCg.vel.ay * SimDeltaTime;
 	car->DynGCg.pos.az += car->DynGCg.vel.az * SimDeltaTime;
