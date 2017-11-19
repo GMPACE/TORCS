@@ -12,8 +12,8 @@
 #include <sstream>
 #include <fstream>
 
-#define PORT_NUM 6341
-#define SERVER_IP "192.168.0.65"
+#define PORT_NUM 9998
+#define SERVER_IP "127.0.0.1"
 
 using namespace std;
 
@@ -39,19 +39,18 @@ int main(int argc, char* argv[]) {
 	union semun sem_union;
 	void *shared_memory_recspeed = (void *) 0; //receive data
 	void *shared_memory_recdist = (void *) 0;
-	char buff[1024];
-	int skey_recspeed = 3456; //shared memory_receive data key
-	int skey_recdist = 4567;
+	int skey_recspeed = 7712; //shared memory_receive data key
+	int skey_recdist = 4539;
 
 	int *process_num;
 	int local_num;
 	int mode_count = 0;
 	int test_count = 0;
 
-	FILE *pFile;
+	ofstream pFILE("data.txt");
 
 	//Create Shared Memory _ receive Data
-	shmid_recspeed = shmget((key_t) skey_recspeed, sizeof(int),
+	shmid_recspeed = shmget((key_t) skey_recspeed, sizeof(float),
 			0777 | IPC_CREAT);
 	if (shmid_recspeed == -1) {
 		perror("shmget failed of shmid_recspeed : ");
@@ -66,7 +65,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	//Create Shared Memory _ receive Data
-	shmid_recdist = shmget((key_t) skey_recdist, sizeof(int), 0777 | IPC_CREAT);
+	shmid_recdist = shmget((key_t) skey_recdist, sizeof(float), 0777 | IPC_CREAT);
 	if (shmid_recspeed == -1) {
 		perror("shmget failed of shmid_recdist : ");
 		exit(0);
@@ -81,8 +80,8 @@ int main(int argc, char* argv[]) {
 
 	//shared memory_receive data value
 
-	double* r_speed = (double*) shared_memory_recspeed;
-	double* r_dist = (double*) shared_memory_recdist;
+	float* r_speed = (float*) shared_memory_recspeed;
+	float* r_dist = (float*) shared_memory_recdist;
 
 	/*************************************socket connecting*************************************/
 
@@ -107,22 +106,26 @@ int main(int argc, char* argv[]) {
 	/*************** TCP Setting ****************/
 
 	/* Hyerim */
-	pFile = fopen("data.txt", "a");
 	while (1) {
-		/* Hyerim */
 		strLen = read(s, ReceiveData, sizeof(ReceiveData));
-		if(argv[1] == "1") {
-			printf("1\n");
-			fprintf(pFile, "%s", ReceiveData);
+		string str_speed = ToString(*r_speed);
+		string str_dist = ToString(*r_dist);
+		printf("str_speed : %s\n", str_speed.c_str());
+		printf("str_dist : %s\n", str_dist.c_str());
+		strcat(ReceiveData, str_speed.c_str());
+		strcat(ReceiveData, "/");
+		strcat(ReceiveData, str_dist.c_str());
+		if(!strcmp(argv[1], "fw")) {
+			printf("%s\n", ReceiveData);
+			pFILE << ReceiveData << endl;
 		}
-		if(argv[1] == "2") {
-			printf("1\n");
-			// TODO : send
+		if(!strcmp(argv[1], "tf")) {
+			write(s, ReceiveData, sizeof(ReceiveData));
 		}
-		//  write(s,(void*)send_data,sizeof(send_data));//메세지 보내기
+		memset(ReceiveData, 0x00, sizeof(ReceiveData));
 		usleep(50000);
 	}
-
+	pFILE.close();
 	close(s);
 
 	return 0;

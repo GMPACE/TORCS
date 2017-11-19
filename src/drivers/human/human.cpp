@@ -114,8 +114,11 @@ static long prev_time;
 static bool cur_rc_sig;
 static bool pre_rc_sig;
 static std::string f_output_string;
-static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle);
+static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
+		double dist_to_middle);
 /* 한이음 */
+
+/* Hwancheol & Hyerim : Capstone - define variables */
 
 using namespace std;
 
@@ -403,6 +406,29 @@ extern "C" int human(tModInfo *modInfo) {
 ////		exit(1);
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
+	/* Hwancheol & Hyerim : Capstone */
+	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
+	if (shmid_speedfcar == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
+	if (!shared_memory_speedfcar) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_speedfcar = (float*) shared_memory_speedfcar;
+
+	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
+	if (shmid_distfcar == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
+	if (!shared_memory_distfcar) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_distfcar = (float*) shared_memory_distfcar;
+
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -450,8 +476,7 @@ extern "C" int human(tModInfo *modInfo) {
  * Remarks
  *
  */
-string to_string(int n)
-{
+string to_string(int n) {
 	stringstream s;
 	s << n;
 	return s.str();
@@ -464,13 +489,13 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	t = time(NULL);
 	datetime = localtime(&t);
 	string path = "/home/kang/temp/";
-	string s_t = path.append(
-				to_string(datetime->tm_year + 1900)).append("-").append(
-				to_string(datetime->tm_mon + 1)).append("-").append(
-				to_string(datetime->tm_mday)).append("_").append(
-				to_string(datetime->tm_hour)).append(":").append(
-				to_string(datetime->tm_min)).append(":").append(
-				to_string(datetime->tm_sec));
+	string s_t =
+			path.append(to_string(datetime->tm_year + 1900)).append("-").append(
+					to_string(datetime->tm_mon + 1)).append("-").append(
+					to_string(datetime->tm_mday)).append("_").append(
+					to_string(datetime->tm_hour)).append(":").append(
+					to_string(datetime->tm_min)).append(":").append(
+					to_string(datetime->tm_sec));
 	f_output.open(s_t.c_str());
 
 	v3d v1, v2;
@@ -698,7 +723,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/************ACC***********/
 	*dist_to_ocar = 1000000.f;
 	*dist_to_ocar_dlane = 1000000.f;
-	if(current_mode != onoff_Mode){
+	if (current_mode != onoff_Mode) {
 		prev_mode = current_mode;
 		current_mode = onoff_Mode;
 	}
@@ -740,12 +765,19 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			//if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
 
 			//printf("%f %f %f\n", myCar_x, oCar_x, temp);
-			if(temp != 0 && (oCar_x - myCar_x > 0) && mycar->isonLeft == ocar[i].isonLeft) {
+			if (temp != 0 && (oCar_x - myCar_x > 0)
+					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = min(temp, *dist_to_ocar);
+
+				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
+				printf("speed front car : %f \n", *rec_speedfcar);
+				*rec_distfcar = *dist_to_ocar;
+				printf("dist front car : %f \n", *rec_distfcar);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
-			else if(temp != 0 && (oCar_x - myCar_x <= 0) && mycar->isonLeft == ocar[i].isonLeft) {
+			else if (temp != 0 && (oCar_x - myCar_x <= 0)
+					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*dist_to_ocar_dlane = min(temp, *dist_to_ocar_dlane);
 			}
 
@@ -1229,7 +1261,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		accel_value = *ptr_accel;
 		accel_value = MIN(MAX(610,accel_value), 3515);
 
-		atan_accel = (float)(atan(((accel_value-610)/726))/(PI/2));
+		atan_accel = (float) (atan(((accel_value - 610) / 726)) / (PI / 2));
 		printf("accel : %d\n", atan_accel);
 		car->_accelCmd = atan_accel;
 		/* for K7 */
@@ -1269,9 +1301,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	}
 
 	/* Hwancheol */
-	if((onoff_Mode & (short) 2) != (short) 2) {
-			temp_target_speed = -1;
-		}
+	if ((onoff_Mode & (short) 2) != (short) 2) {
+		temp_target_speed = -1;
+	}
 	/******Data Logging Part******/
 
 	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
@@ -1280,7 +1312,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	cur_speed = car->pub.speed;
 	pre_rc_sig = cur_rc_sig;
 	cur_rc_sig = car->pub.record_signal;
-	if(pre_rc_sig != cur_rc_sig) {
+	if (pre_rc_sig != cur_rc_sig) {
 		record_count = RECORD_COUNT;
 	}
 	if (car->pub.record_signal) {
@@ -1296,20 +1328,20 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				f_output_string = "";
 				f_output_string.append("#");
 			}
-			f_output_string.append(to_string(car->pub.speed * 3600 / 1000)).append(" ").append(
-					to_string(accelerate_*100)).append(" ").append(
+			f_output_string.append(to_string(car->pub.speed * 3600 / 1000)).append(
+					" ").append(to_string(accelerate_ * 100)).append(" ").append(
 					to_string(car->_enginerpm)).append(" ").append(
-					to_string(car->_accelCmd*100)).append(" ").append(
-					to_string(car->_steerCmd*100)).append(" ").append(
-					to_string(car->_yaw*100)).append(" ");
+					to_string(car->_accelCmd * 100)).append(" ").append(
+					to_string(car->_steerCmd * 100)).append(" ").append(
+					to_string(car->_yaw * 100)).append(" ");
 			if (mycar->isonLeft) {
 				f_output_string.append("1 ").append(
-						to_string(car->pub.trkPos.toLeft*100)).append(" ").append(
-						to_string(car->pub.trkPos.toMiddle*100)).append(" ");
+						to_string(car->pub.trkPos.toLeft * 100)).append(" ").append(
+						to_string(car->pub.trkPos.toMiddle * 100)).append(" ");
 			} else {
 				f_output_string.append("2 ").append(
-						to_string(car->pub.trkPos.toMiddle*100)).append(" ").append(
-						to_string(car->pub.trkPos.toRight*100)).append(" ");
+						to_string(car->pub.trkPos.toMiddle * 100)).append(" ").append(
+						to_string(car->pub.trkPos.toRight * 100)).append(" ");
 			}
 			f_output_string.append(to_string(*dist_to_ocar * 100)).append(" ").append(
 					to_string(*dist_to_ocar_dlane * 100)).append(" ");
@@ -1319,7 +1351,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				f_output_string.append("2");
 			f_output_string.append("\n");
 			record_count--;
-			if(record_count == 0) {
+			if (record_count == 0) {
 				f_output << f_output_string.c_str() << endl;
 				record_count = RECORD_COUNT;
 			}
@@ -1360,7 +1392,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 ////	/* Hwancheol */
 ////			*rec_acc = (onoff_Mode & (short) 2);
 //			*rec_lkas = (onoff_Mode & (short) 1);
-			//*rec_targetspeed = car->pub.target_speed * 3.6;
+	//*rec_targetspeed = car->pub.target_speed * 3.6;
 //			printf("ACC : %d\n", *rec_acc);
 //			printf("LKAS : %d\n", *rec_lkas);
 //			printf("TARGETSPEED: %d\n", *rec_targetspeed);
@@ -1368,13 +1400,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		// thanks Christos for the following: gradual accel/brake changes for on/off controls.
 		const tdble inc_rate = 0.2f;
 		tdble d_brake = car->_brakeCmd - HCtx[idx]->pbrake;
-		if (fabs(d_brake) > inc_rate
-				&& car->_brakeCmd > HCtx[idx]->pbrake) {
+		if (fabs(d_brake) > inc_rate && car->_brakeCmd > HCtx[idx]->pbrake) {
 			car->_brakeCmd = MIN(car->_brakeCmd,
 					HCtx[idx]->pbrake + inc_rate * d_brake / fabs(d_brake));
 		}
 		HCtx[idx]->pbrake = car->_brakeCmd;
-
 
 		if (cmd[CMD_BRAKE].type == GFCTRL_TYPE_JOY_BUT
 				|| cmd[CMD_BRAKE].type == GFCTRL_TYPE_MOUSE_BUT
@@ -1760,7 +1790,8 @@ static void drive_at(int index, tCarElt* car, tSituation *s) {
 
 static int pitcmd(int index, tCarElt* car, tSituation *s) {
 	tdble f1, f2;
-	tdble ns;if (car->_brakeCmd > 0)
+	tdble ns;
+	if (car->_brakeCmd > 0)
 		car->_accelCmd = 0;
 	int idx = index - 1;
 
@@ -1809,22 +1840,22 @@ static int pitcmd(int index, tCarElt* car, tSituation *s) {
 /* Hwancheol */
 static double calculate_CC(bool updown, tCarElt* car) {
 	const double KP = 0.5;
-	const double KP_2 = 1.0;
-	const double TARGET_DIST = 15;
+	const double KP_2 = 7.0;
+	const double TARGET_DIST = 20;
 
-	if(temp_target_speed == -1)
+	if (temp_target_speed == -1)
 		temp_target_speed = car->pub.target_speed;
 	double speed_kmph = car_speed * 3600 / 1000; // convert mps to kmph 
 	if (speed_kmph >= 120.0) {
 		temp_target_speed = 120.0 * 1000 / 3600;
-	} 
+	}
 	double error = car_speed - temp_target_speed;
 	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
 	if (*dist_to_ocar <= 300 && *dist_to_ocar > 0) {
 		error_2 = TARGET_DIST - *dist_to_ocar;
-		pid = pow(3, fabs(error_2) * KP_2) / 2;
+		pid = pow(2, fabs(error_2) * KP_2) / 2;
 	}
 	if (updown) {
 		if (error_2 < 0.0 || error < 0.0) {
@@ -1862,61 +1893,59 @@ static double calculate_CC(bool updown, tCarElt* car) {
 #define INTEGRAL_TH_2	     1.5
 #define INTEGRAL_TH_3	     2.0
 
-static int ldws(bool isOnleft, double dist_to_left, double dist_to_right, double dist_to_middle) {
+static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
+		double dist_to_middle) {
 	double track_width = dist_to_left + dist_to_right;
 	bool change_flag_l;
 	bool change_flag_r;
 	pre_dist_l = cur_dist_l;
 	pre_dist_r = cur_dist_r;
 
-	if(isOnleft) {
+	if (isOnleft) {
 //		printf("LEFT");
 		cur_dist_l = dist_to_left / (track_width / 2);
 		cur_dist_r = dist_to_middle / (track_width / 2);
-	}
-	else {
+	} else {
 //		printf("RIGHT");
 		cur_dist_l = -dist_to_middle / (track_width / 2);
 		cur_dist_r = dist_to_right / (track_width / 2);
 	}
-	if(fabs(cur_dist_l-pre_dist_l)/pre_dist_l*100 <= 1 || cur_dist_l >= pre_dist_l)
+	if (fabs(cur_dist_l - pre_dist_l) / pre_dist_l * 100 <= 1
+			|| cur_dist_l >= pre_dist_l)
 		change_count_l++;
 	else
 		change_count_l = 0;
-	if(fabs(cur_dist_r-pre_dist_r)/pre_dist_r*100 <= 1 || cur_dist_r >= pre_dist_r)
+	if (fabs(cur_dist_r - pre_dist_r) / pre_dist_r * 100 <= 1
+			|| cur_dist_r >= pre_dist_r)
 		change_count_r++;
 	else
 		change_count_r = 0;
 
-	if(change_count_l == 5) {
+	if (change_count_l == 5) {
 		change_count_l = 0;
 		sum_error_l = 0;
 		change_flag_l = true;
 	}
-	if(change_count_r == 5) {
+	if (change_count_r == 5) {
 		change_count_r = 0;
 		sum_error_r = 0;
 		change_flag_r = true;
 	}
 
-
 	double error_ldws_l = fabs(0.5 - cur_dist_l);
 	sum_error_l += error_ldws_l;
 	double error_ldws_r = fabs(0.5 - cur_dist_r);
 	sum_error_r += error_ldws_r;
-	if(sum_error_l >= INTEGRAL_TH_3 || sum_error_r >= INTEGRAL_TH_3) {
+	if (sum_error_l >= INTEGRAL_TH_3 || sum_error_r >= INTEGRAL_TH_3) {
 		printf("LDWS - level 3 ON!!!!\n");
 		return LDWS_ON_LEVEL3;
-	}
-	else if(sum_error_l >= INTEGRAL_TH_2 || sum_error_r >= INTEGRAL_TH_2) {
+	} else if (sum_error_l >= INTEGRAL_TH_2 || sum_error_r >= INTEGRAL_TH_2) {
 		printf("LDWS - level 2 ON!!!!\n");
 		return LDWS_ON_LEVEL2;
-	}
-	else if(sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
+	} else if (sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
 		printf("LDWS - level 1 ON!!!!\n");
 		return LDWS_ON_LEVEL1;
-	}
-	else {
+	} else {
 		printf("================LDWS - level 0 Stable===============\n");
 		return LDWS_ON_LEVEL0;
 	}
