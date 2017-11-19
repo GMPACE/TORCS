@@ -295,8 +295,8 @@ SimCarUpdateWheelPos(tCar *car)
 	}
 }
 static int count = 0;
-#define CONST_MOVE_CAR_X 150.0
-#define CONST_MOVE_CAR_Y 208.0
+#define CONST_MOVE_CAR_X 100.0
+#define CONST_MOVE_CAR_Y 207.0
 
 float myCar_x;
 
@@ -305,7 +305,7 @@ SimCarUpdatePos(tCar *car)
 {
 	tdble vx, vy;
 	float dist = 0;
-	
+
 	vx = car->DynGCg.vel.x;
 	vy = car->DynGCg.vel.y;
 	
@@ -320,7 +320,8 @@ SimCarUpdatePos(tCar *car)
 	}
 
 	if(isStarted && car->carElt->pub.is_initial) {
-		car->DynGCg.pos.x = 105.0f + CONST_MOVE_CAR_X * car->carElt->index;
+		car->DynGCg.pos.x = 100.0f + CONST_MOVE_CAR_X * car->carElt->index;
+		car->DynGCg.pos.az = 0;
 
 		if(car->carElt->index % 2) {
 			car->DynGCg.pos.y = CONST_MOVE_CAR_Y;
@@ -332,13 +333,23 @@ SimCarUpdatePos(tCar *car)
 		count++;
 		if(count == 4)
 			isStarted = false;
-	} else if(car->carElt->index != 0 && dist < -150) {
+	} else {
+		car->DynGCg.pos.az += car->DynGCg.vel.az * SimDeltaTime;
+	}
+
+	if(car->carElt->index != 0 && dist < -150) {
 		car->DynGCg.pos.x = myCar_x + 350;
+
+		if(car->carElt->index % 2) {
+			car->DynGCg.pos.y = CONST_MOVE_CAR_Y;
+		} else {
+			car->DynGCg.pos.y = CONST_MOVE_CAR_Y + 4;
+		}
 	}
 
 	car->DynGCg.pos.ax += car->DynGCg.vel.ax * SimDeltaTime;
 	car->DynGCg.pos.ay += car->DynGCg.vel.ay * SimDeltaTime;
-	car->DynGCg.pos.az += car->DynGCg.vel.az * SimDeltaTime;
+
 		
 	NORM_PI_PI(car->DynGCg.pos.az);
 	
@@ -354,7 +365,7 @@ SimCarUpdatePos(tCar *car)
 	car->DynGC.pos.ax = car->DynGCg.pos.ax;
 	car->DynGC.pos.ay = car->DynGCg.pos.ay;
 	car->DynGC.pos.az = car->DynGCg.pos.az;
-	
+
 	RtTrackGlobal2Local(car->trkPos.seg, car->DynGCg.pos.x, car->DynGCg.pos.y, &(car->trkPos), TR_LPOS_MAIN);
 }
 

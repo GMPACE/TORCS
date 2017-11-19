@@ -188,21 +188,27 @@ ReManage(tCarElt *car)
 	}
 	else if(!strcmp(car->info.name, "berniw 1")) {
 		berniw1 = car;
+		berniw1->pub.target_speed = 10;
 	}
 	else if(!strcmp(car->info.name, "berniw 2")) {
 		berniw2 = car;
+		berniw2->pub.target_speed = 10;
 	}
 	else if(!strcmp(car->info.name, "berniw 3")) {
 		berniw3 = car;
+		berniw3->pub.target_speed = 10;
 	}
 	else if(!strcmp(car->info.name, "berniw 4")) {
 		berniw4 = car;
+		berniw4->pub.target_speed = 10;
 	}
 	else if(!strcmp(car->info.name, "berniw 5")) {
 		berniw5 = car;
+		berniw5->pub.target_speed = 10;
 	}
 	else if(!strcmp(car->info.name, "berniw 6")) {
 		berniw6 = car;
+		berniw6->pub.target_speed = 10;
 	}
 
 	if (car->_speed_x > car->_topSpeed) {
