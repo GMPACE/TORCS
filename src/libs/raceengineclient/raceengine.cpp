@@ -201,7 +201,7 @@ ReManage(tCarElt *car)
 	else if(!strcmp(car->info.name, "berniw 5")) {
 		berniw5 = car;
 	}
-	else if(!strcmp(car->info.name, "berniw 4")) {
+	else if(!strcmp(car->info.name, "berniw 6")) {
 		berniw6 = car;
 	}
 

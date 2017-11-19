@@ -295,8 +295,8 @@ SimCarUpdateWheelPos(tCar *car)
 	}
 }
 static int count = 0;
-#define CONST_MOVE_CAR_X 100.0
-#define CONST_MOVE_CAR_Y 207.0
+#define CONST_MOVE_CAR_X 150.0
+#define CONST_MOVE_CAR_Y 208.0
 
 float myCar_x;
 
@@ -320,7 +320,7 @@ SimCarUpdatePos(tCar *car)
 	}
 
 	if(isStarted && car->carElt->pub.is_initial) {
-		car->DynGCg.pos.x = 100.0f + CONST_MOVE_CAR_X * car->carElt->index;
+		car->DynGCg.pos.x = 105.0f + CONST_MOVE_CAR_X * car->carElt->index;
 
 		if(car->carElt->index % 2) {
 			car->DynGCg.pos.y = CONST_MOVE_CAR_Y;

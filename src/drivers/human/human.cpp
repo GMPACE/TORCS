@@ -52,6 +52,7 @@
 #include <string>
 #include "pref.h"
 #include "human.h"
+#include <algorithm>
 
 #include "linalg.h"
 #include "../data_list.h"
@@ -67,8 +68,8 @@ static const double g = 9.81;
 #define DFWD 1
 #define D4WD 2
 /* Hwancheol */
-#define MIN(a, b) (a < b) ? a : b
-#define MAX(a, b) (a > b) ? a : b
+#define MIN(a, b) (((a) < (b))) ? a : b
+#define MAX(a, b) (((a) > (b))) ? a : b
 #define RECORD_COUNT 20
 /* Hwancheol */
 
@@ -695,8 +696,8 @@ static int onSKeyAction(int key, int modifier, int state) {
 static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
 	/************ACC***********/
-	*dist_to_ocar = -1;
-	*dist_to_ocar_dlane = -1;
+	*dist_to_ocar = 1000000.f;
+	*dist_to_ocar_dlane = 1000000.f;
 	if(current_mode != onoff_Mode){
 		prev_mode = current_mode;
 		current_mode = onoff_Mode;
@@ -741,11 +742,11 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			//printf("%f %f %f\n", myCar_x, oCar_x, temp);
 			if(temp != 0 && (oCar_x - myCar_x > 0) && mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
-				*dist_to_ocar = MAX(temp, *dist_to_ocar);
+				*dist_to_ocar = min(temp, *dist_to_ocar);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
 			else if(temp != 0 && (oCar_x - myCar_x <= 0) && mycar->isonLeft == ocar[i].isonLeft) {
-				*dist_to_ocar_dlane = MAX(temp, *dist_to_ocar_dlane);
+				*dist_to_ocar_dlane = min(temp, *dist_to_ocar_dlane);
 			}
 
 //			printf("mycar's position : (%f, %f)\n", mycar->getCurrentPos()->x,
@@ -1821,15 +1822,15 @@ static double calculate_CC(bool updown, tCarElt* car) {
 	double error_2 = 0.0;
 	double pid = error * KP;
 	/* Adaptive Cruise Control */
-	if (*dist_to_ocar <= 200 && *dist_to_ocar > 0) {
+	if (*dist_to_ocar <= 300 && *dist_to_ocar > 0) {
 		error_2 = TARGET_DIST - *dist_to_ocar;
-		pid = pow(2.5, fabs(error_2) * KP_2) / 2;
+		pid = pow(3, fabs(error_2) * KP_2) / 2;
 	}
 	if (updown) {
 		if (error_2 < 0.0 || error < 0.0) {
 			if (error_2 < 0.0 && *speed_ocar * 1.3 > car_speed) {
-				double y = (-12.5) * *dist_to_ocar + 1250;
-				y= MAX(y, 0);
+				float y = (-12.5) * *dist_to_ocar + 1250;
+				y = max(y, 0.0f);
 				temp_target_speed += *dist_to_ocar * (1 / (y + 1));
 			}
 			return MIN(fabs(pid), 1.0);
@@ -1840,7 +1841,7 @@ static double calculate_CC(bool updown, tCarElt* car) {
 			if (error_2 > 0.0) {
 				temp_target_speed -= 0.1;
 			}
-			return MIN(fabs(pid), 1.0);
+			return min(fabs(pid), 1.0);
 		}
 		return 0;
 	}
