@@ -13,7 +13,7 @@
 #include <fstream>
 
 #define PORT_NUM 9998
-#define SERVER_IP "127.0.0.1"
+#define SERVER_IP "192.168.43.194"
 
 using namespace std;
 
@@ -34,13 +34,13 @@ union semun {
 int main(int argc, char* argv[]) {
 	char ReceiveData[256];
 	int strLen;
-	int shmid_recspeed, shmid_recdist; //shared memory of receive data
-	int semid; //세마포어
-	union semun sem_union;
+	int shmid_recspeed, shmid_recdist, shmid_recintent; //shared memory of receive data
 	void *shared_memory_recspeed = (void *) 0; //receive data
 	void *shared_memory_recdist = (void *) 0;
+	void *shared_memory_recintent = (void *) 0;
 	int skey_recspeed = 7712; //shared memory_receive data key
 	int skey_recdist = 4539;
+	int skey_recintent = 9998;
 
 	int *process_num;
 	int local_num;
@@ -77,11 +77,24 @@ int main(int argc, char* argv[]) {
 		perror("shmat of shared memory_recdist failed ");
 		exit(0);
 	}
+	//Create Shared Memory _ receive Data
+	shmid_recintent = shmget((key_t) skey_recintent, sizeof(int), 0777 | IPC_CREAT);
+	if (shmid_recintent == -1) {
+		perror("shmget failed of shmid_recdist : ");
+		exit(0);
+	}
 
+	//Shared Memory Mapping _ receive Data
+	shared_memory_recintent = shmat(shmid_recintent, (void *) 0, 0);
+	if (!shared_memory_recintent) {
+		perror("shmat of shared memory_recdist failed ");
+		exit(0);
+	}
 	//shared memory_receive data value
 
 	float* r_speed = (float*) shared_memory_recspeed;
 	float* r_dist = (float*) shared_memory_recdist;
+	int* r_intent = (int*) shared_memory_recintent;
 
 	/*************************************socket connecting*************************************/
 
@@ -110,11 +123,15 @@ int main(int argc, char* argv[]) {
 		strLen = read(s, ReceiveData, sizeof(ReceiveData));
 		string str_speed = ToString(*r_speed);
 		string str_dist = ToString(*r_dist);
+		string str_intent = ToString(*r_intent);
 		printf("str_speed : %s\n", str_speed.c_str());
 		printf("str_dist : %s\n", str_dist.c_str());
 		strcat(ReceiveData, str_speed.c_str());
 		strcat(ReceiveData, "/");
 		strcat(ReceiveData, str_dist.c_str());
+		strcat(ReceiveData, "/");
+		strcat(ReceiveData, str_intent.c_str());
+		strcat(ReceiveData, "/");
 		if(!strcmp(argv[1], "fw")) {
 			printf("%s\n", ReceiveData);
 			pFILE << ReceiveData << endl;

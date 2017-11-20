@@ -158,9 +158,9 @@ static void reAddKeys(void) {
 			NULL);
 	GfuiAddKey(reScreenHandle, 'd', "Berniw speed up", (void*)0, berniw_speed_down,
 		NULL);
-	GfuiAddKey(reScreenHandle, 'q', "Berniw speed up", (void*)0, turn_signal_l,
+	GfuiAddKey(reScreenHandle, 'q', "turn left signal", (void*)0, turn_signal_l,
 		NULL);
-	GfuiAddKey(reScreenHandle, 'w', "Berniw speed up", (void*)0, turn_signal_r,
+	GfuiAddKey(reScreenHandle, 'w', "turn right signal", (void*)0, turn_signal_r,
 		NULL);
 	/* Hwancheol */
 

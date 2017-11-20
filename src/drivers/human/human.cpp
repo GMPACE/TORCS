@@ -53,12 +53,22 @@
 #include "pref.h"
 #include "human.h"
 #include <algorithm>
-
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <sys/ipc.h>
 #include "linalg.h"
 #include "../data_list.h"
+#include <unistd.h>
+
 #ifdef DMALLOC
 #include "dmalloc.h"
 #endif
+
+/* Hwancheol Capstone : Port to Yunseok's UI */
+#define PORT_UI 8000
+#define IP_UI "192.168.43.66"
+int sock;
+struct sockaddr_in addr;
 
 #define RMAX 10000.0
 #define BOTS 10
@@ -71,6 +81,7 @@ static const double g = 9.81;
 #define MIN(a, b) (((a) < (b))) ? a : b
 #define MAX(a, b) (((a) > (b))) ? a : b
 #define RECORD_COUNT 20
+int count__ = 0;
 /* Hwancheol */
 
 static void initTrack(int index, tTrack* track, void *carHandle,
@@ -116,6 +127,18 @@ static bool pre_rc_sig;
 static std::string f_output_string;
 static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
 		double dist_to_middle);
+/* LDWS RETURN CODE DEFINE */
+#define LDWS_BUFFER_RESET 	 0
+#define LDWS_CALCULATING	 1
+
+#define LDWS_ON_LEVEL0         2
+#define LDWS_ON_LEVEL1_L 	   3
+#define LDWS_ON_LEVEL2_L 	   4
+#define LDWS_ON_LEVEL3_L 	   5
+#define LDWS_ON_LEVEL1_R 	   6
+#define LDWS_ON_LEVEL2_R 	   7
+#define LDWS_ON_LEVEL3_R 	   8
+
 /* 한이음 */
 
 /* Hwancheol & Hyerim : Capstone - define variables */
@@ -198,6 +221,7 @@ static void shutdown(int index) {
 //	delete(acc_flag);
 	onoff_Mode = 0;
 	f_output.close();
+	close(sock);
 }
 
 /*
@@ -429,6 +453,17 @@ extern "C" int human(tModInfo *modInfo) {
 	}
 	rec_distfcar = (float*) shared_memory_distfcar;
 
+	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
+	if (shmid_intent == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
+	if (!shared_memory_intent) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_intent = (int*) shared_memory_intent;
+
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -512,6 +547,16 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	if (myTrackDesc == NULL) {
 		myTrackDesc = new TrackDesc(track);
 	}
+	sock = socket(AF_INET, SOCK_DGRAM, 0); //socket 생성
+	if (sock == -1) {
+		printf("Socket Error\n");
+		exit(1);
+	}
+
+
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(PORT_UI);
+	addr.sin_addr.s_addr = inet_addr(IP_UI);
 
 	const char *carname;
 	const int BUFSIZE = 1024;
@@ -738,7 +783,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	double myCar_x = mycar->getCurrentPos()->x;
 	double oCar_x = 0;
 	/* 한이음 */
-	//ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
+	int ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight,
+			car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
 	/* update the other cars just once */
@@ -774,6 +820,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				printf("speed front car : %f \n", *rec_speedfcar);
 				*rec_distfcar = *dist_to_ocar;
 				printf("dist front car : %f \n", *rec_distfcar);
+				*rec_intent = car->pub.driver_intent;
+				printf("driver intent : %d \n", *rec_intent);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
 			else if (temp != 0 && (oCar_x - myCar_x <= 0)
@@ -1304,6 +1352,31 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	if ((onoff_Mode & (short) 2) != (short) 2) {
 		temp_target_speed = -1;
 	}
+	/* Send data to UI */
+	int detected_vehicle = 0;
+	if (*dist_to_ocar <= 300.f)
+		detected_vehicle = 1;
+	int ldws_for_ui_left = 0;
+	int ldws_for_ui_right = 0;
+	if(ldws_value >= LDWS_ON_LEVEL1_L && ldws_value <= LDWS_ON_LEVEL3_L) {
+		ldws_for_ui_left = 1;
+	}
+	else if(ldws_value >= LDWS_ON_LEVEL1_R && ldws_value <= LDWS_ON_LEVEL3_R) {
+		ldws_for_ui_right = 1;
+	}
+	int onoff_Mode_ = 0;
+	if(onoff_Mode == 1 || onoff_Mode == 3) onoff_Mode_ = 2;
+	else if(onoff_Mode == 2) onoff_Mode_ = 1;
+	string data_ui = "2 "+to_string(onoff_Mode_) + " " + to_string(detected_vehicle) + " " + to_string(ldws_for_ui_left) + " " + to_string(ldws_for_ui_right) + " 0 0 0 3\n";
+	char data_ui_convert[1024];
+	snprintf(data_ui_convert, 1024, "%s", data_ui.c_str());
+	if(count__ % 25) {
+		sendto(sock, data_ui_convert, 1024, 0, (struct sockaddr* )&addr,(socklen_t)sizeof(addr));
+		printf("%s", data_ui_convert);
+	}
+	count__++;
+	if(count__ == 10000) count__ = 0;
+
 	/******Data Logging Part******/
 
 	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);
@@ -1877,14 +1950,6 @@ static double calculate_CC(bool updown, tCarElt* car) {
 		return 0;
 	}
 }
-/* LDWS RETURN CODE DEFINE */
-#define LDWS_BUFFER_RESET 	 0
-#define LDWS_CALCULATING	 1
-
-#define LDWS_ON_LEVEL0       2
-#define LDWS_ON_LEVEL1 	 	 3
-#define LDWS_ON_LEVEL2 	 	 4
-#define LDWS_ON_LEVEL3 	 	 5
 
 #define LDWS_ERROR 		     6
 
@@ -1936,15 +2001,24 @@ static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
 	sum_error_l += error_ldws_l;
 	double error_ldws_r = fabs(0.5 - cur_dist_r);
 	sum_error_r += error_ldws_r;
-	if (sum_error_l >= INTEGRAL_TH_3 || sum_error_r >= INTEGRAL_TH_3) {
-		printf("LDWS - level 3 ON!!!!\n");
-		return LDWS_ON_LEVEL3;
-	} else if (sum_error_l >= INTEGRAL_TH_2 || sum_error_r >= INTEGRAL_TH_2) {
-		printf("LDWS - level 2 ON!!!!\n");
-		return LDWS_ON_LEVEL2;
-	} else if (sum_error_l >= INTEGRAL_TH_1 || sum_error_r >= INTEGRAL_TH_1) {
-		printf("LDWS - level 1 ON!!!!\n");
-		return LDWS_ON_LEVEL1;
+	if (sum_error_l >= INTEGRAL_TH_3) {
+		printf("LDWS_L - level 3 ON!!!!\n");
+		return LDWS_ON_LEVEL3_L;
+	} else if (sum_error_r >= INTEGRAL_TH_3) {
+		printf("LDWS_R - level 3 ON!!!!\n");
+		return LDWS_ON_LEVEL3_R;
+	} else if (sum_error_l >= INTEGRAL_TH_2) {
+		printf("LDWS_L - level 2 ON!!!!\n");
+		return LDWS_ON_LEVEL2_L;
+	} else if (sum_error_r >= INTEGRAL_TH_2) {
+		printf("LDWS_R - level 2 ON!!!!\n");
+		return LDWS_ON_LEVEL2_R;
+	} else if (sum_error_l >= INTEGRAL_TH_1) {
+		printf("LDWS_L - level 1 ON!!!!\n");
+		return LDWS_ON_LEVEL1_L;
+	} else if (sum_error_r >= INTEGRAL_TH_1) {
+		printf("LDWS_R - level 1 ON!!!!\n");
+		return LDWS_ON_LEVEL1_R;
 	} else {
 		printf("================LDWS - level 0 Stable===============\n");
 		return LDWS_ON_LEVEL0;

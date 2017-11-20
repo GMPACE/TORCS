@@ -13,6 +13,7 @@ int shmid_recrpm,shmid_recspeed,shmid_recsteer;
 int shmid_acc, shmid_lkas, shmid_targetspeed;
 int shmid_speedfcar;
 int shmid_distfcar;
+int shmid_intent;
 int semid;
 const int skey = 5678;
 const int skey2 = 1234;
@@ -25,6 +26,7 @@ const int skey_lkas = 6243;
 const int skey_targetspeed = 5136;
 const int skey_speedfcar = 7712;
 const int skey_distfcar = 4539;
+const int skey_intent = 9998;
 //const int sekey = 1234;
 
 
@@ -39,6 +41,7 @@ void *shared_memory_lkas;
 void *shared_memory_targetspeed;
 void *shared_memory_speedfcar;
 void *shared_memory_distfcar;
+void *shared_memory_intent;
 int* torcs_steer;
 int steer_value;
 int* ptr_accel;
@@ -56,6 +59,7 @@ int* rec_lkas;
 int* rec_targetspeed;
 float* rec_speedfcar;
 float* rec_distfcar;
+int* rec_intent;
 /*******************************/
 
 #endif _SHARED_MEMORY_H_
