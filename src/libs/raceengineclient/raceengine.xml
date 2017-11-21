@@ -25,7 +25,7 @@
   <section name="Movie Capture">
     <attstr name="enable capture" in="yes,no" val="no"/>
     <attnum name="fps" val="25"/>
-    <attstr name="output directory" val="/home/kang/captures"/>
+    <attstr name="output directory" val="$HOME/captures"/>
   </section>
 
 </params>

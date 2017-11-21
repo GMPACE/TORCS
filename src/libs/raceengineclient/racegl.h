@@ -42,6 +42,7 @@ extern void ReResShowCont(void);
 extern int  ReResGetLines(void);
 extern void ReResEraseScreen(void);
 
+
 #endif /* _RACEGL_H_ */ 
 
 

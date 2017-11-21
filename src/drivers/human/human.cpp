@@ -37,7 +37,7 @@
 
 #include <tgfclient.h>
 #include <portability.h>
-
+#include "../../libs/raceengineclient/raceengine.h"
 #include <track.h>
 #include <car.h>
 #include <raceman.h>
@@ -66,7 +66,7 @@
 
 /* Hwancheol Capstone : Port to Yunseok's UI */
 #define PORT_UI 8000
-#define IP_UI "192.168.43.66"
+#define IP_UI "172.20.10.14"
 int sock;
 struct sockaddr_in addr;
 
@@ -127,6 +127,7 @@ static bool pre_rc_sig;
 static std::string f_output_string;
 static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
 		double dist_to_middle);
+int ldws_value;
 /* LDWS RETURN CODE DEFINE */
 #define LDWS_BUFFER_RESET 	 0
 #define LDWS_CALCULATING	 1
@@ -431,39 +432,39 @@ extern "C" int human(tModInfo *modInfo) {
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
 	/* Hwancheol & Hyerim : Capstone */
-	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
-	if (shmid_speedfcar == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
-	if (!shared_memory_speedfcar) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_speedfcar = (float*) shared_memory_speedfcar;
-
-	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
-	if (shmid_distfcar == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
-	if (!shared_memory_distfcar) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_distfcar = (float*) shared_memory_distfcar;
-
-	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
-	if (shmid_intent == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
-	if (!shared_memory_intent) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_intent = (int*) shared_memory_intent;
-
+//	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
+//	if (shmid_speedfcar == -1) {
+//		perror("shmget failed :");
+//	}
+//	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
+//	if (!shared_memory_speedfcar) {
+//		perror("shmat failed");
+//		//		exit(1);
+//	}
+//	rec_speedfcar = (float*) shared_memory_speedfcar;
+//
+//	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
+//	if (shmid_distfcar == -1) {
+//		perror("shmget failed :");
+//	}
+//	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
+//	if (!shared_memory_distfcar) {
+//		perror("shmat failed");
+//		//		exit(1);
+//	}
+//	rec_distfcar = (float*) shared_memory_distfcar;
+//
+//	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
+//	if (shmid_intent == -1) {
+//		perror("shmget failed :");
+//	}
+//	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
+//	if (!shared_memory_intent) {
+//		perror("shmat failed");
+//		//		exit(1);
+//	}
+//	rec_intent = (int*) shared_memory_intent;
+//
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -523,7 +524,7 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	time_t t;
 	t = time(NULL);
 	datetime = localtime(&t);
-	string path = "/home/kang/temp/";
+	string path = "/home/hwancheol/temp/";
 	string s_t =
 			path.append(to_string(datetime->tm_year + 1900)).append("-").append(
 					to_string(datetime->tm_mon + 1)).append("-").append(
@@ -783,7 +784,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	double myCar_x = mycar->getCurrentPos()->x;
 	double oCar_x = 0;
 	/* 한이음 */
-	int ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight,
+	ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight,
 			car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
@@ -811,21 +812,19 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			//if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
 
 			//printf("%f %f %f\n", myCar_x, oCar_x, temp);
-			if (temp != 0 && (oCar_x - myCar_x > 0)
-					&& mycar->isonLeft == ocar[i].isonLeft) {
+			if (temp != 0 && (oCar_x - myCar_x > 0) && mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = min(temp, *dist_to_ocar);
 
-				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
-				printf("speed front car : %f \n", *rec_speedfcar);
-				*rec_distfcar = *dist_to_ocar;
-				printf("dist front car : %f \n", *rec_distfcar);
-				*rec_intent = car->pub.driver_intent;
-				printf("driver intent : %d \n", *rec_intent);
+//				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
+//				printf("speed front car : %f \n", *rec_speedfcar);
+//				*rec_distfcar = *dist_to_ocar;
+//				printf("dist front car : %f \n", *rec_distfcar);
+//				*rec_intent = car->pub.driver_intent;
+//				printf("driver intent : %d \n", *rec_intent);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
-			else if (temp != 0 && (oCar_x - myCar_x <= 0)
-					&& mycar->isonLeft == ocar[i].isonLeft) {
+			else if (temp != 0 && (oCar_x - myCar_x <= 0) && mycar->isonLeft == ocar[i].isonLeft) {
 				*dist_to_ocar_dlane = min(temp, *dist_to_ocar_dlane);
 			}
 
@@ -1372,7 +1371,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	snprintf(data_ui_convert, 1024, "%s", data_ui.c_str());
 	if(count__ % 25) {
 		sendto(sock, data_ui_convert, 1024, 0, (struct sockaddr* )&addr,(socklen_t)sizeof(addr));
-		printf("%s", data_ui_convert);
+		//printf("%s", data_ui_convert);
 	}
 	count__++;
 	if(count__ == 10000) count__ = 0;

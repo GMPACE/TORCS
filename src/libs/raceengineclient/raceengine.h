@@ -25,7 +25,7 @@
 
 #ifndef _RACEENGINE_H_
 #define _RACEENGINE_H_
-
+#include <raceman.h>
 
 
 extern void ReStart(void);
@@ -44,7 +44,13 @@ extern void select_car_3(void*);
 extern void turn_signal_l(void*);
 extern void turn_signal_r(void*);
 extern short onoff_Mode;
-extern tRmInfo	*ReInfo;
+extern tRmInfo *ReInfo;
+
+/* Hanieum */
+extern int capture_count;
+extern unsigned char *img_arr[2];
+extern int ldws_value;
+/* Hanieum */
 
 #endif /* _RACEENGINE_H_ */ 
 

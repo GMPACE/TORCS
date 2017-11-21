@@ -2276,7 +2276,7 @@ const char* GfParmGetStr(void *parmHandle, const char *path, const char *key,
 
 	if (!strcmp(path, "Movie Capture")) {
 		//printf("param->value : %s\n", param->value);
-		param->value = "/home/kang/captures";
+		param->value = "/home/hwancheol/captures";
 	}
 
 	return param->value;
