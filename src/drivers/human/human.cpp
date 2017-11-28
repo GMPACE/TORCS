@@ -66,9 +66,12 @@
 
 /* Hwancheol Capstone : Port to Yunseok's UI */
 #define PORT_UI 8000
-#define IP_UI "172.20.10.14"
+#define IP_UI "192.168.43.66"
 int sock;
+int sock_hanieum;
 struct sockaddr_in addr;
+struct sockaddr_in addr_hanieum;
+struct sockaddr_in addr_client_hanieum;
 
 #define RMAX 10000.0
 #define BOTS 10
@@ -139,7 +142,8 @@ int ldws_value;
 #define LDWS_ON_LEVEL1_R 	   6
 #define LDWS_ON_LEVEL2_R 	   7
 #define LDWS_ON_LEVEL3_R 	   8
-
+#define PORT_UI_HANIEUM 	   50001
+#define IP_UI_HANIEUM 		   "127.0.0.1"
 /* 한이음 */
 
 /* Hwancheol & Hyerim : Capstone - define variables */
@@ -222,6 +226,7 @@ static void shutdown(int index) {
 //	delete(acc_flag);
 	onoff_Mode = 0;
 	f_output.close();
+	close (sock_hanieum);
 	close(sock);
 }
 
@@ -432,39 +437,39 @@ extern "C" int human(tModInfo *modInfo) {
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
 	/* Hwancheol & Hyerim : Capstone */
-//	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
-//	if (shmid_speedfcar == -1) {
-//		perror("shmget failed :");
-//	}
-//	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
-//	if (!shared_memory_speedfcar) {
-//		perror("shmat failed");
-//		//		exit(1);
-//	}
-//	rec_speedfcar = (float*) shared_memory_speedfcar;
-//
-//	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
-//	if (shmid_distfcar == -1) {
-//		perror("shmget failed :");
-//	}
-//	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
-//	if (!shared_memory_distfcar) {
-//		perror("shmat failed");
-//		//		exit(1);
-//	}
-//	rec_distfcar = (float*) shared_memory_distfcar;
-//
-//	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
-//	if (shmid_intent == -1) {
-//		perror("shmget failed :");
-//	}
-//	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
-//	if (!shared_memory_intent) {
-//		perror("shmat failed");
-//		//		exit(1);
-//	}
-//	rec_intent = (int*) shared_memory_intent;
-//
+	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
+	if (shmid_speedfcar == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
+	if (!shared_memory_speedfcar) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_speedfcar = (float*) shared_memory_speedfcar;
+
+	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
+	if (shmid_distfcar == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
+	if (!shared_memory_distfcar) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_distfcar = (float*) shared_memory_distfcar;
+
+	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
+	if (shmid_intent == -1) {
+		perror("shmget failed :");
+	}
+	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
+	if (!shared_memory_intent) {
+		perror("shmat failed");
+		//		exit(1);
+	}
+	rec_intent = (int*) shared_memory_intent;
+
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
 	snprintf(buf, BUFSIZE, "%sdrivers/human/human.xml", GetLocalDir());
@@ -549,15 +554,25 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 		myTrackDesc = new TrackDesc(track);
 	}
 	sock = socket(AF_INET, SOCK_DGRAM, 0); //socket 생성
+	sock_hanieum = socket(AF_INET, SOCK_DGRAM, 0);
 	if (sock == -1) {
 		printf("Socket Error\n");
-		exit(1);
 	}
-
+	if (sock_hanieum == -1) {
+		printf("Socket Error\n");
+	}
 
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(PORT_UI);
 	addr.sin_addr.s_addr = inet_addr(IP_UI);
+
+	addr_hanieum.sin_family = AF_INET;
+	addr_hanieum.sin_port = htons(PORT_UI_HANIEUM);
+	addr_hanieum.sin_addr.s_addr = htonl(INADDR_ANY);
+	 //binds connection
+	if (bind(sock_hanieum, (struct sockaddr *)&addr_hanieum, sizeof(addr_hanieum)) < 0) {
+		perror("bind error");
+	}
 
 	const char *carname;
 	const int BUFSIZE = 1024;
@@ -784,8 +799,8 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	double myCar_x = mycar->getCurrentPos()->x;
 	double oCar_x = 0;
 	/* 한이음 */
-	ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight,
-			car->pub.trkPos.toMiddle);
+	ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft,
+			car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
 	/* update the other cars just once */
@@ -812,19 +827,21 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			//if (temp != 0 && (raced_dist_o - raced_dist) > 0 && mycar->isonLeft == ocar[i].isonLeft) {
 
 			//printf("%f %f %f\n", myCar_x, oCar_x, temp);
-			if (temp != 0 && (oCar_x - myCar_x > 0) && mycar->isonLeft == ocar[i].isonLeft) {
+			if (temp != 0 && (oCar_x - myCar_x > 0)
+					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = min(temp, *dist_to_ocar);
 
-//				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
-//				printf("speed front car : %f \n", *rec_speedfcar);
-//				*rec_distfcar = *dist_to_ocar;
-//				printf("dist front car : %f \n", *rec_distfcar);
-//				*rec_intent = car->pub.driver_intent;
-//				printf("driver intent : %d \n", *rec_intent);
+				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
+				printf("speed front car : %f \n", *rec_speedfcar);
+				*rec_distfcar = *dist_to_ocar;
+				printf("dist front car : %f \n", *rec_distfcar);
+				*rec_intent = car->pub.driver_intent;
+				printf("driver intent : %d \n", *rec_intent);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
-			else if (temp != 0 && (oCar_x - myCar_x <= 0) && mycar->isonLeft == ocar[i].isonLeft) {
+			else if (temp != 0 && (oCar_x - myCar_x <= 0)
+					&& mycar->isonLeft == ocar[i].isonLeft) {
 				*dist_to_ocar_dlane = min(temp, *dist_to_ocar_dlane);
 			}
 
@@ -1357,25 +1374,44 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		detected_vehicle = 1;
 	int ldws_for_ui_left = 0;
 	int ldws_for_ui_right = 0;
-	if(ldws_value >= LDWS_ON_LEVEL1_L && ldws_value <= LDWS_ON_LEVEL3_L) {
+	if (ldws_value >= LDWS_ON_LEVEL1_L && ldws_value <= LDWS_ON_LEVEL3_L) {
 		ldws_for_ui_left = 1;
-	}
-	else if(ldws_value >= LDWS_ON_LEVEL1_R && ldws_value <= LDWS_ON_LEVEL3_R) {
+	} else if (ldws_value >= LDWS_ON_LEVEL1_R && ldws_value <= LDWS_ON_LEVEL3_R) {
 		ldws_for_ui_right = 1;
 	}
 	int onoff_Mode_ = 0;
-	if(onoff_Mode == 1 || onoff_Mode == 3) onoff_Mode_ = 2;
-	else if(onoff_Mode == 2) onoff_Mode_ = 1;
-	string data_ui = "2 "+to_string(onoff_Mode_) + " " + to_string(detected_vehicle) + " " + to_string(ldws_for_ui_left) + " " + to_string(ldws_for_ui_right) + " 0 0 0 3\n";
+	if (onoff_Mode == 1 || onoff_Mode == 3)
+		onoff_Mode_ = 2;
+	else if (onoff_Mode == 2)
+		onoff_Mode_ = 1;
+	string data_ui = "2 " + to_string(onoff_Mode_) + " "
+			+ to_string(detected_vehicle) + " " + to_string(ldws_for_ui_left)
+			+ " " + to_string(ldws_for_ui_right) + " 0 0 0 3\n";
 	char data_ui_convert[1024];
 	snprintf(data_ui_convert, 1024, "%s", data_ui.c_str());
-	if(count__ % 25) {
-		sendto(sock, data_ui_convert, 1024, 0, (struct sockaddr* )&addr,(socklen_t)sizeof(addr));
+	if (count__ % 25) {
+		sendto(sock, data_ui_convert, 1024, 0, (struct sockaddr*) &addr,
+				(socklen_t) sizeof(addr));
 		//printf("%s", data_ui_convert);
 	}
 	count__++;
-	if(count__ == 10000) count__ = 0;
-
+	if (count__ == 10000)
+		count__ = 0;
+	char data_hanieum[64];
+	int data_hanieum_1 = 2;
+	int data_hanieum_2 = ldws_value - 5;
+	if(ldws_for_ui_left == 1) {
+		data_hanieum_1 = 1;
+		data_hanieum_2 = ldws_value - 2;
+	}
+	if(ldws_value == 2)
+		data_hanieum_2 = 0;
+	snprintf(data_hanieum, 64, "%d#%d#\n", data_hanieum_1, data_hanieum_2);
+	printf("data_hanieum : %s\n", data_hanieum);
+	char temp_buffer[64];
+	socklen_t clientLen = sizeof(addr_client_hanieum);
+	//recvfrom(sock_hanieum, temp_buffer, 64, 0, (struct sockaddr*)&addr_client_hanieum, &clientLen);
+	//sendto(sock_hanieum, data_hanieum, 64, 0, (struct sockaddr*) &addr_client_hanieum, (socklen_t)sizeof(addr_client_hanieum));
 	/******Data Logging Part******/
 
 	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);

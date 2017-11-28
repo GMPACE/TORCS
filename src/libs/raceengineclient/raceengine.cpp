@@ -38,7 +38,7 @@
 #include "raceresults.h"
 
 #include "raceengine.h"
-
+#include <sys/time.h>
 #include <sys/shm.h>
 #include <sys/sem.h>
 #include <sys/ipc.h>
@@ -753,10 +753,12 @@ static void ReOneStep(double deltaTimeIncrement) {
 	}
 	ReSortCars();
 }
-
+struct timeval prev_val;
+struct timeval current_val;
 void ReStart(void) {
 	ReInfo->_reRunning = 1;
 	ReInfo->_reCurTime = GfTimeClock() - RCM_MAX_DT_SIMU;
+	gettimeofday(&prev_val, NULL);
 }
 
 void ReStop(void) {
@@ -767,41 +769,58 @@ void ReStop(void) {
 int capture_count = 0;
 unsigned char* img_arr[2];
 int ldws_value = 0;
+long prev_time;
+long current_time;
+double timeval;
+
 static void reCapture(void) {
-	int index = capture_count % 2;
+	gettimeofday(&current_val, NULL);
+	timeval = (double) current_val.tv_sec
+			+ (double) (current_val.tv_usec) / 1000000.0
+			- (double) prev_val.tv_sec
+			- (double) (prev_val.tv_usec) / 1000000.0;
+	printf("%f\n", timeval);
+
 	int sw, sh, vw, vh;
 	tRmMovieCapture *capture = &(ReInfo->movieCapture);
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
-
 	GfScrGetSize(&sw, &sh, &vw, &vh);
-	img_arr[index] = (unsigned char*) malloc(vw * vh * 3);
+	if (timeval >= 0.25f) {
+		gettimeofday(&prev_val, NULL);
+		int index = capture_count % 2;
+		img_arr[index] = (unsigned char*) malloc(vw * vh * 3);
 
-	if (img_arr[index] == NULL) {
-		return;
-	}
+		if (img_arr[index] == NULL) {
+			return;
+		}
 
-	glPixelStorei(GL_PACK_ROW_LENGTH, 0);
-	glPixelStorei(GL_PACK_ALIGNMENT, 1);
-	glReadBuffer(GL_FRONT);
-	glReadPixels((sw - vw) / 2, (sh - vh) / 2, vw, vh, GL_RGB, GL_UNSIGNED_BYTE,
-			(GLvoid*) img_arr[index]);
-	char* msg = "Capture";
-	if (index) {
-		unsigned char* img_result = (unsigned char*) malloc(vw * vh * 3 * 2 / 2);
-		memcpy(img_result, img_arr[0] + vw * vh  * 3 / 4, vw * vh * 3 / 4);
-		memcpy(img_result + vw * vh * 3 / 4, img_arr[1] + vw * vh * 3 / 4, vw * vh * 3 / 4);
-		//snprintf(buf, BUFSIZE, "%s/torcs-%4.4d-%8.8d.png", capture->outputBase,	capture->currentCapture, capture->currentFrame++);
-		snprintf(buf, BUFSIZE, "%s/%d-%d.png",capture->outputBase,capture->currentFrame++, ldws_value);
-		GfImgWritePng(img_result, buf, vw, vh/2);
-		free(img_result);
-		free(img_arr[0]);
-		free(img_arr[1]);
-	}
-	//ReRaceBigMsgSet(msg, 1.5);
-	if (capture_count == 10000)
+		glPixelStorei(GL_PACK_ROW_LENGTH, 0);
+		glPixelStorei(GL_PACK_ALIGNMENT, 1);
+		glReadBuffer(GL_FRONT);
+		glReadPixels((sw - vw) / 2, (sh - vh) / 2, vw, vh, GL_RGB,
+		GL_UNSIGNED_BYTE, (GLvoid*) img_arr[index]);
+		char* msg = "Capture";
+
+		if (index) {
+			unsigned char* img_result = (unsigned char*) malloc(
+					vw * vh * 3 * 2 / 2);
+			memcpy(img_result, img_arr[0] + vw * vh * 3 / 4, vw * vh * 3 / 4);
+			memcpy(img_result + vw * vh * 3 / 4, img_arr[1] + vw * vh * 3 / 4,
+					vw * vh * 3 / 4);
+			//snprintf(buf, BUFSIZE, "%s/torcs-%4.4d-%8.8d.png", capture->outputBase,	capture->currentCapture, capture->currentFrame++);
+			snprintf(buf, BUFSIZE, "%s/%d-%d.png", capture->outputBase,
+					capture->currentFrame++, ldws_value - 2);
+			GfImgWritePng(img_result, buf, vw, vh / 2);
+			free(img_result);
+			free(img_arr[0]);
+			free(img_arr[1]);
+		}
+		//ReRaceBigMsgSet(msg, 1.5);
+		if (capture_count == 10000)
 			capture_count = 0;
-	capture_count++;
+		capture_count++;
+	}
 }
 
 int ReUpdate(void) {

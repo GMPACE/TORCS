@@ -32,7 +32,7 @@ f = open("data5.txt", 'w')
 
 while(True) :
     data = ""
-    data = f_read.readline()[:-1]
+    data = f_read.readline()[:]
     print(data)
     #if(data[-3]==6):
 	#    continue

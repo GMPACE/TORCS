@@ -132,7 +132,7 @@ with tf.Session() as sess :
     sess.run(tf.global_variables_initializer())
     onehot_labels = tf.one_hot(y_data, LABEL_NUM)
     onehot_vals = sess.run(onehot_labels)
-    for j in range(1000):
+    for j in range(100000):
         avg_accuracy_val = 0
         batch_count = 0
         for i in range(0, CASE, batch_size) :
