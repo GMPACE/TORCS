@@ -437,38 +437,38 @@ extern "C" int human(tModInfo *modInfo) {
 //	}
 //	rec_targetspeed = (int*) shared_memory_targetspeed;
 	/* Hwancheol & Hyerim : Capstone */
-	shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
-	if (shmid_speedfcar == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
-	if (!shared_memory_speedfcar) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_speedfcar = (float*) shared_memory_speedfcar;
+	// shmid_speedfcar = shmget((key_t) skey_speedfcar, sizeof(float), 0777);
+	// if (shmid_speedfcar == -1) {
+	// 	perror("shmget failed :");
+	// }
+	// shared_memory_speedfcar = shmat(shmid_speedfcar, (void *) 0, 0);
+	// if (!shared_memory_speedfcar) {
+	// 	perror("shmat failed");
+	// 	//		exit(1);
+	// }
+	// rec_speedfcar = (float*) shared_memory_speedfcar;
 
-	shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
-	if (shmid_distfcar == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
-	if (!shared_memory_distfcar) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_distfcar = (float*) shared_memory_distfcar;
+	// shmid_distfcar = shmget((key_t) skey_distfcar, sizeof(float), 0777);
+	// if (shmid_distfcar == -1) {
+	// 	perror("shmget failed :");
+	// }
+	// shared_memory_distfcar = shmat(shmid_distfcar, (void *) 0, 0);
+	// if (!shared_memory_distfcar) {
+	// 	perror("shmat failed");
+	// 	//		exit(1);
+	// }
+	// rec_distfcar = (float*) shared_memory_distfcar;
 
-	shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
-	if (shmid_intent == -1) {
-		perror("shmget failed :");
-	}
-	shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
-	if (!shared_memory_intent) {
-		perror("shmat failed");
-		//		exit(1);
-	}
-	rec_intent = (int*) shared_memory_intent;
+	// shmid_intent = shmget((key_t) skey_intent, sizeof(int), 0777);
+	// if (shmid_intent == -1) {
+	// 	perror("shmget failed :");
+	// }
+	// shared_memory_intent = shmat(shmid_intent, (void *) 0, 0);
+	// if (!shared_memory_intent) {
+	// 	perror("shmat failed");
+	// 	//		exit(1);
+	// }
+	// rec_intent = (int*) shared_memory_intent;
 
 	memset(modInfo, 0, 10 * sizeof(tModInfo));
 
@@ -832,12 +832,12 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 				*speed_ocar = ocar[i].getCarPtr()->_speed_x;
 				*dist_to_ocar = min(temp, *dist_to_ocar);
 
-				*rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
-				printf("speed front car : %f \n", *rec_speedfcar);
-				*rec_distfcar = *dist_to_ocar;
-				printf("dist front car : %f \n", *rec_distfcar);
-				*rec_intent = car->pub.driver_intent;
-				printf("driver intent : %d \n", *rec_intent);
+				// *rec_speedfcar = *speed_ocar - mycar->getCarPtr()->_speed_x;
+				// printf("speed front car : %f \n", *rec_speedfcar);
+				// *rec_distfcar = *dist_to_ocar;
+				// printf("dist front car : %f \n", *rec_distfcar);
+				// *rec_intent = car->pub.driver_intent;
+				// printf("driver intent : %d \n", *rec_intent);
 			}
 			//else if (temp != 0 && (raced_dist_o - raced_dist) <= 0 && mycar->isonLeft != ocar[i].isonLeft) {
 			else if (temp != 0 && (oCar_x - myCar_x <= 0)
