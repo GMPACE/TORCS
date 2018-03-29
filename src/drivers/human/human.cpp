@@ -553,6 +553,7 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	if (myTrackDesc == NULL) {
 		myTrackDesc = new TrackDesc(track);
 	}
+	/*
 	sock = socket(AF_INET, SOCK_DGRAM, 0); //socket 생성
 	sock_hanieum = socket(AF_INET, SOCK_DGRAM, 0);
 	if (sock == -1) {
@@ -573,7 +574,7 @@ static void initTrack(int index, tTrack* track, void *carHandle,
 	if (bind(sock_hanieum, (struct sockaddr *)&addr_hanieum, sizeof(addr_hanieum)) < 0) {
 		perror("bind error");
 	}
-
+	*/
 	const char *carname;
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
@@ -1397,6 +1398,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	count__++;
 	if (count__ == 10000)
 		count__ = 0;
+	/*
 	char data_hanieum[64];
 	int data_hanieum_1 = 2;
 	int data_hanieum_2 = ldws_value - 5;
@@ -1412,6 +1414,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	socklen_t clientLen = sizeof(addr_client_hanieum);
 	//recvfrom(sock_hanieum, temp_buffer, 64, 0, (struct sockaddr*)&addr_client_hanieum, &clientLen);
 	//sendto(sock_hanieum, data_hanieum, 64, 0, (struct sockaddr*) &addr_client_hanieum, (socklen_t)sizeof(addr_client_hanieum));
+	*/
 	/******Data Logging Part******/
 
 	//printf("속력 : %fkm/h\n", car->pub.speed * 3.6);

@@ -312,7 +312,7 @@ SimCarUpdatePos(tCar *car)
 	car->DynGCg.pos.x += vx * SimDeltaTime;
 	car->DynGCg.pos.y += vy * SimDeltaTime;
 	car->DynGCg.pos.z += car->DynGCg.vel.z * SimDeltaTime;
-
+    /*
 	if(car->carElt->index == 0) {
 		myCar_x = car->DynGCg.pos.x;
 	} else {
@@ -346,10 +346,10 @@ SimCarUpdatePos(tCar *car)
 			car->DynGCg.pos.y = CONST_MOVE_CAR_Y + 4;
 		}
 	}
-
+	*/
 	car->DynGCg.pos.ax += car->DynGCg.vel.ax * SimDeltaTime;
 	car->DynGCg.pos.ay += car->DynGCg.vel.ay * SimDeltaTime;
-
+    car->DynGCg.pos.az += car->DynGCg.vel.az * SimDeltaTime;	
 		
 	NORM_PI_PI(car->DynGCg.pos.az);
 	
@@ -406,6 +406,7 @@ SimCarUpdateCornerPos(tCar *car)
 		// add local center of mass velocity
 		car->corner[i].vel.ax += car->DynGC.vel.x;
 		car->corner[i].vel.ay += car->DynGC.vel.y;
+		car->corner[i].vel.az += car->DynGC.vel.z;
 	}
 }
 

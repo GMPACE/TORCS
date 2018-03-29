@@ -155,7 +155,8 @@ static void ReManage(tCarElt *car) {
 	tSituation *s = ReInfo->s;
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
-	/* shared memory */
+	
+	/* 
 	std::string data = "";
 	data.append(to_string(ReInfo->s->raceInfo.ncars)).append("#");
 
@@ -169,7 +170,7 @@ static void ReManage(tCarElt *car) {
 	}
 	//printf("%s\n",data.c_str());
 	strcpy(*send_data, data.c_str());
-	/* shared memory */
+	*/
 	tReCarInfo *info = &(ReInfo->_reCarInfo[car->index]);
 
 	if (!strcmp(car->info.name, "Player")) {
@@ -194,7 +195,7 @@ static void ReManage(tCarElt *car) {
 		berniw6 = car;
 		berniw6->pub.target_speed = 10;
 	}
-
+	
 	if (car->_speed_x > car->_topSpeed) {
 		car->_topSpeed = car->_speed_x;
 	}
@@ -374,7 +375,7 @@ static void ReManage(tCarElt *car) {
 					} else {
 						if ((ReInfo->_displayMode == RM_DISP_MODE_NONE)
 								&& (ReInfo->s->_raceType == RM_TYPE_QUALIF)) {
-							ReUpdateQualifCurRes(car);
+ReUpdateQualifCurRes(car);
 						}
 					}
 
