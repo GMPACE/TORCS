@@ -770,6 +770,7 @@ void ReStop(void) {
 int capture_count = 0;
 unsigned char* img_arr[2];
 int ldws_value = 0;
+float steering = 0.f;
 long prev_time;
 long current_time;
 double timeval;
@@ -810,8 +811,8 @@ static void reCapture(void) {
 			memcpy(img_result + vw * vh * 3 / 4, img_arr[1] + vw * vh * 3 / 4,
 					vw * vh * 3 / 4);
 			//snprintf(buf, BUFSIZE, "%s/torcs-%4.4d-%8.8d.png", capture->outputBase,	capture->currentCapture, capture->currentFrame++);
-			snprintf(buf, BUFSIZE, "%s/%d-%d.png", capture->outputBase,
-					capture->currentFrame++, ldws_value - 2);
+			snprintf(buf, BUFSIZE, "%s/%d-%f.png", capture->outputBase,
+					capture->currentFrame++, steering);
 			GfImgWritePng(img_result, buf, vw, vh / 2);
 			free(img_result);
 			free(img_arr[0]);

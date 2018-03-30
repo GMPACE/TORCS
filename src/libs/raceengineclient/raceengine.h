@@ -51,7 +51,7 @@ extern int capture_count;
 extern unsigned char *img_arr[2];
 extern int ldws_value;
 /* Hanieum */
-
+extern float steering;
 #endif /* _RACEENGINE_H_ */ 
 
 

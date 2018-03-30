@@ -131,6 +131,7 @@ static std::string f_output_string;
 static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
 		double dist_to_middle);
 int ldws_value;
+float steering;
 /* LDWS RETURN CODE DEFINE */
 #define LDWS_BUFFER_RESET 	 0
 #define LDWS_CALCULATING	 1
@@ -1165,7 +1166,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	} else {
 		car->_steerCmd = leftSteer + rightSteer;
 	}
-
+	steering = car->_steerCmd;
 	car_speed = car->_speed_x;
 
 	/* Brake Value */
