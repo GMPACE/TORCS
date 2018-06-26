@@ -32,7 +32,7 @@ inferno2.o: inferno2.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tgf.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -56,14 +56,14 @@ inferno2.o: inferno2.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/osspec.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/track.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/linalg_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v2_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v3_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v4_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/straight2_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/car.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -77,13 +77,13 @@ inferno2.o: inferno2.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/raceman.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/graphic.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/simu.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/robot.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/robottools.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/portability.h \
- /home/hwancheol/Downloads/torcs-1.3.7/config.h common.h
+ /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/Hwancheol/torcs/config.h common.h
 common.o: common.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -118,7 +118,7 @@ common.o: common.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tgf.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -142,14 +142,14 @@ common.o: common.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
  /usr/include/string.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/osspec.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/track.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/linalg_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v2_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v3_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/v4_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/tmath/straight2_t.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/car.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -163,9 +163,8 @@ common.o: common.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/raceman.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/graphic.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/simu.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/robot.h \
- /home/hwancheol/Downloads/torcs-1.3.7/export/include/robottools.h \
- common.h
+ /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/Hwancheol/torcs/export/include/robottools.h common.h
