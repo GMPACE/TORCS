@@ -34,19 +34,7 @@ extern int  ReRaceEnd(void);
 extern int  RePostRace(void);
 extern int  ReEventShutdown(void);
 
-union semun
-{
-	int val;
-	struct semid_ds *buf;
-	unsigned short int *array;
-};
 
-extern void init_shared_memory();
-extern void delete_shared_memory();
-extern int shmid;
-extern char* shared_memory[1024];
-extern int skey;
-extern char* send_data[1024];
 
 #endif /* _RACEMAIN_H_ */ 
 

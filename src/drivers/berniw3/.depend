@@ -28,8 +28,7 @@ berniw3.o: berniw3.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -57,16 +56,16 @@ berniw3.o: berniw3.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -78,14 +77,14 @@ berniw3.o: berniw3.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h spline.h \
- trackdesc.h linalg.h mycar.h pathfinder.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/robottools.h spline.h trackdesc.h \
+ linalg.h mycar.h pathfinder.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h
 spline.o: spline.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -146,8 +145,7 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -175,16 +173,16 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -196,12 +194,12 @@ trackdesc.o: trackdesc.cpp /usr/include/stdc-predef.h trackdesc.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h linalg.h \
- berniw.h spline.h mycar.h pathfinder.h
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/robottools.h linalg.h berniw.h \
+ spline.h mycar.h pathfinder.h
 pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h pathfinder.h \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -232,8 +230,7 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h pathfinder.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -261,16 +258,16 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h pathfinder.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -282,12 +279,12 @@ pathfinder.o: pathfinder.cpp /usr/include/stdc-predef.h pathfinder.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h trackdesc.h \
- linalg.h mycar.h spline.h berniw.h
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/robottools.h trackdesc.h linalg.h \
+ mycar.h spline.h berniw.h
 mycar.o: mycar.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -318,8 +315,7 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -347,16 +343,16 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -368,9 +364,9 @@ mycar.o: mycar.cpp /usr/include/stdc-predef.h berniw.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h spline.h \
- trackdesc.h linalg.h mycar.h pathfinder.h
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/robottools.h spline.h trackdesc.h \
+ linalg.h mycar.h pathfinder.h

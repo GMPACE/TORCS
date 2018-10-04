@@ -24,8 +24,8 @@ singleplayer.o: singleplayer.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -58,9 +58,9 @@ singleplayer.o: singleplayer.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -76,25 +76,25 @@ singleplayer.o: singleplayer.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h raceengine.h \
- racemain.h raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h raceengine.h \
+ ../../linux/shared_memory.h /usr/include/x86_64-linux-gnu/sys/shm.h \
+ /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
- /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h racestate.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h racemain.h raceinit.h \
+ racestate.h
 raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -120,8 +120,8 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -154,9 +154,9 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -172,23 +172,22 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h /usr/include/c++/5/string \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/racescreens.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h /usr/include/c++/5/string \
  /usr/include/c++/5/bits/stringfwd.h /usr/include/c++/5/bits/memoryfwd.h \
  /usr/include/c++/5/bits/char_traits.h \
  /usr/include/c++/5/bits/stl_algobase.h \
@@ -232,15 +231,16 @@ raceinit.o: raceinit.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/c++/5/bits/basic_string.tcc /usr/include/c++/5/map \
  /usr/include/c++/5/bits/stl_tree.h /usr/include/c++/5/bits/stl_map.h \
  /usr/include/c++/5/bits/stl_multimap.h \
- /home/hwancheol/Hwancheol/torcs/export/include/musicplayer/musicplayer.h \
- raceengine.h racemain.h racestate.h racegl.h raceresults.h raceinit.h \
+ /home/hwancheol/torcs/export/include/musicplayer/musicplayer.h \
+ raceengine.h ../../linux/shared_memory.h \
+ /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
- /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h racemain.h racestate.h racegl.h \
+ raceresults.h raceinit.h
 racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -266,8 +266,8 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -300,9 +300,9 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -318,32 +318,31 @@ racemain.o: racemain.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h \
- /home/hwancheol/Hwancheol/torcs/export/include/exitmenu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/musicplayer/musicplayer.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h raceengine.h raceinit.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/racescreens.h \
+ /home/hwancheol/torcs/export/include/exitmenu.h \
+ /home/hwancheol/torcs/export/include/musicplayer/musicplayer.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h raceengine.h ../../linux/shared_memory.h \
+ /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
- /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h racegl.h raceresults.h \
- racestate.h racemanmenu.h racemain.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h raceinit.h racegl.h \
+ raceresults.h racestate.h racemanmenu.h racemain.h
 racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -370,8 +369,8 @@ racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -404,9 +403,9 @@ racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -422,29 +421,29 @@ racemanmenu.o: racemanmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h \
- /home/hwancheol/Hwancheol/torcs/export/include/driverconfig.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h raceengine.h racemain.h \
- raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/racescreens.h \
+ /home/hwancheol/torcs/export/include/driverconfig.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h raceengine.h ../../linux/shared_memory.h \
+ /usr/include/x86_64-linux-gnu/sys/shm.h \
+ /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
- /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h racestate.h racemanmenu.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h racemain.h raceinit.h \
+ racestate.h racemanmenu.h
 racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -471,8 +470,8 @@ racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -505,9 +504,9 @@ racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -523,27 +522,27 @@ racestate.o: racestate.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h racemain.h \
- raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/racescreens.h racemain.h raceinit.h \
+ /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h raceengine.h racegl.h \
- raceresults.h racemanmenu.h racestate.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h raceengine.h \
+ ../../linux/shared_memory.h racegl.h raceresults.h racemanmenu.h \
+ racestate.h
 racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -569,8 +568,8 @@ racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -603,9 +602,9 @@ racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -621,27 +620,26 @@ racegl.o: racegl.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h racemain.h \
- raceinit.h /usr/include/x86_64-linux-gnu/sys/ipc.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/robot.h racemain.h raceinit.h \
+ /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
  /usr/include/x86_64-linux-gnu/bits/sem.h racestate.h raceengine.h \
- racegl.h
+ ../../linux/shared_memory.h racegl.h
 raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -668,8 +666,8 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -702,9 +700,9 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -720,23 +718,22 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h racemain.h racegl.h raceinit.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/racescreens.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h racemain.h racegl.h raceinit.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
@@ -744,11 +741,12 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
  /usr/include/x86_64-linux-gnu/bits/sem.h raceresults.h raceengine.h \
- /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/c++/5/sstream \
- /usr/include/c++/5/istream /usr/include/c++/5/ios \
- /usr/include/c++/5/iosfwd /usr/include/c++/5/bits/stringfwd.h \
- /usr/include/c++/5/bits/memoryfwd.h /usr/include/c++/5/bits/postypes.h \
- /usr/include/c++/5/cwchar /usr/include/c++/5/exception \
+ ../../linux/shared_memory.h /usr/include/x86_64-linux-gnu/sys/time.h \
+ /usr/include/c++/5/sstream /usr/include/c++/5/istream \
+ /usr/include/c++/5/ios /usr/include/c++/5/iosfwd \
+ /usr/include/c++/5/bits/stringfwd.h /usr/include/c++/5/bits/memoryfwd.h \
+ /usr/include/c++/5/bits/postypes.h /usr/include/c++/5/cwchar \
+ /usr/include/c++/5/exception \
  /usr/include/c++/5/bits/atomic_lockfree_defines.h \
  /usr/include/c++/5/bits/char_traits.h \
  /usr/include/c++/5/bits/stl_algobase.h \
@@ -799,7 +797,9 @@ raceengine.o: raceengine.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/locale_facets.tcc \
  /usr/include/c++/5/bits/basic_ios.tcc /usr/include/c++/5/ostream \
  /usr/include/c++/5/bits/ostream.tcc /usr/include/c++/5/bits/istream.tcc \
- /usr/include/c++/5/bits/sstream.tcc
+ /usr/include/c++/5/bits/sstream.tcc \
+ /usr/include/x86_64-linux-gnu/sys/timerfd.h \
+ /usr/include/x86_64-linux-gnu/bits/timerfd.h
 raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -827,8 +827,8 @@ raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -861,9 +861,9 @@ raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -879,27 +879,27 @@ raceresults.o: raceresults.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robot.h \
- /home/hwancheol/Hwancheol/torcs/export/include/raceman.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphic.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/racescreens.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h racemain.h racegl.h raceinit.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/robot.h \
+ /home/hwancheol/torcs/export/include/raceman.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /usr/include/plib/sg.h /home/hwancheol/torcs/export/include/graphic.h \
+ /home/hwancheol/torcs/export/include/simu.h \
+ /home/hwancheol/torcs/export/include/racescreens.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h racemain.h racegl.h raceinit.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
  /usr/include/x86_64-linux-gnu/sys/shm.h \
  /usr/include/x86_64-linux-gnu/bits/shm.h \
  /usr/include/x86_64-linux-gnu/sys/sem.h \
- /usr/include/x86_64-linux-gnu/bits/sem.h raceengine.h raceresults.h
+ /usr/include/x86_64-linux-gnu/bits/sem.h raceengine.h \
+ ../../linux/shared_memory.h raceresults.h

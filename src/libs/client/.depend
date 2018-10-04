@@ -1,9 +1,8 @@
 entry.o: entry.cpp /usr/include/stdc-predef.h \
- /home/hwancheol/Hwancheol/torcs/export/include/client.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
- /usr/include/stdio.h /usr/include/features.h \
- /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /home/hwancheol/torcs/export/include/client.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -59,9 +58,9 @@ entry.o: entry.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -77,10 +76,10 @@ entry.o: entry.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
  /usr/include/plib/ssg.h /usr/include/plib/sg.h \
  /usr/include/plib/ssgconf.h mainmenu.h splash.h \
- /home/hwancheol/Hwancheol/torcs/export/include/musicplayer/musicplayer.h
+ /home/hwancheol/torcs/export/include/musicplayer/musicplayer.h
 mainmenu.o: mainmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -93,8 +92,8 @@ mainmenu.o: mainmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
  /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -140,9 +139,9 @@ mainmenu.o: mainmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -158,9 +157,9 @@ mainmenu.o: mainmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/singleplayer.h \
- /home/hwancheol/Hwancheol/torcs/export/include/driverconfig.h mainmenu.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/singleplayer.h \
+ /home/hwancheol/torcs/export/include/driverconfig.h mainmenu.h \
  exitmenu.h optionmenu.h
 splash.o: splash.cpp /usr/include/stdc-predef.h /usr/include/GL/glut.h \
  /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
@@ -191,14 +190,14 @@ splash.o: splash.cpp /usr/include/stdc-predef.h /usr/include/GL/glut.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/export/include/portability.h \
  /usr/include/c++/5/cstring \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h /home/hwancheol/Hwancheol/torcs/config.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/string.h /home/hwancheol/torcs/config.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -226,9 +225,9 @@ splash.o: splash.cpp /usr/include/stdc-predef.h /usr/include/GL/glut.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/plib/js.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -240,8 +239,8 @@ splash.o: splash.cpp /usr/include/stdc-predef.h /usr/include/GL/glut.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- splash.h mainmenu.h
+ /home/hwancheol/torcs/export/include/screen_properties.h splash.h \
+ mainmenu.h
 exitmenu.o: exitmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -254,8 +253,8 @@ exitmenu.o: exitmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
  /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -301,9 +300,9 @@ exitmenu.o: exitmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -319,8 +318,8 @@ exitmenu.o: exitmenu.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- exitmenu.h mainmenu.h
+ /home/hwancheol/torcs/export/include/screen_properties.h exitmenu.h \
+ mainmenu.h
 optionmenu.o: optionmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -334,8 +333,8 @@ optionmenu.o: optionmenu.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
  /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -381,9 +380,9 @@ optionmenu.o: optionmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -399,9 +398,8 @@ optionmenu.o: optionmenu.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- optionmenu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/graphconfig.h \
- /home/hwancheol/Hwancheol/torcs/export/include/simuconfig.h \
- /home/hwancheol/Hwancheol/torcs/export/include/soundconfig.h \
- /home/hwancheol/Hwancheol/torcs/export/include/openglconfig.h
+ /home/hwancheol/torcs/export/include/screen_properties.h optionmenu.h \
+ /home/hwancheol/torcs/export/include/graphconfig.h \
+ /home/hwancheol/torcs/export/include/simuconfig.h \
+ /home/hwancheol/torcs/export/include/soundconfig.h \
+ /home/hwancheol/torcs/export/include/openglconfig.h

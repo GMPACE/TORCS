@@ -353,31 +353,6 @@ static void* StartRaceHookInit(void)
 	return StartRaceHookHandle;
 }
 
-int skey = 1234;
-char* shared_memory[1024];
-int shmid = 0;
-
-char* send_data[1024];
-void init_shared_memory() {
-	shmid = shmget((key_t) skey, sizeof(int), 0777 | IPC_CREAT);
-	if (shmid == -1) {
-		perror("shmget failed");
-		exit(0);
-	}
-	shared_memory[0] = (char*) shmat(shmid, (void *)0, 0);
-	if(!shared_memory[0])
-	{
-		perror("shmat failed");
-		exit(0);
-	}
-	send_data[0] = shared_memory[0];
-}
-void delete_shared_memory() {
-	if(shmdt(shared_memory) < 0) {
-		perror("shmdt failed");
-		exit(0);
-	}
-}
 
 /* return state mode */
 int ReRaceStart(void)
@@ -394,7 +369,6 @@ int ReRaceStart(void)
 	FREEZ(ReInfo->_reCarInfo);
 	ReInfo->_reCarInfo = (tReCarInfo*)calloc(GfParmGetEltNb(params, RM_SECT_DRIVERS), sizeof(tReCarInfo));
 
-	init_shared_memory();
 
 	/* Drivers starting order */
 	GfParmListClean(params, RM_SECT_DRIVERS_RACING);
@@ -669,7 +643,6 @@ int ReEventShutdown(void)
 		return RM_ASYNC | ret;
 	}
 	FREEZ(ReInfo->_reCarInfo);
-	delete_shared_memory();
 	return RM_SYNC | ret;
 }
 

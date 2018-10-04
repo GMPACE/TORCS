@@ -33,14 +33,12 @@
 #include <math.h>
 #include <plib/js.h>
 
-#include "../../linux/shared_memory.h"
 
 #include <tgfclient.h>
 #include <portability.h>
 #include "../../libs/raceengineclient/raceengine.h"
 #include <track.h>
 #include <car.h>
-#include <raceman.h>
 #include <robottools.h>
 #include <robot.h>
 
@@ -102,8 +100,9 @@ static short current_mode = 0;
 static short prev_mode = 0;
 double cur_speed;
 double pre_speed;
-
 v2d prev_pos;
+
+
 //struct sembuf semopen = { 0, -1, SEM_UNDO };
 //struct sembuf semclose = { 0, 1, SEM_UNDO };
 
@@ -132,6 +131,7 @@ static int ldws(bool isOnleft, double dist_to_left, double dist_to_right,
 		double dist_to_middle);
 int ldws_value;
 float steering;
+unsigned char* img;
 /* LDWS RETURN CODE DEFINE */
 #define LDWS_BUFFER_RESET 	 0
 #define LDWS_CALCULATING	 1
@@ -312,24 +312,25 @@ extern "C" int human(tModInfo *modInfo) {
 	const int BUFSIZE = 1024;
 	char buf[BUFSIZE];
 	char sstring[BUFSIZE];
-//	/*NaYeon*/
-//	shmid = shmget((key_t) skey, sizeof(int), 0777);
-//	if (shmid == -1) {
-//		perror("shmget failed :");
-////		exit(1);
-//	}
-//
-////			semid = semget((key_t) sekey, 0, 0777);
-////			if (semid == -1) {
-////				perror("semget failed : ");
-////				exit(1);
-////			}
-//	shared_memory = shmat(shmid, (void *) 0, 0);
-//	if (!shared_memory) {
-//		perror("shmat failed");
-////		exit(1);
-//	}
-//	torcs_steer = (int*) shared_memory;
+	int size_of_shared_img = sizeof(unsigned char*) * 640 * 480 * 3;
+	int shmid = shmget((key_t) skey, size_of_shared_img + sizeof(int) * 5, IPC_CREAT | 0777);
+	if (shmid == -1) {
+		perror("shmget failed :");
+		exit(1);
+	}
+
+	void* shared_memory = shmat(shmid, (void *) 0, 0);
+	if (!shared_memory) {
+		perror("shmat failed");
+		exit(1);
+	}
+	torcs_img = (unsigned char*) shared_memory;
+	torcs_steer = (float *)(shared_memory + size_of_shared_img);
+	torcs_lock = (int *)(shared_memory + size_of_shared_img + sizeof(int));
+	torcs_speed = (int *)(shared_memory + size_of_shared_img + sizeof(int)*2);
+
+	rec_speed = (int *)(shared_memory + size_of_shared_img + sizeof(int)*3);
+	rec_steer = (float *)(shared_memory + size_of_shared_img + sizeof(int)*4); 
 //
 //	shmid2 = shmget((key_t) skey2, sizeof(int), 0777);
 //	if (shmid2 == -1) {
@@ -780,6 +781,19 @@ static int onSKeyAction(int key, int modifier, int state) {
 	currentSKey[key] = state;
 	return 0;
 }
+static void reCapture(void){
+    int sw, sh, vw, vh;
+    GfScrGetSize(&sw, &sh, &vw, &vh);
+    img = (unsigned char*)malloc(vw * vh * 3);
+    if(img == NULL)
+	return;
+    glPixelStorei(GL_PACK_ROW_LENGTH, 0);
+    glPixelStorei(GL_PACK_ALIGNMENT, 1);
+    glReadBuffer(GL_BACK);
+    glReadPixels((sw - vw) / 2, (sh - vh) /2, vw, vh, GL_BGR, GL_UNSIGNED_BYTE, (GLvoid*) img);
+    memcpy(torcs_img, img, sizeof(unsigned char) * vw * vh * 3);
+    free(img);
+}
 
 static void common_drive(int index, tCarElt* car, tSituation *s) {
 	/* Hwancheol */
@@ -792,6 +806,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	}
 	/* update some values needed */
 	mycar->update(myTrackDesc, car, s);
+
+	*rec_speed = car->_speed_x;
+	*rec_steer = car->_steerCmd;
+
 	if (car->pub.trkPos.toLeft < car->pub.trkPos.toRight)
 		mycar->isonLeft = true;
 	else
@@ -801,8 +819,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 	double myCar_x = mycar->getCurrentPos()->x;
 	double oCar_x = 0;
 	/* 한이음 */
-	ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft,
-			car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
+	//ldws_value = ldws(mycar->isonLeft, car->pub.trkPos.toLeft, car->pub.trkPos.toRight, car->pub.trkPos.toMiddle);
 	/* Nayeon : transfer to K7 */
 	//car->PRM_RPM
 	/* update the other cars just once */
@@ -1116,7 +1133,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		float lookahead = lookahead_const + car->_speed_x * lookahead_factor;
 		v2d re;
 		v2d a;
-
+		
 		/* LKAS */
 		// enhanced steering (based on track info. and current position)
 		if (car->_trkPos.seg->type == TR_STR)
@@ -1131,6 +1148,7 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		}
 
 		length = lookahead - length + seg->length;
+		
 		if (car->_trkPos.toRight < car->_trkPos.toLeft) {
 			a.x = (seg->vertex[TR_SL].x * 4 / 15
 					+ seg->vertex[TR_SR].x * 11 / 15);
@@ -1142,6 +1160,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			a.y = (seg->vertex[TR_SL].y * 11 / 15
 					+ seg->vertex[TR_SR].y * 4 / 15);
 		}
+		
+		//a.x = seg->vertex[TR_SL].x * 1/2 + seg->vertex[TR_SR].x * 1/2;
+		//a.y = seg->vertex[TR_SL].y * 1/2 + seg->vertex[TR_SR].y * 1/2;
 		if (seg->type == TR_STR) {
 			v2d d;
 			d.x = (seg->vertex[TR_EL].x - seg->vertex[TR_SL].x) / seg->length;
@@ -1162,7 +1183,12 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		NORM_PI_PI(angle);
 
 		car->_steerCmd = angle;
-
+		//printf("desired steer : %f\n", angle*100);
+		printf("steer : %f\n", *torcs_steer); 
+		printf("speed : %d\n", *torcs_speed);
+		printf("----------------------\n");
+		car->_steerCmd = ((double)*torcs_steer);
+		car->pub.target_speed = *torcs_speed;
 	} else {
 		car->_steerCmd = leftSteer + rightSteer;
 	}
@@ -1199,9 +1225,9 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 		car->_brakeCmd = pow(fabs(ax0), cmd[CMD_BRAKE].sens)
 				/ (1.0 + cmd[CMD_BRAKE].spdSens * car->_speed_x / 10.0);
 		/* for K7 */
-		brake_value = *ptr_brake;
-		printf("brake : %d\n", brake_value);
-		car->_brakeCmd = brake_value;
+		// brake_value = *ptr_brake;
+		// printf("brake : %d\n", brake_value);
+		// car->_brakeCmd = brake_value;
 		/* for K7 */
 		/* CC Mode On */
 		if ((onoff_Mode & (short) 2) == (short) 2) {
@@ -1324,12 +1350,12 @@ static void common_drive(int index, tCarElt* car, tSituation *s) {
 			car->_accelCmd = 0;
 		}
 		/* for K7 */
-		accel_value = *ptr_accel;
-		accel_value = MIN(MAX(610,accel_value), 3515);
+		// accel_value = *ptr_accel;
+		// accel_value = MIN(MAX(610,accel_value), 3515);
 
-		atan_accel = (float) (atan(((accel_value - 610) / 726)) / (PI / 2));
-		printf("accel : %d\n", atan_accel);
-		car->_accelCmd = atan_accel;
+		// atan_accel = (float) (atan(((accel_value - 610) / 726)) / (PI / 2));
+		// printf("accel : %d\n", atan_accel);
+		// car->_accelCmd = atan_accel;
 		/* for K7 */
 
 		/* CC Mode On */
@@ -1955,7 +1981,7 @@ static double calculate_CC(bool updown, tCarElt* car) {
 	const double KP_2 = 7.0;
 	const double TARGET_DIST = 20;
 
-	if (temp_target_speed == -1)
+	//if (temp_target_speed == -1)
 		temp_target_speed = car->pub.target_speed;
 	double speed_kmph = car_speed * 3600 / 1000; // convert mps to kmph 
 	if (speed_kmph >= 120.0) {

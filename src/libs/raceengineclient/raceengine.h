@@ -26,7 +26,7 @@
 #ifndef _RACEENGINE_H_
 #define _RACEENGINE_H_
 #include <raceman.h>
-
+#include "../../linux/shared_memory.h"
 
 extern void ReStart(void);
 extern void ReStop(void);

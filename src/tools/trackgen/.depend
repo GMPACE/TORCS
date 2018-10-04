@@ -58,9 +58,8 @@ maintrackgen.o: maintrackgen.cpp /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/glu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/GL/glu.h /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -75,18 +74,17 @@ maintrackgen.o: maintrackgen.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/plib/js.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h ac3d.h easymesh.h objects.h \
- elevation.h trackgen.h
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/plib/js.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h ac3d.h easymesh.h objects.h elevation.h \
+ trackgen.h
 track.o: track.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -124,8 +122,8 @@ track.o: track.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -148,8 +146,7 @@ track.o: track.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/osspec.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
@@ -164,20 +161,18 @@ track.o: track.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h ac3d.h util.h \
- /usr/include/plib/ssg.h /usr/include/plib/sg.h \
- /usr/include/plib/ssgconf.h trackgen.h
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h ac3d.h util.h /usr/include/plib/ssg.h \
+ /usr/include/plib/sg.h /usr/include/plib/ssgconf.h trackgen.h
 easymesh.o: easymesh.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -212,7 +207,7 @@ easymesh.o: easymesh.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -235,18 +230,17 @@ easymesh.o: easymesh.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /usr/include/plib/ul.h /usr/include/ctype.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
@@ -258,9 +252,9 @@ easymesh.o: easymesh.cpp /usr/include/stdc-predef.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h trackgen.h elevation.h \
- easymesh.h objects.h relief.h ac3d.h
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h trackgen.h elevation.h easymesh.h \
+ objects.h relief.h ac3d.h
 linuxspec.o: ../../linux/linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -297,7 +291,7 @@ linuxspec.o: ../../linux/linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -327,8 +321,8 @@ linuxspec.o: ../../linux/linuxspec.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/os.h
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/os.h
 relief.o: relief.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -388,9 +382,8 @@ relief.o: relief.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/glu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/GL/glu.h /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -405,16 +398,15 @@ relief.o: relief.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/plib/js.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- trackgen.h easymesh.h relief.h
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/plib/js.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h trackgen.h \
+ easymesh.h relief.h
 elevation.o: elevation.cpp /usr/include/stdc-predef.h \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -453,8 +445,8 @@ elevation.o: elevation.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -477,8 +469,7 @@ elevation.o: elevation.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
+ /usr/include/string.h /home/hwancheol/torcs/export/include/osspec.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
@@ -493,17 +484,16 @@ elevation.o: elevation.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h trackgen.h util.h \
- /usr/include/plib/ssg.h /usr/include/plib/sg.h \
- /usr/include/plib/ssgconf.h elevation.h
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h trackgen.h util.h /usr/include/plib/ssg.h \
+ /usr/include/plib/sg.h /usr/include/plib/ssgconf.h elevation.h
 objects.o: objects.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -563,9 +553,8 @@ objects.o: objects.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/plib/ssgconf.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/glu.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /usr/include/GL/glu.h /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -580,18 +569,17 @@ objects.o: objects.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/plib/js.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h trackgen.h util.h elevation.h \
- ac3d.h objects.h
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/plib/js.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h trackgen.h util.h elevation.h ac3d.h \
+ objects.h
 ac3d.o: ac3d.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -620,7 +608,7 @@ ac3d.o: ac3d.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -653,7 +641,7 @@ ac3d.o: ac3d.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h ac3d.h
+ /home/hwancheol/torcs/export/include/osspec.h ac3d.h
 util.o: util.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -708,8 +696,8 @@ util.o: util.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo.h \
@@ -724,21 +712,20 @@ util.o: util.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h util.h /usr/include/plib/ssg.h \
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h util.h /usr/include/plib/ssg.h \
  /usr/include/plib/sg.h /usr/include/plib/ssgconf.h
 raceline.o: raceline.cpp /usr/include/stdc-predef.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgfclient.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
- /usr/include/stdio.h /usr/include/features.h \
- /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /home/hwancheol/torcs/export/include/tgfclient.h \
+ /home/hwancheol/torcs/export/include/tgf.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -794,9 +781,9 @@ raceline.o: raceline.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
- /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/inttypes.h \
+ /home/hwancheol/torcs/export/include/osspec.h /usr/include/GL/glut.h \
+ /usr/include/GL/freeglut_std.h /usr/include/GL/gl.h \
+ /usr/include/GL/glext.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/GL/glu.h \
  /usr/include/plib/js.h /usr/include/plib/ul.h /usr/include/ctype.h \
@@ -812,15 +799,14 @@ raceline.o: raceline.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/screen_properties.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /usr/include/plib/sg.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h
+ /home/hwancheol/torcs/export/include/screen_properties.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/car.h /usr/include/plib/sg.h \
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h

@@ -1,7 +1,6 @@
 rttrack.o: rttrack.cpp /usr/include/stdc-predef.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /usr/include/stdlib.h /usr/include/features.h \
- /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /home/hwancheol/torcs/export/include/portability.h /usr/include/stdlib.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -25,8 +24,8 @@ rttrack.o: rttrack.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/cpu_defines.h \
- /usr/include/string.h /home/hwancheol/Hwancheol/torcs/config.h \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/string.h /home/hwancheol/torcs/config.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
@@ -35,9 +34,9 @@ rttrack.o: rttrack.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
- /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
- /usr/include/wchar.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
+ /home/hwancheol/torcs/export/include/tgf.h /usr/include/stdio.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
@@ -58,14 +57,14 @@ rttrack.o: rttrack.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -79,7 +78,7 @@ rttrack.o: rttrack.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h
+ /home/hwancheol/torcs/export/include/robottools.h
 rttelem.o: rttelem.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -105,8 +104,8 @@ rttelem.o: rttelem.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /home/hwancheol/Hwancheol/torcs/export/include/telemetry.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tgf.h \
+ /home/hwancheol/torcs/export/include/telemetry.h \
+ /home/hwancheol/torcs/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
@@ -139,15 +138,15 @@ rttelem.o: rttelem.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/hwancheol/Hwancheol/torcs/export/include/osspec.h \
- /home/hwancheol/Hwancheol/torcs/export/include/robottools.h \
- /home/hwancheol/Hwancheol/torcs/export/include/car.h \
- /home/hwancheol/Hwancheol/torcs/export/include/track.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/linalg_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v2_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v3_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/v4_t.h \
- /home/hwancheol/Hwancheol/torcs/export/include/tmath/straight2_t.h \
+ /home/hwancheol/torcs/export/include/osspec.h \
+ /home/hwancheol/torcs/export/include/robottools.h \
+ /home/hwancheol/torcs/export/include/car.h \
+ /home/hwancheol/torcs/export/include/track.h \
+ /home/hwancheol/torcs/export/include/tmath/linalg_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v2_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v3_t.h \
+ /home/hwancheol/torcs/export/include/tmath/v4_t.h \
+ /home/hwancheol/torcs/export/include/tmath/straight2_t.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -161,5 +160,5 @@ rttelem.o: rttelem.cpp /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/hwancheol/Hwancheol/torcs/export/include/portability.h \
- /home/hwancheol/Hwancheol/torcs/config.h
+ /home/hwancheol/torcs/export/include/portability.h \
+ /home/hwancheol/torcs/config.h
